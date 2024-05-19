@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorized “HTML” | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+
+
+<div class="container">
+  <h1>归属于“HTML” 分类</h1>
+
+  
+  <div class="card-grid">
+  
+    <div class="card">
+      <h3 class="card__title">
+        <a href="/extensions/AutoRenameTag/">Auto Rename Tag</a>
+      </h3>
+      <p class="card__date">20 Mar, 2024</p>
+      <p class="card__description"></p>
+      <p class="card__subtitle">分类:</p>
+      <div class="card__categories">
+        
+          <a href="/categories/extensions">extensions</a>, 
+        
+          <a href="/categories/HTML">HTML</a>, 
+        
+          <a href="/categories/标签">标签</a>, 
+        
+          <a href="/categories/自动修改">自动修改</a>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  <p>查看<a href="/extensions/">所有的分类</a>.</p>
+</div>
+
+
+
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>

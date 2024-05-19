@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>以Code为开发者用户界面，利用git和Github实现源代码管理 | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+<div class="container">
+  <h1>以Code为开发者用户界面，利用git和Github实现源代码管理</h1>
+  <br>
+  
+    <b>标签: </b>
+    
+      
+    
+      
+        <a href="/tags/Github">Github</a>, 
+      
+    
+      
+        <a href="/tags/git">git</a>, 
+      
+    
+      
+        <a href="/tags/源码">源码</a>, 
+      
+    
+      
+        <a href="/tags/管理">管理</a>
+      
+    
+  
+  <br><hr>
+
+  <p>VSCode的左侧边栏提供了源代码管理这个选项，使用它能很好的帮助我们使用git进行管理，这里介绍下VSCode运用GitHub实现源代码管理
+<img src="../pictures/1-5/1-5-1.jpg" alt="1-5-1"></p>
+<h2>准备工具</h2>
+<ol>
+<li>安装git并添加到环境变量。</li>
+</ol>
+<ul>
+<li>Git安装教程：https://blog.csdn.net/qq_43715354/article/details/108638061%20</li>
+</ul>
+<ol start="2">
+<li>安装Code</li>
+</ol>
+<h2>基本流程</h2>
+<h3>创建仓库</h3>
+<p>进入github官网，注册，登录，在右上角添加一个仓库(repository)
+<img src="../pictures/1-5/1-5-2.jpg" alt="1-5-2"></p>
+<p>下面是一个 repository 最基本的信息，我们需要清楚了解每一个都是什么意思。配置完每个参数之后，我们就可以创建仓库。
+<img src="../pictures/1-5/1-5-3.png" alt="1-5-3"></p>
+<p>生成仓库的基本结构
+<img src="../pictures/1-5/1-5-4.jpg" alt="1-5-4"></p>
+<p>在本地创建一个文件夹，用来接受test这个仓库内部的文件，也就是clone操作
+<img src="../pictures/1-5/1-5-5.jpg" alt="1-5-5"></p>
+<h3>Git安装</h3>
+<p>安装完git之后重启VSCode，源代码管理栏就会变成如下情况
+<img src="../pictures/1-5/1-5-6.jpg" alt="1-5-6">
+配置账号和密码，全局</p>
+<pre><code class="language-js">git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;
+</code></pre>
+<p><img src="../pictures/1-5/1-5-7.jpg" alt="1-5-7"></p>
+<h3>VSCode绑定GitHub</h3>
+<p>点击“发布到GitHub”，然后会跳转到网页处，输入账号密码登录GitHub
+<img src="../pictures/1-5/1-5-8.jpg" alt="1-5-8"></p>
+<p>点击 Continue ，这样我们的VSCode就会和GitHub关联起来了，然后点击打开
+<img src="../pictures/1-5/1-5-9.jpg" alt="1-5-9"></p>
+<p>这时候会跳回 VSCode，询问是否关联起来，点击 Open
+<img src="../pictures/1-5/1-5-10.jpg" alt="1-5-10"></p>
+<p>关联成功之后就可以看到账户里连接到了GitHub
+<img src="../pictures/1-5/1-5-11.jpg" alt="1-5-11"></p>
+<h3>基础知识</h3>
+<p>clone意思就是把GitHub上的仓库文件，克隆到本地，方便我们进行代码的修改或迭代
+<img src="../pictures/1-5/1-5-12.jpg" alt="1-5-12"></p>
+<p>点击“初始化仓库”，这时候就会切换界面到达监视区<img src="../pictures/1-5/1-5-13.png" alt="1-5-13"></p>
+<p>显示“源代码管理”的bar右侧有五个选项，分别为：<strong>查看形式</strong>：可以选择文件排列形式
+<strong>提交</strong>：用来提交版本信息到达本地仓库
+<strong>刷新</strong>：刷新当前文件修改的内容
+<strong>创建拉取请求</strong>：用于创建一个拉取请求。
+拉取请求是使你更改过后的代码经历审核、被整合到目的分支的必要操作。大致过程为：创建新分支（作为新代码整合的源分支）-&gt;更改代码并存入该分支-&gt;创建拉取请求-&gt;审核代码-&gt;整合新代码到目的分支中。
+拉取请求的产生，说明了你对代码做出的更改和对代码建设工程做出的贡献，它会将你更改的部分和原来的部分进行对比并进行展示。</p>
+<p>**更多操作...**的界面如下
+<img src="../pictures/1-5/1-5-14.jpg" alt="1-5-14">
+拉取：从仓库获得文件
+推送：文件上传至仓库
+克隆：仓库整体克隆到本地中</p>
+<p>左下角部分显示内容（从左至右）：
+<img src="../pictures/1-5/1-5-15.jpg" alt="1-5-15">
+<strong>分支结构</strong>：名为master的分支结构
+<strong>云端信息</strong>：上传与下载的次数
+<strong>问题</strong>：错误和警告
+如有其他图标，可能是你的Code安装了其他拓展，或Code经历了某次更新，新添加了一些元素所致。</p>
+<h3>代码上传</h3>
+<p><strong>Clone</strong></p>
+<p>整体仓库克隆到本地当中
+<img src="../pictures/1-5/1-5-16.jpg" alt="1-5-16">
+<img src="../pictures/1-5/1-5-17.jpg" alt="1-5-17"></p>
+<p>权限问题，点击允许，将会跳到一个GitHub授权画面，同理VSCode默认也要授权
+<img src="../pictures/1-5/1-5-18.png" alt="1-5-18">
+<img src="../pictures/1-5/1-5-19.jpg" alt="1-5-19">
+<img src="../pictures/1-5/1-5-20.jpg" alt="1-5-20">
+<img src="../pictures/1-5/1-5-21.png" alt="1-5-21"></p>
+<p>由于我建立的仓库是私有的，所以最好手动输全，由GitHub 用户名/工程名
+<img src="../pictures/1-5/1-5-22.jpg" alt="1-5-22">
+<img src="../pictures/1-5/1-5-23.jpg" alt="1-5-23"></p>
+<p>询问是否打开仓库，点击 Open，将会重启 VSCode进入克隆好的仓库内部
+<img src="../pictures/1-5/1-5-24.jpg" alt="1-5-24"></p>
+<p><strong>Commit</strong>
+clone 成功之后，我们就可以在上面进行代码的修改等操作了，操作完之后，想要再保存版本，我们就需要分为两步，第一步，把代码信息上传到本地库当中，有两个隐藏文件是会保存版本信息的。第二步，保存的是本地的信息，我们还需要把本地库上传到 GitHub上面</p>
+<p>新建两个文件，里面无内容，然后 commit(提交)
+<img src="../pictures/1-5/1-5-25.jpg" alt="1-5-25">
+<img src="../pictures/1-5/1-5-26.jpg" alt="1-5-26"></p>
+<p>增加版本信息，写越全越好，方便后期主机回头查看，之前显示已修改的文件此时同步到本地仓库了。</p>
+<p><strong>push</strong>
+接下来准备把本地仓库内容，Push 到GitHub上面，最终我们可以在 GitHub 网站看到自己的库，如果你只是做个人的开发，可以选择不 Push，直接在把库保存在本地
+<img src="../pictures/1-5/1-5-27.jpg" alt="1-5-27">
+<img src="../pictures/1-5/1-5-28.png" alt="1-5-28">
+<img src="../pictures/1-5/1-5-29.jpg" alt="1-5-29"></p>
+<h3>回滚版本</h3>
+<p>之前我们就有记录了版本信息，默认也会给我们添加一个版本号，那如何查找我们版本号呢？通过 Git 终端，输入指令查找提交记录</p>
+<pre><code class="language-git">git reflog
+</code></pre>
+<p>黄色的字，就是当时提交的版本号
+<img src="../pictures/1-5/1-5-30.jpg" alt="1-5-30">
+然后我们在输入对应想恢复的版本号，代码就能够回去了。</p>
+<pre><code class="language-git">git reset --hard 版本号
+</code></pre>
+<p><img src="../pictures/1-5/1-5-31.png" alt="1-5-31"></p>
+<h2>关闭源代码管理</h2>
+<p>因为下载的项目很多，导致源代码要管理数千个文件，一旦改动一个文件，就导致Code“假死”，卡住不动，这里介绍一个简单的方法。
+打开使用了源代码管理的文件夹，删除.git文件，重启VSCode：
+<img src="../pictures/1-5/1-5-32.jpg" alt="1-5-32"></p>
+<p>此时源代码管理栏就会变成如下样式：
+<img src="../pictures/1-5/1-5-33.jpg" alt="1-5-33"></p>
+<p>你可以在设置中关闭自动搜索。
+<img src="../pictures/1-5/1-5-34.jpg" alt="1-5-34"></p>
+
+
+  <br><br>
+  <a href="/">&larr; 回到主页</a>
+</div>
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>
