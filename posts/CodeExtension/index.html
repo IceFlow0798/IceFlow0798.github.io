@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code扩展 | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+<div class="container">
+    <h1>Code扩展</h1>
+    <br>
+    
+        <b>标签: </b>
+        
+            
+        
+            
+                <a href="/tags/扩展">扩展</a>
+            
+        
+    
+    <br><hr>
+
+    <p>对于VS Code，随着软件的更新，越来越多原本需要扩展才能实现的功能，现如今都被添加进软件本体，所以使用插件前务必更新至最新版本。可点击“帮助”-“检查更新”获取最新版本，或在<a href="https://code.visualstudio.com/">官网</a>获取最新安装包。</p>
+<p>按下快捷键<code>Ctrl+Shift+X</code>或者点击左侧与<img src="../pictures/posts/Chinesization/icon.jpg" alt="扩展" style="width: 50px; height: auto;">相近的图标（可能随主题而异）可以快捷打开Code的扩展市场。</p>
+<p>本网站会给出少量的扩展推荐。剩下的扩展海洋还需要你自己去探索。</p>
+<p>如果你发现了很实用的扩展，欢迎通过邮箱联系我！我会在后期添加与它相关的介绍。</p>
+
+    <script src="https://utteranc.es/client.js"
+            repo="IceFlow0798/Code-site-comments"
+            issue-term="title"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <br><br>
+    <a href="/">&larr; 回到主页</a>
+</div>
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>

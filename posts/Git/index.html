@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>源码管理序-材料准备 | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+<div class="container">
+    <h1>源码管理序-材料准备</h1>
+    <br>
+    
+        <b>标签: </b>
+        
+            
+        
+            
+                <a href="/tags/git">git</a>, 
+            
+        
+            
+                <a href="/tags/源码管理">源码管理</a>
+            
+        
+    
+    <br><hr>
+
+    <p>本篇文章起，将简要介绍VS Code的一项重头戏：利用Git和集成在Code内的源代码管理功能，对你的项目源码进行管理。这项功能将Code的功能抬升了一个大台阶——它不再只是一个单纯的文本编辑器，它在项目开发上能给你提供不小的便利。</p>
+<p>在这里，我们简要向你介绍一下何为Git：</p>
+<p>Git是一个开源的分布式版本控制系统，主要用于软件开发中的源代码管理。它由Linus Torvalds创建，也是Linux内核开发所使用的工具。与其他版本控制系统不同，Git采用了分布式版本库的方式，这意味着每个开发者的计算机上都有完整的代码库副本，这样就可以在没有服务器的情况下进行版本控制，使得源代码的发布和交流变得非常方便。</p>
+<p>Git的主要特点包括：</p>
+<ul>
+<li>数据完整性：Git使用SHA-1算法保护代码的完整性，确保代码内容在传输和存储过程中不会受损。</li>
+<li>速度和效率：Git在处理大型项目时非常快速高效。</li>
+<li>支持非线性开发：Git支持快速和简便的分支管理和合并，这对于多人协作的项目来说非常有用。</li>
+<li>轻松备份：分布式结构意味着每个开发者的工作都是对代码库的一个备份，这增加了数据的安全性。</li>
+</ul>
+<p>Git的基本工作流程包括：</p>
+<ul>
+<li>修改：在本地代码库中进行更改。</li>
+<li>暂存：选择特定更改加入下一次提交。</li>
+<li>提交：将暂存的更改保存到本地代码库。</li>
+<li>推送：将本地的更改推送到远程代码库。</li>
+</ul>
+<p>Git也常与GitHub一起使用，GitHub是一个提供Git仓库托管服务的平台，它让开发者能够共享代码并进行协作开发。</p>
+<p>VSCode的左侧边栏提供了源代码管理这个选项，使用它能很好的帮助我们使用git进行管理。</p>
+<p><img src="../pictures/posts/Git/1.jpg" alt="1-5-1"></p>
+<h2>准备工具</h2>
+<ul>
+<li>安装好VS Code。</li>
+<li>安装git并添加到环境变量。</li>
+</ul>
+<p>关于如何安装Git，本文不做介绍。详情参照这个链接：<a href="https://blog.csdn.net/qq_43715354/article/details/108638061%20">Git安装教程</a></p>
+<h3>Git安装</h3>
+<p>安装完git之后重启VSCode，源代码管理栏就会变成如下情况
+<img src="../pictures/posts/Git/2.jpg" alt="1-5-6"></p>
+<p>配置账号和密码，全局模式下。这一步需要你使用Git Bash完成，或者找到相应的配置文件进行修改。教程请自行Baidu/Bing/Google.</p>
+<pre><code class="language-js">git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;
+</code></pre>
+<p><img src="../pictures/posts/Git/3.jpg" alt="1-5-7"></p>
+
+    <script src="https://utteranc.es/client.js"
+            repo="IceFlow0798/Code-site-comments"
+            issue-term="title"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <br><br>
+    <a href="/">&larr; 回到主页</a>
+</div>
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>

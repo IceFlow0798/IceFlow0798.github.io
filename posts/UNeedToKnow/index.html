@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>码码前，你需要了解这些！ | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+<div class="container">
+    <h1>码码前，你需要了解这些！</h1>
+    <br>
+    
+        <b>标签: </b>
+        
+            
+        
+            
+                <a href="/tags/Snippets">Snippets</a>, 
+            
+        
+            
+                <a href="/tags/Editorconfig">Editorconfig</a>
+            
+        
+    
+    <br><hr>
+
+    <h2>一.Snippets</h2>
+<p><strong>简单介绍</strong>
+snippets（代码块），在我们日常工作中存在大量重复代码编写，这时可以使用snippets直接调用已经封装好的模板代码，这样做能极大提高编程效率。</p>
+<p><img src="../pictures/posts/UNeedToKnow/1.gif" alt="1"></p>
+<p>另外，关于Vscode snippets的相关使用：</p>
+<p><a href="https://www.jianshu.com/p/a60b320fb197">https://www.jianshu.com/p/a60b320fb197</a></p>
+<p><a href="https://www.php.cn/tool/vscode/489259.html">https://www.php.cn/tool/vscode/489259.html</a></p>
+<h3>snippets插件</h3>
+<p>JavaScript (ES6) code snippets：ES6语法智能提示，以及快速输入，不仅仅支持<code>.js</code>，还支持<code>.ts</code>，<code>.jsx</code>，<code>.tsx</code>，<code>.html</code>，<code>.vue</code>，省去了配置其支持各种包含js代码文件的时间。
+<img src="../pictures/posts/UNeedToKnow/2.jpg" alt="2"></p>
+<p>Vue 3 Snippets：包含了所有的Vue.js 2和Vue.js 3的api对应的代码片段。
+<img src="../pictures/posts/UNeedToKnow/3.jpg" alt="3"></p>
+<p>Vue Vscode Snippets：<a href="https://www.its301.com/article/qq_41107231/117195087">https://www.its301.com/article/qq_41107231/117195087</a>
+<img src="../pictures/posts/UNeedToKnow/4.jpg" alt="4"></p>
+<p>Simple React Snippets：<a href="https://www.jianshu.com/p/c141b89e5808">https://www.jianshu.com/p/c141b89e5808</a>
+<img src="../pictures/posts/UNeedToKnow/5.jpg" alt="5"></p>
+<h3>创建你自己的Snippets</h3>
+<p>在 VSCode 中创建 snippets 是非常简单的事情（无需安装任何扩展），有两种方法实现：</p>
+<ul>
+<li>在 Mac OS 中，依次选中 <code>Code</code> -&gt; <code>Preferencts</code> -&gt; <code>User Snippets</code> 选项</li>
+<li>在 VS Code Command（ <code>Ctrl+Shift+P</code> ） 中输入：<code>configure user snippets</code> 亦可</li>
+</ul>
+<p>如果是创建 snippets 选择 选择 New Global Snippets file ，输入你要创面的 snippets name 即可进入配置
+snippets 文件是 JSON 风格，刚创建后的默认格式内容如下：
+<img src="../pictures/posts/UNeedToKnow/6.png" alt="6"></p>
+<ul>
+<li>scope：限定代码段的作用域，例如 go 语言的代码段不会出现在 js 中，反之亦然</li>
+<li>prefix：是快捷关键字，当 VSCode 检测到代码中出现 prefix 关键字就会在编辑器中替换为 body 的内容</li>
+<li>body：是重复的代码模板内容，通常是程序员想要自动化的一些重复，模板代码，录入在这里</li>
+<li>description：顾名思义就是对这段 snippets 的具体描述</li>
+</ul>
+<p>这里值得再提一下的就是， body 里面的 <code>$1</code> 正则式是模板代码替换后鼠标光标的所在位置，当出现多个 <code>$1</code> ，<code>$2</code> 的时候，可以通过 <code>Tab</code> 键快速切换鼠标光标所在位置，用于提高效率。</p>
+<h3>结语</h3>
+<p>有兴趣深入研究的伙伴可以 VSCode Snippets 官方的相关的文档，里面解释的非常详细。</p>
+<p>官方链接：<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">https://code.visualstudio.com/docs/editor/userdefinedsnippets</a></p>
+<h2>二.Editorconfig</h2>
+<h3>editorconfig是啥？</h3>
+<p><em>1.editorconfig作用</em></p>
+<ul>
+<li>EditorConfig帮助开发人员在<strong>不同的编辑器和IDE</strong>之间定义和维护一致的编码样式。</li>
+<li>EditorConfig项目由<strong>用于定义编码样式的文件格式</strong>和<strong>一组文本编辑器插件</strong>组成，这些插件使编辑器能够读取文件格式并遵循定义的样式。</li>
+<li>EditorConfig文件易于阅读，并且与版本控制系统配合使用。</li>
+</ul>
+<p><em>2.那些编辑器或IDE支持它？</em></p>
+<ul>
+<li>
+<p>原生支持：BBEdit, CodeCrusader, CodeLite, elementaryCode, Builder, Gitea, GitHub, GitLab, GitBucket, Gogs, IntlliJIDEA, jdTextEdit, KTextEditor, Komodo, Kakoune, VisualStudio, Nova,PyCharm等等</p>
+</li>
+<li>
+<p>需要下载插件：AppCode, ATOM, Brackets, Code, Coda, eclipse, gedit, jEdit, Notepad++等等</p>
+</li>
+</ul>
+<p>（此处未容纳所有编辑器，可以自行上网查询。）</p>
+<h3>editorconfig配置</h3>
+<p><em>1.编辑器配置规范</em></p>
+<p><strong>（1）文件格式</strong><br>
+EditorConfig文件是一种类似INI的文件格式。在EditorConfig文件中，每行的所有开始空格都被认为是不相关的。每一行必须是下列之一：</p>
+<ul>
+<li>
+<p>空白：仅包含空白字符；</p>
+</li>
+<li>
+<p>注释：以<code>;</code>或者一个<code>#</code>开头，以进行注释；</p>
+</li>
+<li>
+<p>键-值对 (或“对”)：包含一个键和值，用=；</p>
+</li>
+<li>
+<p>节标题：以 <code>[</code> 开始并以 <code>]</code> 结束。</p>
+</li>
+<li>
+<p>不能在括号外使用任何非空白字符。</p>
+</li>
+<li>
+<p>方括号之间可以包含任何字符(例如 <code>[</code> 和 <code>]</code> 甚至允许空格和制表符)。</p>
+</li>
+<li>
+<p>正斜杠(/)用作路径分隔符,且反斜杠(\)不允许作为路径分隔符(即使在Windows上)。</p>
+</li>
+<li>
+<p>重点:第一部分之前的部分=(去掉空白)。</p>
+</li>
+<li>
+<p>值:第一个之后的部分=(去掉空白)。</p>
+</li>
+</ul>
+<p><strong>(2).语法</strong></p>
+<p>i.通配符</p>
+<p>EditorConfig文件中的节名是文件路径全局变量，类似于所接受的格式.gitignore.它们通过Unix shell风格的通配符支持模式匹配。这些文件路径全局变量将以下字符识别为通配符匹配的特殊字符：</p>
+<pre><code class="language-editorconfig">*                匹配除/之外的任意字符串
+**               匹配任意字符串
+?                匹配任意单个字符
+[name]           匹配name中的任意一个单一字符
+[!name]          匹配不存在name中的任意一个单一字符
+{s1,s2,s3}       匹配给定的字符串中的任意一个(用逗号分隔) 
+{num1..num2}   　匹配num1到num2之间的任意一个整数, 这里的num1和num2可以为正整数也可以为负整数
+</code></pre>
+<p>反斜杠字符(\)可用于转义字符，这样它就不会被解释为特殊字符。</p>
+<p>核心必须接受长度不超过1024个字符的部分名称。除此之外，每个实现可以选择定义自己的上限或者根本没有明确的上限。</p>
+<p>ii.属性</p>
+<p>EditorConfig文件部分包含由等号(=).除了root键，所有对都必须位于节下才能生效。EditorConfig插件应忽略无法识别的键以及这些键的无效/不支持的值。</p>
+<p>以下是此版本规范定义的所有键的列表，以及与它们相关联的支持值:</p>
+<pre><code class="language-editorconfig">indent_style    设置缩进风格(tab是硬缩进，space为软缩进)
+indent_size     用一个整数定义的列数来设置缩进的宽度，如果indent_style为tab，则此属性默认为tab_width
+tab_width       用一个整数来设置tab缩进的列数。默认是indent_size
+end_of_line     设置换行符，值为lf、cr和crlf
+charset         设置编码，值为latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用utf-8-bom
+trim_trailing_whitespace  设为true表示会去除换行行首的任意空白字符。
+insert_final_newline      设为true表示使文件以一个空白行结尾
+root        　　　表示是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件
+</code></pre>
+<p>对于任何一对，值为unset移除该对的效果，即使之前已经设定过。例如，添加indent_size = unset取消定义indent_size配对(并使用编辑器默认值)。配对密钥不区分大小写。解析后所有的键都是小写的。</p>
+<p>核心必须接受长度分别为1024和4096个字符的键和值。除此之外，每个实现可以选择定义自己的上限或者根本没有明确的上限</p>
+<p>iii.实例</p>
+<pre><code class="language-editorconfig"># 控制 .editorconfig 是否生效的字段
+root = true
+# 匹配全部文件
+[*]
+# 设置字符集
+charset = utf-8
+# 结尾换行符，可选&quot;lf&quot;、&quot;cr&quot;、&quot;crlf&quot;
+end_of_line = crlf
+# 缩进的空格数
+indent_size = 4
+# 缩进风格，可选&quot;space&quot;、&quot;tab&quot;
+indent_style = space
+# 在文件结尾插入新行
+insert_final_newline = false
+</code></pre>
+<pre><code class="language-html"></code></pre>
+<p><em>2. 注意事项</em></p>
+<p>（1）对于Windows用户</p>
+<p>Windows文件命名不支持特殊字符开头(如 / ? \ ^ &quot; : | 之类的)，在Windows下创建.editorconfig时，可以输入“<strong>.editorconfig.名称</strong>”的格式，按回车后系统会自动生成.editorconfig文件。</p>
+<p>（2）文件处理</p>
+<p>当给EditorConfig一个文件名时，在给定文件的目录和所有父目录中搜索EditorConfig文件(名为。默认为“editorconfig”)。不存在的目录<strong>被视为存在且为空</strong>。在所有找到的EditorConfig文件中搜索节名与给定文件名匹配的节。如果发现EditorConfig文件内的&quot;root&quot;关键字段的值设置为true或到达根文件系统目录时停止查询。</p>
+<p>文件从上到下读取，找到的<strong>最新规则</strong>优先。如果多个EditorConfig文件具有匹配的节，则最后读取更接近的EditorConfig文件中的规则，因此更接近的文件中的规则对优先。</p>
+<p><em>3.说在最后</em></p>
+<p>官网：<a href="https://link.zhihu.com/?target=https%3A//editorconfig.org/">https://link.zhihu.com/?target=https%3A//editorconfig.org/</a></p>
+<p>配置规范：<a href="https://editorconfig-specification.readthedocs.io/">https://editorconfig-specification.readthedocs.io/</a></p>
+
+    <script src="https://utteranc.es/client.js"
+            repo="IceFlow0798/Code-site-comments"
+            issue-term="title"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <br><br>
+    <a href="/">&larr; 回到主页</a>
+</div>
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>

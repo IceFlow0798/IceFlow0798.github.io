@@ -5,7 +5,7 @@
 	
 	<link href="/atom.xml" rel="self"/>
 	<link href=""/>
-	<updated>2024-05-19T16:13:35Z</updated>
+	<updated>2024-05-20T17:37:30Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Ice Flow</name>
@@ -14,10 +14,11 @@
 	
 	<entry>
 		<title>VSCode热键一览</title>
-		<link href="/posts/1-7/"/>
+		<link href="/posts/HotKeys/"/>
 		<updated>2024-01-28T00:00:00Z</updated>
-		<id>/posts/1-7/</id>
-		<content type="html">&lt;h3&gt;全局&lt;/h3&gt;
+		<id>/posts/HotKeys/</id>
+		<content type="html">&lt;p&gt;先写一些常见的。官方原生的较全面的热键图我也附在下方了。&lt;/p&gt;
+&lt;h3&gt;全局&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -159,148 +160,92 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;更多的（官网英文版）如下：
-&lt;img src=&quot;../pictures/1-7/HotKeys.png&quot; alt=&quot;HotKeys&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;更多的（官网英文版）如下：&lt;br /&gt;
+&lt;img src=&quot;../pictures/posts/HotKeys/HotKeys.png&quot; alt=&quot;HotKeys&quot; /&gt;&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>Code插件推荐（后续单独出界面）</title>
-		<link href="/posts/1-6/"/>
+		<title>Code扩展</title>
+		<link href="/posts/CodeExtension/"/>
 		<updated>2023-12-28T00:00:00Z</updated>
-		<id>/posts/1-6/</id>
-		<content type="html">&lt;h2&gt;前言&lt;/h2&gt;
-&lt;p&gt;对于VS Code，随着软件的更新，越来越多原本需要扩展才能实现的功能，现如今都被添加进软件，所以使用插件前务必更新至最新版本。可点击“帮助”-“检查更新”获取最新版本，或在&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;官网&lt;/a&gt;获取最新安装包。&lt;/p&gt;
-&lt;h2&gt;前端插件推荐&lt;/h2&gt;
-&lt;h3&gt;Auto Rename Tag&lt;/h3&gt;
-&lt;p&gt;该扩展修改HTML标签时，自动修改匹配的标签。
-&lt;img src=&quot;../pictures/1-6/1-6-1.gif&quot; alt=&quot;1-6-1&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;open in browser&lt;/h3&gt;
-&lt;p&gt;在浏览器里预览网页必备。运行html文件
-&lt;img src=&quot;../pictures/1-6/1-6-2.jpg&quot; alt=&quot;1-6-2&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;CSS Peek&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;定位 CSS 类名
-&lt;img src=&quot;../pictures/1-6/1-6-3.jpg&quot; alt=&quot;1-6-3&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-4.webp&quot; alt=&quot;1-6-4&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;Live Server&lt;/h3&gt;
-&lt;p&gt;启动具有静态和动态页面的实时重新加载功能的开发本地服务器，前端开发利好。
-&lt;img src=&quot;../pictures/1-6/1-6-5-1.jpg&quot; alt=&quot;1-6-5&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;扩展安装完成后打开一个html文档，右键即可找到 &lt;code&gt;Open with Live Server&lt;/code&gt; ，或在窗口右下角点击 &lt;img src=&quot;./pictures/1-6/1-6-5-2.jpg&quot; alt=&quot;Go Live&quot; /&gt;启动。
-&lt;img src=&quot;../pictures/1-6/1-6-6.jpg&quot; alt=&quot;1-6-6&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;将VS Code与浏览器像这样并排，便可实时显示html内容。当VS Code保存 ( Ctrl+s ) 一次右侧页面便会更新。
-&lt;img src=&quot;../pictures/1-6/1-6-7.jpg&quot; alt=&quot;1-6-7&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;Code Runner&lt;/h3&gt;
-&lt;p&gt;有时，你不需要运行你的整个项目，只需要其中的一小段。这就是Code Runner的用武之地。这个VS Code插件支持多种语言，可以通过预定义的键盘快捷键或在鼠标的帮助下运行高亮代码。
-&lt;img src=&quot;../pictures/1-6/1-6-8.jpg&quot; alt=&quot;1-6-8&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-9.webp&quot; alt=&quot;1-6-9&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Bracket Pair Colorization Toggler&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;当你处理嵌套和逻辑条件时，情况会变得更糟。大括号对着色器通过给每个大括号对附加不同的颜色，解决了代码中大括号对猎取的问题。&lt;em&gt;&lt;strong&gt;强烈推荐安装使用，因为实在是太好用了。&lt;/strong&gt;&lt;/em&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-10.jpg&quot; alt=&quot;1-6-10&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-11.webp&quot; alt=&quot;1-6-11&quot; /&gt;
-这意味着，如果你有多个大括号，为了我们的方便和代码效率，它很容易被配上颜色。&lt;/p&gt;
-&lt;h3&gt;Prettier-Code formatter&lt;/h3&gt;
-&lt;p&gt;Prettier 是最受欢迎的格式化和 linting 工具，可根据行业惯例标准化您的代码。它还确保您的团队在外观上创建视觉上无缝的代码 - 因此无需再争论您应该使用多少个制表符或空格或括号应该放在哪里。
-&lt;img src=&quot;../pictures/1-6/1-6-12.jpg&quot; alt=&quot;1-6-12&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-13.webp&quot; alt=&quot;1-6-13&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;可以配置.prettierc.js文件,配合eslint、git hooks 一起使用，提升项目代码的规范性&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;module.exports = {
-    printWidth: 100,// 一行最多 100 字符
-    useTabs: false,// 不使用缩进符，而使用空格
-    tabWidth: 4,// 使用 4 个空格缩进
-    tabSize: 4,
-    semi: true,// 行尾需要有分号
-    singleQuote: true,// 使用单引号
-    quoteProps: &#39;as-needed&#39;,// 对象的 key 仅在必要时用引号
-    jsxSingleQuote: false,// jsx 不使用单引号，而使用双引号
-    trailingComma: &#39;es5&#39;,// 末尾不需要逗号 &#39;es5&#39;  none
-    bracketSpacing: true,// 大括号内的首尾需要空格
-    jsxBracketSameLine: false,// jsx 标签的反尖括号需要换行
-    arrowParens: &#39;always&#39;,// 箭头函数，只有一个参数的时候，也需要括号
-    rangeStart: 0,// 每个文件格式化的范围是文件的全部内容
-    rangeEnd: Infinity,//不设置格式化的结束行，即对应文件内的所有内容
-    requirePragma: false,// 不需要写文件开头的 @prettier
-    insertPragma: false,// 不需要自动在文件开头插入 @prettier
-    proseWrap: &#39;preserve&#39;,// 使用默认的折行标准
-    htmlWhitespaceSensitivity: &#39;css&#39;,// 根据显示样式决定 html 要不要折行
-    endOfLine: &#39;lf&#39;,// 换行符使用 lf 结尾是 &#92;n &#92;r &#92;n&#92;r auto
-}; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3&gt;Better Comments&lt;/h3&gt;
-&lt;p&gt;Better Comments 允许您根据不同类型的注释突出显示您的注释，从而将其提升到一个新的水平,支持的类型是警报、查询、TODO 和突出显示。它也可以通过您可能需要的其他内容的注释样式进行扩展
-&lt;img src=&quot;../pictures/1-6/1-6-14.jpg&quot; alt=&quot;1-6-14&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-15.webp&quot; alt=&quot;1-6-15&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;ESLint&lt;/h3&gt;
-&lt;p&gt;ESLint是一个JavaScript代码inter，可以发现并修复你的JavaScript代码中的问题。它可以很好地检测出你的代码中可能存在的问题模式，并帮助你修复它们，以避免不一致和避免bug。
-&lt;img src=&quot;../pictures/1-6/1-6-16.jpg&quot; alt=&quot;1-6-16&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-17.webp&quot; alt=&quot;1-6-17&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;HTML CSS Support&lt;/h3&gt;
-&lt;p&gt;HTML CSS Support 是在VS Code中对HTML和CSS的终极智能感应。其功能包括id和class属性的完成，链接和嵌入样式表，继承和CSS选择器的验证。
-&lt;img src=&quot;../pictures/1-6/1-6-18.jpg&quot; alt=&quot;1-6-18&quot; /&gt;
-&lt;img src=&quot;../pictures/1-6/1-6-19.webp&quot; alt=&quot;1-6-19&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;Image preview&lt;/h3&gt;
-&lt;p&gt;预览图片,图片是否正确引入的显示工具，在图片连接上按住ctrl，鼠标悬浮即可看见是否正确找到路径下的图片文件
-&lt;img src=&quot;../pictures/1-6/1-6-20.jpg&quot; alt=&quot;1-6-20&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;Emmet&lt;/h3&gt;
-&lt;p&gt;具体可以到&lt;a href=&quot;https://www.cnblogs.com/leeke98/p/11208878.html&quot;&gt;这个网址&lt;/a&gt;去看。&lt;/p&gt;
-&lt;h2&gt;其它的某些(可能)好用的插件推荐(不定期更新)&lt;/h2&gt;
-&lt;h3&gt;Codelf（是小写的L不是大写的i）&lt;/h3&gt;
-&lt;p&gt;一个变量命名建议器，是一个学长推荐的。&lt;/p&gt;
-&lt;p&gt;虽然自己在编写程序、建立代码块的时候各人有各人的命名习惯，但在此基础上，运用什么样的翻译和字母组合来表达出你想要体现的变量或函数是个学问。它则可以在这个方面上帮到你。&lt;/p&gt;
-&lt;p&gt;形式是一个网页。&lt;/p&gt;
-&lt;p&gt;用法：选中相应文本-&amp;gt;鼠标右击-&amp;gt;Codelf
-&lt;img src=&quot;../pictures/1-6/1-6-21.png&quot; alt=&quot;1-6-21&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;（我这边不知为何用这个插件没有反应，按理来说它应该会转到一个相应网址的，有点尴尬。。）&lt;/p&gt;
+		<id>/posts/CodeExtension/</id>
+		<content type="html">&lt;p&gt;对于VS Code，随着软件的更新，越来越多原本需要扩展才能实现的功能，现如今都被添加进软件本体，所以使用插件前务必更新至最新版本。可点击“帮助”-“检查更新”获取最新版本，或在&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;官网&lt;/a&gt;获取最新安装包。&lt;/p&gt;
+&lt;p&gt;按下快捷键&lt;code&gt;Ctrl+Shift+X&lt;/code&gt;或者点击左侧与&lt;img src=&quot;../pictures/posts/Chinesization/icon.jpg&quot; alt=&quot;扩展&quot; style=&quot;width: 50px; height: auto;&quot; /&gt;相近的图标（可能随主题而异）可以快捷打开Code的扩展市场。&lt;/p&gt;
+&lt;p&gt;本网站会给出少量的扩展推荐。剩下的扩展海洋还需要你自己去探索。&lt;/p&gt;
+&lt;p&gt;如果你发现了很实用的扩展，欢迎通过邮箱联系我！我会在后期添加与它相关的介绍。&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>以Code为开发者用户界面，利用git和Github实现源代码管理</title>
-		<link href="/posts/1-5/"/>
+		<title>源码管理3-Code“假死”的解决方案</title>
+		<link href="/posts/CloseManagenent/"/>
+		<updated>2023-12-22T00:00:00Z</updated>
+		<id>/posts/CloseManagenent/</id>
+		<content type="html">&lt;h2&gt;关闭源代码管理&lt;/h2&gt;
+&lt;p&gt;因为下载的项目很多，导致源代码要管理数千个文件，一旦改动一个文件，就导致Code“假死”，卡住不动，这里介绍一个简单的方法。
+打开使用了源代码管理的文件夹，删除.git文件，重启VSCode：
+&lt;img src=&quot;../pictures/posts/CloseManagement/1.jpg&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;此时源代码管理栏就会变成如下样式：
+&lt;img src=&quot;../pictures/posts/CloseManagement/2.jpg&quot; alt=&quot;2&quot; /&gt;&lt;br /&gt;
+点击“初始化仓库”一般就解决啦！&lt;/p&gt;
+&lt;p&gt;另外，你可以在设置中关闭&lt;em&gt;自动搜索&lt;/em&gt;。
+&lt;img src=&quot;../pictures/posts/CloseManagement/3.jpg&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>源码管理2-版本管理</title>
+		<link href="/posts/VersionManagement/"/>
 		<updated>2023-12-16T00:00:00Z</updated>
-		<id>/posts/1-5/</id>
-		<content type="html">&lt;p&gt;VSCode的左侧边栏提供了源代码管理这个选项，使用它能很好的帮助我们使用git进行管理，这里介绍下VSCode运用GitHub实现源代码管理
-&lt;img src=&quot;../pictures/1-5/1-5-1.jpg&quot; alt=&quot;1-5-1&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;准备工具&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;安装git并添加到环境变量。&lt;/li&gt;
-&lt;/ol&gt;
+		<id>/posts/VersionManagement/</id>
+		<content type="html">&lt;p&gt;之前我们就有记录了版本信息，Git默认也会给我们添加一个版本号，那如何查找我们版本号呢？通过 Git 终端，输入指令查找提交记录&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git reflog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;黄色的字，就是当时提交的版本号&lt;br /&gt;
+&lt;img src=&quot;../pictures/posts/VersionManagement/1.jpg&quot; alt=&quot;1&quot; /&gt;&lt;br /&gt;
+然后我们在输入对应想恢复的版本号，代码就能够回去了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git reset --hard 版本号
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/VersionManagement/2.png&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>源码管理1-常用步骤</title>
+		<link href="/posts/Management/"/>
+		<updated>2023-12-05T00:00:00Z</updated>
+		<id>/posts/Management/</id>
+		<content type="html">&lt;h2&gt;基本流程&lt;/h2&gt;
+&lt;p&gt;前面的文章提到过，Git的基本工作流程包括：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Git安装教程：https://blog.csdn.net/qq_43715354/article/details/108638061%20&lt;/li&gt;
+&lt;li&gt;修改：在本地代码库中进行更改。&lt;/li&gt;
+&lt;li&gt;暂存：选择特定更改加入下一次提交。&lt;/li&gt;
+&lt;li&gt;提交：将暂存的更改保存到本地代码库。&lt;/li&gt;
+&lt;li&gt;推送：将本地的更改推送到远程代码库。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;安装Code&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;基本流程&lt;/h2&gt;
 &lt;h3&gt;创建仓库&lt;/h3&gt;
 &lt;p&gt;进入github官网，注册，登录，在右上角添加一个仓库(repository)
-&lt;img src=&quot;../pictures/1-5/1-5-2.jpg&quot; alt=&quot;1-5-2&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/1.jpg&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;下面是一个 repository 最基本的信息，我们需要清楚了解每一个都是什么意思。配置完每个参数之后，我们就可以创建仓库。
-&lt;img src=&quot;../pictures/1-5/1-5-3.png&quot; alt=&quot;1-5-3&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/2.png&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;生成仓库的基本结构
-&lt;img src=&quot;../pictures/1-5/1-5-4.jpg&quot; alt=&quot;1-5-4&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/3.jpg&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;在本地创建一个文件夹，用来接受test这个仓库内部的文件，也就是clone操作
-&lt;img src=&quot;../pictures/1-5/1-5-5.jpg&quot; alt=&quot;1-5-5&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;Git安装&lt;/h3&gt;
-&lt;p&gt;安装完git之后重启VSCode，源代码管理栏就会变成如下情况
-&lt;img src=&quot;../pictures/1-5/1-5-6.jpg&quot; alt=&quot;1-5-6&quot; /&gt;
-配置账号和密码，全局&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;git config --global user.email &amp;quot;you@example.com&amp;quot;
-git config --global user.name &amp;quot;Your Name&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-5/1-5-7.jpg&quot; alt=&quot;1-5-7&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/4.jpg&quot; alt=&quot;4&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;VSCode绑定GitHub&lt;/h3&gt;
 &lt;p&gt;点击“发布到GitHub”，然后会跳转到网页处，输入账号密码登录GitHub
-&lt;img src=&quot;../pictures/1-5/1-5-8.jpg&quot; alt=&quot;1-5-8&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/5.jpg&quot; alt=&quot;5&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;点击 Continue ，这样我们的VSCode就会和GitHub关联起来了，然后点击打开
-&lt;img src=&quot;../pictures/1-5/1-5-9.jpg&quot; alt=&quot;1-5-9&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/6.jpg&quot; alt=&quot;6&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;这时候会跳回 VSCode，询问是否关联起来，点击 Open
-&lt;img src=&quot;../pictures/1-5/1-5-10.jpg&quot; alt=&quot;1-5-10&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/7.jpg&quot; alt=&quot;7&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;关联成功之后就可以看到账户里连接到了GitHub
-&lt;img src=&quot;../pictures/1-5/1-5-11.jpg&quot; alt=&quot;1-5-11&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/8.jpg&quot; alt=&quot;8&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;基础知识&lt;/h3&gt;
 &lt;p&gt;clone意思就是把GitHub上的仓库文件，克隆到本地，方便我们进行代码的修改或迭代
-&lt;img src=&quot;../pictures/1-5/1-5-12.jpg&quot; alt=&quot;1-5-12&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;点击“初始化仓库”，这时候就会切换界面到达监视区&lt;img src=&quot;../pictures/1-5/1-5-13.png&quot; alt=&quot;1-5-13&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/9.jpg&quot; alt=&quot;9&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;点击“初始化仓库”，这时候就会切换界面到达监视区&lt;img src=&quot;../pictures/posts/Management/10.png&quot; alt=&quot;10&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;显示“源代码管理”的bar右侧有五个选项，分别为：&lt;strong&gt;查看形式&lt;/strong&gt;：可以选择文件排列形式
 &lt;strong&gt;提交&lt;/strong&gt;：用来提交版本信息到达本地仓库
 &lt;strong&gt;刷新&lt;/strong&gt;：刷新当前文件修改的内容
@@ -308,12 +253,12 @@ git config --global user.name &amp;quot;Your Name&amp;quot;
 拉取请求是使你更改过后的代码经历审核、被整合到目的分支的必要操作。大致过程为：创建新分支（作为新代码整合的源分支）-&amp;gt;更改代码并存入该分支-&amp;gt;创建拉取请求-&amp;gt;审核代码-&amp;gt;整合新代码到目的分支中。
 拉取请求的产生，说明了你对代码做出的更改和对代码建设工程做出的贡献，它会将你更改的部分和原来的部分进行对比并进行展示。&lt;/p&gt;
 &lt;p&gt;**更多操作...**的界面如下
-&lt;img src=&quot;../pictures/1-5/1-5-14.jpg&quot; alt=&quot;1-5-14&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/11.jpg&quot; alt=&quot;11&quot; /&gt;
 拉取：从仓库获得文件
 推送：文件上传至仓库
 克隆：仓库整体克隆到本地中&lt;/p&gt;
 &lt;p&gt;左下角部分显示内容（从左至右）：
-&lt;img src=&quot;../pictures/1-5/1-5-15.jpg&quot; alt=&quot;1-5-15&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/12.jpg&quot; alt=&quot;12&quot; /&gt;
 &lt;strong&gt;分支结构&lt;/strong&gt;：名为master的分支结构
 &lt;strong&gt;云端信息&lt;/strong&gt;：上传与下载的次数
 &lt;strong&gt;问题&lt;/strong&gt;：错误和警告
@@ -321,71 +266,95 @@ git config --global user.name &amp;quot;Your Name&amp;quot;
 &lt;h3&gt;代码上传&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Clone&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;整体仓库克隆到本地当中
-&lt;img src=&quot;../pictures/1-5/1-5-16.jpg&quot; alt=&quot;1-5-16&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-17.jpg&quot; alt=&quot;1-5-17&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/13.jpg&quot; alt=&quot;13&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/14.jpg&quot; alt=&quot;14&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;权限问题，点击允许，将会跳到一个GitHub授权画面，同理VSCode默认也要授权
-&lt;img src=&quot;../pictures/1-5/1-5-18.png&quot; alt=&quot;1-5-18&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-19.jpg&quot; alt=&quot;1-5-19&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-20.jpg&quot; alt=&quot;1-5-20&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-21.png&quot; alt=&quot;1-5-21&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/15.png&quot; alt=&quot;15&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/16.jpg&quot; alt=&quot;16&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/17.jpg&quot; alt=&quot;17&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/18.png&quot; alt=&quot;18&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;由于我建立的仓库是私有的，所以最好手动输全，由GitHub 用户名/工程名
-&lt;img src=&quot;../pictures/1-5/1-5-22.jpg&quot; alt=&quot;1-5-22&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-23.jpg&quot; alt=&quot;1-5-23&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/19.jpg&quot; alt=&quot;19&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/20.jpg&quot; alt=&quot;20&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;询问是否打开仓库，点击 Open，将会重启 VSCode进入克隆好的仓库内部
-&lt;img src=&quot;../pictures/1-5/1-5-24.jpg&quot; alt=&quot;1-5-24&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/21.jpg&quot; alt=&quot;21&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Commit&lt;/strong&gt;
 clone 成功之后，我们就可以在上面进行代码的修改等操作了，操作完之后，想要再保存版本，我们就需要分为两步，第一步，把代码信息上传到本地库当中，有两个隐藏文件是会保存版本信息的。第二步，保存的是本地的信息，我们还需要把本地库上传到 GitHub上面&lt;/p&gt;
 &lt;p&gt;新建两个文件，里面无内容，然后 commit(提交)
-&lt;img src=&quot;../pictures/1-5/1-5-25.jpg&quot; alt=&quot;1-5-25&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-26.jpg&quot; alt=&quot;1-5-26&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/22.jpg&quot; alt=&quot;22&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/23.jpg&quot; alt=&quot;23&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;增加版本信息，写越全越好，方便后期主机回头查看，之前显示已修改的文件此时同步到本地仓库了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;push&lt;/strong&gt;
 接下来准备把本地仓库内容，Push 到GitHub上面，最终我们可以在 GitHub 网站看到自己的库，如果你只是做个人的开发，可以选择不 Push，直接在把库保存在本地
-&lt;img src=&quot;../pictures/1-5/1-5-27.jpg&quot; alt=&quot;1-5-27&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-28.png&quot; alt=&quot;1-5-28&quot; /&gt;
-&lt;img src=&quot;../pictures/1-5/1-5-29.jpg&quot; alt=&quot;1-5-29&quot; /&gt;&lt;/p&gt;
-&lt;h3&gt;回滚版本&lt;/h3&gt;
-&lt;p&gt;之前我们就有记录了版本信息，默认也会给我们添加一个版本号，那如何查找我们版本号呢？通过 Git 终端，输入指令查找提交记录&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git reflog
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;黄色的字，就是当时提交的版本号
-&lt;img src=&quot;../pictures/1-5/1-5-30.jpg&quot; alt=&quot;1-5-30&quot; /&gt;
-然后我们在输入对应想恢复的版本号，代码就能够回去了。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;git reset --hard 版本号
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-5/1-5-31.png&quot; alt=&quot;1-5-31&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;关闭源代码管理&lt;/h2&gt;
-&lt;p&gt;因为下载的项目很多，导致源代码要管理数千个文件，一旦改动一个文件，就导致Code“假死”，卡住不动，这里介绍一个简单的方法。
-打开使用了源代码管理的文件夹，删除.git文件，重启VSCode：
-&lt;img src=&quot;../pictures/1-5/1-5-32.jpg&quot; alt=&quot;1-5-32&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;此时源代码管理栏就会变成如下样式：
-&lt;img src=&quot;../pictures/1-5/1-5-33.jpg&quot; alt=&quot;1-5-33&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;你可以在设置中关闭自动搜索。
-&lt;img src=&quot;../pictures/1-5/1-5-34.jpg&quot; alt=&quot;1-5-34&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Management/24.jpg&quot; alt=&quot;24&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/25.png&quot; alt=&quot;25&quot; /&gt;
+&lt;img src=&quot;../pictures/posts/Management/26.jpg&quot; alt=&quot;26&quot; /&gt;&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>码码前的一些准备</title>
-		<link href="/posts/1-4/"/>
+		<title>源码管理序-材料准备</title>
+		<link href="/posts/Git/"/>
+		<updated>2023-11-20T00:00:00Z</updated>
+		<id>/posts/Git/</id>
+		<content type="html">&lt;p&gt;本篇文章起，将简要介绍VS Code的一项重头戏：利用Git和集成在Code内的源代码管理功能，对你的项目源码进行管理。这项功能将Code的功能抬升了一个大台阶——它不再只是一个单纯的文本编辑器，它在项目开发上能给你提供不小的便利。&lt;/p&gt;
+&lt;p&gt;在这里，我们简要向你介绍一下何为Git：&lt;/p&gt;
+&lt;p&gt;Git是一个开源的分布式版本控制系统，主要用于软件开发中的源代码管理。它由Linus Torvalds创建，也是Linux内核开发所使用的工具。与其他版本控制系统不同，Git采用了分布式版本库的方式，这意味着每个开发者的计算机上都有完整的代码库副本，这样就可以在没有服务器的情况下进行版本控制，使得源代码的发布和交流变得非常方便。&lt;/p&gt;
+&lt;p&gt;Git的主要特点包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据完整性：Git使用SHA-1算法保护代码的完整性，确保代码内容在传输和存储过程中不会受损。&lt;/li&gt;
+&lt;li&gt;速度和效率：Git在处理大型项目时非常快速高效。&lt;/li&gt;
+&lt;li&gt;支持非线性开发：Git支持快速和简便的分支管理和合并，这对于多人协作的项目来说非常有用。&lt;/li&gt;
+&lt;li&gt;轻松备份：分布式结构意味着每个开发者的工作都是对代码库的一个备份，这增加了数据的安全性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Git的基本工作流程包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改：在本地代码库中进行更改。&lt;/li&gt;
+&lt;li&gt;暂存：选择特定更改加入下一次提交。&lt;/li&gt;
+&lt;li&gt;提交：将暂存的更改保存到本地代码库。&lt;/li&gt;
+&lt;li&gt;推送：将本地的更改推送到远程代码库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Git也常与GitHub一起使用，GitHub是一个提供Git仓库托管服务的平台，它让开发者能够共享代码并进行协作开发。&lt;/p&gt;
+&lt;p&gt;VSCode的左侧边栏提供了源代码管理这个选项，使用它能很好的帮助我们使用git进行管理。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Git/1.jpg&quot; alt=&quot;1-5-1&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;准备工具&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;安装好VS Code。&lt;/li&gt;
+&lt;li&gt;安装git并添加到环境变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于如何安装Git，本文不做介绍。详情参照这个链接：&lt;a href=&quot;https://blog.csdn.net/qq_43715354/article/details/108638061%20&quot;&gt;Git安装教程&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Git安装&lt;/h3&gt;
+&lt;p&gt;安装完git之后重启VSCode，源代码管理栏就会变成如下情况
+&lt;img src=&quot;../pictures/posts/Git/2.jpg&quot; alt=&quot;1-5-6&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;配置账号和密码，全局模式下。这一步需要你使用Git Bash完成，或者找到相应的配置文件进行修改。教程请自行Baidu/Bing/Google.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;git config --global user.email &amp;quot;you@example.com&amp;quot;
+git config --global user.name &amp;quot;Your Name&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Git/3.jpg&quot; alt=&quot;1-5-7&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>码码前，你需要了解这些！</title>
+		<link href="/posts/UNeedToKnow/"/>
 		<updated>2023-11-16T00:00:00Z</updated>
-		<id>/posts/1-4/</id>
+		<id>/posts/UNeedToKnow/</id>
 		<content type="html">&lt;h2&gt;一.Snippets&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;简单介绍&lt;/strong&gt;
 snippets（代码块），在我们日常工作中存在大量重复代码编写，这时可以使用snippets直接调用已经封装好的模板代码，这样做能极大提高编程效率。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-4/1-4-1.gif&quot; alt=&quot;1-4-1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/UNeedToKnow/1.gif&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;另外，关于Vscode snippets的相关使用：&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/a60b320fb197&quot;&gt;https://www.jianshu.com/p/a60b320fb197&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.php.cn/tool/vscode/489259.html&quot;&gt;https://www.php.cn/tool/vscode/489259.html&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;snippets插件&lt;/h3&gt;
 &lt;p&gt;JavaScript (ES6) code snippets：ES6语法智能提示，以及快速输入，不仅仅支持&lt;code&gt;.js&lt;/code&gt;，还支持&lt;code&gt;.ts&lt;/code&gt;，&lt;code&gt;.jsx&lt;/code&gt;，&lt;code&gt;.tsx&lt;/code&gt;，&lt;code&gt;.html&lt;/code&gt;，&lt;code&gt;.vue&lt;/code&gt;，省去了配置其支持各种包含js代码文件的时间。
-&lt;img src=&quot;../pictures/1-4/1-4-2.jpg&quot; alt=&quot;1-4-2&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/UNeedToKnow/2.jpg&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;Vue 3 Snippets：包含了所有的Vue.js 2和Vue.js 3的api对应的代码片段。
-&lt;img src=&quot;../pictures/1-4/1-4-3.jpg&quot; alt=&quot;1-4-3&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/UNeedToKnow/3.jpg&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;Vue Vscode Snippets：&lt;a href=&quot;https://www.its301.com/article/qq_41107231/117195087&quot;&gt;https://www.its301.com/article/qq_41107231/117195087&lt;/a&gt;
-&lt;img src=&quot;../pictures/1-4/1-4-4.jpg&quot; alt=&quot;1-4-4&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/UNeedToKnow/4.jpg&quot; alt=&quot;4&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;Simple React Snippets：&lt;a href=&quot;https://www.jianshu.com/p/c141b89e5808&quot;&gt;https://www.jianshu.com/p/c141b89e5808&lt;/a&gt;
-&lt;img src=&quot;../pictures/1-4/1-4-5.jpg&quot; alt=&quot;1-4-5&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/UNeedToKnow/5.jpg&quot; alt=&quot;5&quot; /&gt;&lt;/p&gt;
 &lt;h3&gt;创建你自己的Snippets&lt;/h3&gt;
 &lt;p&gt;在 VSCode 中创建 snippets 是非常简单的事情（无需安装任何扩展），有两种方法实现：&lt;/p&gt;
 &lt;ul&gt;
@@ -394,7 +363,7 @@ snippets（代码块），在我们日常工作中存在大量重复代码编写
 &lt;/ul&gt;
 &lt;p&gt;如果是创建 snippets 选择 选择 New Global Snippets file ，输入你要创面的 snippets name 即可进入配置
 snippets 文件是 JSON 风格，刚创建后的默认格式内容如下：
-&lt;img src=&quot;../pictures/1-4/1-4-6.png&quot; alt=&quot;1-4-6&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/UNeedToKnow/6.png&quot; alt=&quot;6&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;scope：限定代码段的作用域，例如 go 语言的代码段不会出现在 js 中，反之亦然&lt;/li&gt;
 &lt;li&gt;prefix：是快捷关键字，当 VSCode 检测到代码中出现 prefix 关键字就会在编辑器中替换为 body 的内容&lt;/li&gt;
@@ -514,137 +483,157 @@ insert_final_newline = false
 	
 	<entry>
 		<title>初步了解Code长啥样，有什么</title>
-		<link href="/posts/1-3/"/>
+		<link href="/posts/Layout/"/>
 		<updated>2023-11-12T00:00:00Z</updated>
-		<id>/posts/1-3/</id>
-		<content type="html">&lt;p&gt;&lt;strong&gt;事先准备&lt;/strong&gt;（习惯英文界面可忽略）&lt;/p&gt;
-&lt;p&gt;打开vscode，在左侧的&lt;img src=&quot;../pictures/1-3/1-3-0.jpg&quot; alt=&quot;扩展&quot; /&gt; (扩展，&lt;code&gt;Ctrl+Shift+X&lt;/code&gt;)搜Chinese中文包进行安装，之后重启vscode。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-9.png&quot; alt=&quot;1-2-9.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-10.png&quot; alt=&quot;1-2-10.png&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;VSCode的学习网址&lt;/h2&gt;
+		<id>/posts/Layout/</id>
+		<content type="html">&lt;h2&gt;VSCode的学习网址&lt;/h2&gt;
 &lt;p&gt;Mac OS官方教程：https://code.visualstudio.com/docs/setup/mac&lt;/p&gt;
-&lt;p&gt;个人推荐的使用教程：https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html&lt;/p&gt;
+&lt;p&gt;（个人向）推荐的使用教程：https://geek-docs.com/vscode/vscode-tutorials/what-is-vscode.html&lt;/p&gt;
 &lt;p&gt;如何简单的找到官方教程？
-&lt;img src=&quot;../pictures/1-3/1-3-1.jpg&quot; alt=&quot;1-3-1.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/1.jpg&quot; alt=&quot;1&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;简单配置&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;更改颜色主题&lt;/strong&gt;&lt;br /&gt;
 点击左下角管理，点击颜色主题
-&lt;img src=&quot;../pictures/1-3/1-3-2.jpg&quot; alt=&quot;1-3-2.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/2.jpg&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;根据自己的需求进行修改
-&lt;img src=&quot;../pictures/1-3/1-3-3.jpg&quot; alt=&quot;1-3-3.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/3.jpg&quot; alt=&quot;1-3-3.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;更改字体设置&lt;/strong&gt;&lt;br /&gt;
 点击管理中的设置选项
-&lt;img src=&quot;../pictures/1-3/1-3-4.jpg&quot; alt=&quot;1-3-4.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/4.jpg&quot; alt=&quot;1-3-4.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;“Font Size”控制字体大小，“Font Family”控制字体系列，这里根据个人喜好设置
-&lt;img src=&quot;../pictures/1-3/1-3-5.jpg&quot; alt=&quot;1-3-5.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/5.jpg&quot; alt=&quot;1-3-5.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;自动保存&lt;/strong&gt;&lt;br /&gt;
 点击管理中的设置
-&lt;img src=&quot;../pictures/1-3/1-3-6.jpg&quot; alt=&quot;1-3-6.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/6.jpg&quot; alt=&quot;1-3-6.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;搜索自动保存&lt;/strong&gt;&lt;br /&gt;
 将设置里的“Auto Save”配置修改为&lt;code&gt;afterDelay&lt;/code&gt;，并设置时间，这里我设置的是1000毫秒
-&lt;img src=&quot;.././pictures/1-3/1-3-7.jpg&quot; alt=&quot;1-3-7.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;.././pictures/posts/Layout/7.jpg&quot; alt=&quot;1-3-7.jpg&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;工作台介绍&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;面板栏&lt;/strong&gt;
 命令面板是VSCode快捷键的主要交互界面，你可以通过&lt;code&gt;F1&lt;/code&gt;或者&lt;code&gt;Ctrl+Shift+P&lt;/code&gt;打开。你可以在命令面板中快速搜索命令并且执行。如果你的 VSCode 是简体中文版，那么你可以在命令面板里使用中文或者英文来搜索命令。VSCode 的绝大多数命令都可以在命令面板里搜到，所以熟练使用命令面板，你就可以摆脱鼠标，完全通过键盘操作来完成全部编码工作。
-&lt;img src=&quot;../pictures/1-3/1-3-8.jpg&quot; alt=&quot;1-3-8.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/8.jpg&quot; alt=&quot;1-3-8.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;活动栏&lt;/strong&gt;
-最左侧的一列，包括资源管理器、查找、源代码管理、debug调式（一般用于后端的调理）、插件安装&lt;img src=&quot;./pictures/1-3/1-3-9.jpg&quot; alt=&quot;1-3-9.jpg&quot; /&gt;&lt;/p&gt;
+最左侧的一列，包括资源管理器、查找、源代码管理、debug调式（一般用于后端的调理）、插件安装&lt;img src=&quot;../pictures/posts/Layout/9.jpg&quot; alt=&quot;1-3-9.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;状态栏&lt;/strong&gt;&lt;br /&gt;
 显示代码状态和调试状态；是否处于调试状态，代码是否在编辑状态等
-&lt;img src=&quot;!%5B../pictures/1-3/1-3-10.jpg%5D(image.png)&quot; alt=&quot;1-3-10.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/10.jpg&quot; alt=&quot;1-3-10.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;编辑栏&lt;/strong&gt;
 编写代码的区域
-&lt;img src=&quot;../pictures/1-3/1-3-11.jpg&quot; alt=&quot;1-3-11.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/11.jpg&quot; alt=&quot;1-3-11.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;侧边栏&lt;/strong&gt;
-新建项目文件和文件夹，一般用于整体浏览项目布局&lt;img src=&quot;../pictures/1-3/1-3-12.jpg&quot; alt=&quot;1-3-12.jpg&quot; /&gt;&lt;/p&gt;
+新建项目文件和文件夹，一般用于整体浏览项目布局&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Layout/12.jpg&quot; alt=&quot;1-3-12.jpg&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;打开项目文件&lt;/h2&gt;
 &lt;p&gt;点击左上角文件，打开文件夹
-&lt;img src=&quot;../pictures/1-3/1-3-13.jpg&quot; alt=&quot;1-3-13.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/13.jpg&quot; alt=&quot;1-3-13.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;选择你需要打开的项目目录即可
-&lt;img src=&quot;../pictures/1-3/1-3-14.jpg&quot; alt=&quot;1-3-14.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/14.jpg&quot; alt=&quot;1-3-14.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;当然你也可以选择新建文件或者文件夹
-&lt;img src=&quot;../pictures/1-3/1-3-15.jpg&quot; alt=&quot;1-3-15.jpg&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;../pictures/posts/Layout/15.jpg&quot; alt=&quot;1-3-15.jpg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;之后你就可以对项目文件进行编辑了~&lt;/p&gt;
-&lt;h2&gt;常用命令&lt;/h2&gt;
-&lt;p&gt;常用快捷键:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;Alt+Shift+F&lt;/code&gt; 代码格式化&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Alt+↑&lt;/code&gt; 向上移动一行代码&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Alt+↓&lt;/code&gt; 向下移动一行代码&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Alt+Shift+↑&lt;/code&gt; 向上复制一行&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Alt+Shift+↓&lt;/code&gt; 向下复制一行&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Ctrl+F&lt;/code&gt; 查询&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Ctrl+H&lt;/code&gt; 查找并替换&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Ctrl+/&lt;/code&gt; 单行注释&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Shift+Alt+A&lt;/code&gt; 多行注释&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Ctrl+Shift+K&lt;/code&gt; (&lt;code&gt;Ctrl+X&lt;/code&gt;) 快速删除一行&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h2&gt;快速编写代码小技巧&lt;/h2&gt;
 &lt;p&gt;以HTML为例：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;! &lt;code&gt;Enter&lt;/code&gt;，快速生成HTML基本骨架&lt;/li&gt;
-&lt;li&gt;div*2 &lt;code&gt;Enter&lt;/code&gt; 生成两个并列的div&lt;/li&gt;
-&lt;li&gt;div.c1 &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;div#d1 &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;div{$}*数字 多个平级标签的排序&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;div&lt;/code&gt;*&lt;code&gt;2&lt;/code&gt; &lt;code&gt;Enter&lt;/code&gt; 生成两个并列的div&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;div.c1&lt;/code&gt; &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;div#d1&lt;/code&gt; &lt;code&gt;Enter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;div{$}&lt;/code&gt;*&lt;code&gt;数字&lt;/code&gt; 多个平级标签的排序&lt;/li&gt;
 &lt;li&gt;&amp;quot;&amp;gt;&amp;quot;表示包含关系——ul &amp;gt;li*4 快速生成包含4个li的列表&lt;/li&gt;
 &lt;/ol&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>安装教程</title>
-		<link href="/posts/1-2/"/>
-		<updated>2023-11-06T00:00:00Z</updated>
-		<id>/posts/1-2/</id>
-		<content type="html">&lt;h2&gt;下载VSCode安装文件&lt;/h2&gt;
-&lt;p&gt;官方网址：https://code.visualstudio.com/download#&lt;/p&gt;
-&lt;h2&gt;根据自己的操作系统来选择对应的VSCode版本。&lt;/h2&gt;
-&lt;p&gt;在Windows系统下，一般选择x64的安装包就行(除非你用的是32位系统，但现在理论上已经不存在了。)
-需要注意的是：如果你后来对你的电脑进行了一些&lt;strong&gt;大动根基&lt;/strong&gt;的操作，如：
-在Windows环境下，因为本地账户名是中文导致各种开发工作受阻而&lt;strong&gt;重装系统&lt;/strong&gt;并由此建立了个英文名的本地&lt;strong&gt;管理员账户，&lt;strong&gt;并使用该&lt;/strong&gt;管理员账户&lt;/strong&gt;活动的话，请注意你下载的安装包类型。&lt;/p&gt;
-&lt;p&gt;在管理员账户下，应该是只能用System Installer安装的（用User Installer安装会出现错误不让安装）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-1.png&quot; alt=&quot;1-2-1.png&quot; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这是以前Code官网多系统的下载界面&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-2.png&quot; alt=&quot;1-2-2.png&quot; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这是当下(图截于2023.12)最新的安装界面，因为后续在x86平台和Arm平台上的Windows（从11开始）仅支持64位系统，所以只提供了x64和Arm64的安装包。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;安装&lt;/h2&gt;
-&lt;p&gt;1.&lt;strong&gt;在文件夹中打开刚下好的安装包，这里我使用的是64位的操作系统，注意对应自己电脑操作系统下载&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-3.png&quot; alt=&quot;1-2-3.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;strong&gt;勾选“我同意此协议”，点击“下一步&amp;quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-4.png&quot; alt=&quot;1-2-4.png&quot; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;此示例是用的User Installer包，使用System Installer包同理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;3.&lt;strong&gt;选择安装位置，可根据自己习惯更改，由于我已经装了VSCode，安装包自动跳过这一过程，个人建议放在C盘之外，点击“下一步”&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-5.png&quot; alt=&quot;1-2-5.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;4.&lt;strong&gt;这里可以根据自己需求勾选，值得注意的是，如果你勾选了“添加到PATH（重启后生效）”，那么重启之后系统会帮你自动配置好环境变量，当然你也可以选择自己配置&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-6.png&quot; alt=&quot;1-2-6.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;5.&lt;strong&gt;点击“安装”，等待安装进度条拉满，点击“完成”&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-7.png&quot; alt=&quot;1-2-7.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../pictures/1-2/1-2-8.png&quot; alt=&quot;1-2-8.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;6.&lt;strong&gt;恭喜你成功安装VSCode！&lt;/strong&gt;
-&lt;img src=&quot;../pictures/1-2/1-2-11.png&quot; alt=&quot;1-2-11.png&quot; /&gt;&lt;/p&gt;
+		<title>前置工作2-汉化</title>
+		<link href="/posts/Chinesization/"/>
+		<updated>2023-11-09T00:00:00Z</updated>
+		<id>/posts/Chinesization/</id>
+		<content type="html">&lt;p&gt;本文是给很不习惯全英文开发环境的同志准备的。如果你习惯全英文开发的话，请忽略本文。&lt;/p&gt;
+&lt;p&gt;打开vscode，在左侧的 &lt;img src=&quot;../pictures/posts/Chinesization/icon.jpg&quot; alt=&quot;扩展&quot; style=&quot;width: 50px; height: auto;&quot; /&gt; (扩展，或快捷键&lt;code&gt;Ctrl+Shift+X&lt;/code&gt;)搜Chinese中文包进行安装，之后重启vscode。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Chinesization/1.png&quot; alt=&quot;1.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Chinesization/2.png&quot; alt=&quot;2.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;重启后，你能看到的界面大概类似这样：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Chinesization/3.png&quot; alt=&quot;3.png&quot; /&gt;
+你看到我的界面可能和你的界面长得有出入，这是因为我安装了&lt;em&gt;&lt;strong&gt;Windows 11 Color Theme&lt;/strong&gt;&lt;/em&gt;扩展导致的。该扩展可以在本网站找到介绍。&lt;/p&gt;
+&lt;p&gt;接下来，就可以开始让Code发挥它的价值了！&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
-		<title>引入</title>
-		<link href="/posts/1-1/"/>
-		<updated>2023-11-01T00:00:00Z</updated>
-		<id>/posts/1-1/</id>
-		<content type="html">&lt;p&gt;这是一个引入。嗯对，&lt;strong&gt;引入&lt;/strong&gt;。&lt;/p&gt;
+		<title>前置工作1-安装</title>
+		<link href="/posts/Install/"/>
+		<updated>2023-11-06T00:00:00Z</updated>
+		<id>/posts/Install/</id>
+		<content type="html">&lt;p&gt;本文起简要讲述各位利用VS Code开发前的前置工作。&lt;/p&gt;
+&lt;h2&gt;1. 下载安装文件的渠道&lt;/h2&gt;
+&lt;p&gt;官方网址：https://code.visualstudio.com/download#&lt;/p&gt;
+&lt;h2&gt;2. 根据自己的操作系统来选择对应的VSCode版本。&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/1.png&quot; alt=&quot;1-2-1.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;⬆这是以前Code官网多系统的下载界面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/2.png&quot; alt=&quot;1-2-2.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是当下(图截于2023.12)最新的安装界面，因为后续在x86平台和Arm平台上的Windows（从11开始）仅提供了64位系统，所以开发者也只提供了x64和Arm64的安装包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在Windows系统下，一般选择x64的安装包就行(除非你用的是32位系统，但现在理论上已经不存在了。)&lt;/p&gt;
+&lt;p&gt;在管理员账户下，应该是只能用System Installer安装的（用User Installer安装会出现错误不让安装）。
+需要注意的是，如果你后来对你的电脑进行了一些&lt;strong&gt;大动根基&lt;/strong&gt;的操作，如：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我们不是古希腊掌管VSCode的神，但我会尽力协助你上手VSCode。&lt;/p&gt;
+&lt;p&gt;在Windows环境下，因为&lt;em&gt;&lt;strong&gt;原来本地账户名是中文&lt;/strong&gt;&lt;/em&gt;导致各种开发工作受阻而&lt;strong&gt;重装系统&lt;/strong&gt;并由此建立了个英文名的本地&lt;em&gt;&lt;strong&gt;管理员账户&lt;/strong&gt;&lt;/em&gt;，并一直使用该&lt;em&gt;&lt;strong&gt;管理员账户&lt;/strong&gt;&lt;/em&gt;活动。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这在我们本科学习期间也往往是难以回避的事情，而它不止会发生于你们在进行某一项项目的开发进程中。在很多本科期间要学习的课程中，但凡涉及到了&lt;em&gt;&lt;strong&gt;非国产的开发软件&lt;/strong&gt;&lt;/em&gt;，中文用户名和中文路径基本都是我们需要一次次地、反复地确认的问题。&lt;/p&gt;
+&lt;p&gt;如果你真的是像上面这样的，那么请你注意你下载的安装包类型。&lt;/p&gt;
+&lt;h2&gt;3. 安装&lt;/h2&gt;
+&lt;p&gt;1.&lt;strong&gt;在下载文件夹中打开刚下好的安装包&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/3.png&quot; alt=&quot;1-2-3.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;strong&gt;勾选“我同意此协议”，点击“下一步&amp;quot;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/4.png&quot; alt=&quot;1-2-4.png&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;此示例是用的User Installer包，使用System Installer包同理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.&lt;strong&gt;选择安装位置，可根据自己习惯更改。建议将安装路径放在系统盘之外，点击“下一步”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/5.png&quot; alt=&quot;1-2-5.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;strong&gt;这里可以根据自己需求勾选（也就是说没有必勾选项），值得注意的是，如果你勾选了“添加到PATH（重启后生效）”，那么重启之后系统会帮你自动配置好环境变量，当然你也可以选择自己配置&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/6.png&quot; alt=&quot;1-2-6.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;5.&lt;strong&gt;点击“安装”，等待安装进度条拉满，点击“完成”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/7.png&quot; alt=&quot;1-2-7.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../pictures/posts/Install/8.png&quot; alt=&quot;1-2-8.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;6.&lt;strong&gt;至此，你已经完成了VS Code的安装。&lt;/strong&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>VS Code介绍</title>
+		<link href="/posts/Introduction/"/>
+		<updated>2023-11-01T00:00:00Z</updated>
+		<id>/posts/Introduction/</id>
+		<content type="html">&lt;p&gt;这是一个&lt;strong&gt;引入&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们不是古希腊掌管VSCode的神，但我们会尽力协助你上手VSCode。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Microsoft Visual Studio Code&lt;/strong&gt; ，简称  &lt;strong&gt;VS Code&lt;/strong&gt; 或者 &lt;strong&gt;Code&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;有什么疑问或者补充的点，请通过邮箱&lt;/p&gt;
-&lt;p&gt;iceflow0798@outlook.com&lt;/p&gt;
-&lt;p&gt;联系我。&lt;/p&gt;
+&lt;p&gt;它的本质是一个可以集成&lt;strong&gt;插件/扩展&lt;/strong&gt;的&lt;strong&gt;文本编辑器&lt;/strong&gt;，通过插件和一些它自带的功能，你能轻松应付一些个人小项目的开发。&lt;/p&gt;
+&lt;p&gt;首先，有一个问题是需要回答的——为什么我们如此推荐你使用Code来进行开发和文本输入呢？要知道其它同样优秀的文本编辑器也很多，比如Sublime Text等等。&lt;/p&gt;
+&lt;p&gt;我们推荐使用Code的主要原因在于，它有如下几条优势：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Code提供包括Windows、Linux、macOS等&lt;strong&gt;多大主流平台的支持&lt;/strong&gt;。这样可以使得个人或小型项目开发者在进行多系统协同工作时更方便，节约了适应成本；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code具有&lt;strong&gt;相当庞大的扩展市场&lt;/strong&gt;，其中提供的扩展能在许多方面——大到整体GUI，小到代码编辑的个人习惯——为你提供简洁轻量的解决方案；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code&lt;strong&gt;内置对Git的支持&lt;/strong&gt;和集成，可以借助它进行图形化界面基础上的代码版本管理，非常方便；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;性能&lt;/strong&gt;——这是Code的另外一项优势。因其本质上是个文本编辑器，所以打开时系统硬件负担很小，非常适合即开即写的项目，同时对于长时间工作的场景负担也小，不容易出现崩溃等现象；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;用户友好的图形化界面&lt;/strong&gt;。Code有一个简洁易用的用户界面，支持多窗口多标签分块展开进行编辑，且它的&lt;strong&gt;工作区&lt;/strong&gt;设置也很适合本地代码的导航和管理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </content>
 	</entry>
 </feed>

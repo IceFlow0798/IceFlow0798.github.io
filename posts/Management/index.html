@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>源码管理1-常用步骤 | VS Code网</title>
+  <meta name="description" content="VS Code，便利你的代码生活。">
+
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/main.css" media="all">
+</head>
+<body>
+    
+  
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a class="navbar__logo" href="/">VS Code网</a>
+
+    <div class="navbar__mobile-options">
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+      <button class="navbar__button navbar__hamburger" aria-expanded="false" aria-label="toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#333333">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="navbar__links">
+      
+        <a class="navbar__link " href="/">
+          主页
+        </a>
+        <a class="navbar__link " href="/pages/about/">
+          关于
+        </a>
+        <a class="navbar__link " href="/tags/">
+          文章
+        </a>
+        <a class="navbar__link " href="/extensions/">
+          扩展
+        </a>
+
+      <div class="navbar__button dark-toggle" aria-label="toggle dark theme">
+        <img src="/static/img/moon.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="navbar__mobile-links">
+    
+      <a class="navbar__mobile-link " href="/">
+        主页
+      </a>
+      <a class="navbar__mobile-link " href="/pages/about/">
+        关于
+      </a>
+      <a class="navbar__mobile-link " href="/tags/">
+        文章
+      </a>
+      <a class="navbar__mobile-link " href="/extensions/">
+        扩展
+      </a>
+  </div>
+
+</nav>
+
+  
+<div class="container">
+    <h1>源码管理1-常用步骤</h1>
+    <br>
+    
+        <b>标签: </b>
+        
+            
+        
+            
+                <a href="/tags/git">git</a>, 
+            
+        
+            
+                <a href="/tags/源码管理">源码管理</a>, 
+            
+        
+            
+                <a href="/tags/仓库">仓库</a>
+            
+        
+    
+    <br><hr>
+
+    <h2>基本流程</h2>
+<p>前面的文章提到过，Git的基本工作流程包括：</p>
+<ul>
+<li>修改：在本地代码库中进行更改。</li>
+<li>暂存：选择特定更改加入下一次提交。</li>
+<li>提交：将暂存的更改保存到本地代码库。</li>
+<li>推送：将本地的更改推送到远程代码库。</li>
+</ul>
+<h3>创建仓库</h3>
+<p>进入github官网，注册，登录，在右上角添加一个仓库(repository)
+<img src="../pictures/posts/Management/1.jpg" alt="1"></p>
+<p>下面是一个 repository 最基本的信息，我们需要清楚了解每一个都是什么意思。配置完每个参数之后，我们就可以创建仓库。
+<img src="../pictures/posts/Management/2.png" alt="2"></p>
+<p>生成仓库的基本结构
+<img src="../pictures/posts/Management/3.jpg" alt="3"></p>
+<p>在本地创建一个文件夹，用来接受test这个仓库内部的文件，也就是clone操作
+<img src="../pictures/posts/Management/4.jpg" alt="4"></p>
+<h3>VSCode绑定GitHub</h3>
+<p>点击“发布到GitHub”，然后会跳转到网页处，输入账号密码登录GitHub
+<img src="../pictures/posts/Management/5.jpg" alt="5"></p>
+<p>点击 Continue ，这样我们的VSCode就会和GitHub关联起来了，然后点击打开
+<img src="../pictures/posts/Management/6.jpg" alt="6"></p>
+<p>这时候会跳回 VSCode，询问是否关联起来，点击 Open
+<img src="../pictures/posts/Management/7.jpg" alt="7"></p>
+<p>关联成功之后就可以看到账户里连接到了GitHub
+<img src="../pictures/posts/Management/8.jpg" alt="8"></p>
+<h3>基础知识</h3>
+<p>clone意思就是把GitHub上的仓库文件，克隆到本地，方便我们进行代码的修改或迭代
+<img src="../pictures/posts/Management/9.jpg" alt="9"></p>
+<p>点击“初始化仓库”，这时候就会切换界面到达监视区<img src="../pictures/posts/Management/10.png" alt="10"></p>
+<p>显示“源代码管理”的bar右侧有五个选项，分别为：<strong>查看形式</strong>：可以选择文件排列形式
+<strong>提交</strong>：用来提交版本信息到达本地仓库
+<strong>刷新</strong>：刷新当前文件修改的内容
+<strong>创建拉取请求</strong>：用于创建一个拉取请求。
+拉取请求是使你更改过后的代码经历审核、被整合到目的分支的必要操作。大致过程为：创建新分支（作为新代码整合的源分支）-&gt;更改代码并存入该分支-&gt;创建拉取请求-&gt;审核代码-&gt;整合新代码到目的分支中。
+拉取请求的产生，说明了你对代码做出的更改和对代码建设工程做出的贡献，它会将你更改的部分和原来的部分进行对比并进行展示。</p>
+<p>**更多操作...**的界面如下
+<img src="../pictures/posts/Management/11.jpg" alt="11">
+拉取：从仓库获得文件
+推送：文件上传至仓库
+克隆：仓库整体克隆到本地中</p>
+<p>左下角部分显示内容（从左至右）：
+<img src="../pictures/posts/Management/12.jpg" alt="12">
+<strong>分支结构</strong>：名为master的分支结构
+<strong>云端信息</strong>：上传与下载的次数
+<strong>问题</strong>：错误和警告
+如有其他图标，可能是你的Code安装了其他拓展，或Code经历了某次更新，新添加了一些元素所致。</p>
+<h3>代码上传</h3>
+<p><strong>Clone</strong></p>
+<p>整体仓库克隆到本地当中
+<img src="../pictures/posts/Management/13.jpg" alt="13">
+<img src="../pictures/posts/Management/14.jpg" alt="14"></p>
+<p>权限问题，点击允许，将会跳到一个GitHub授权画面，同理VSCode默认也要授权
+<img src="../pictures/posts/Management/15.png" alt="15">
+<img src="../pictures/posts/Management/16.jpg" alt="16">
+<img src="../pictures/posts/Management/17.jpg" alt="17">
+<img src="../pictures/posts/Management/18.png" alt="18"></p>
+<p>由于我建立的仓库是私有的，所以最好手动输全，由GitHub 用户名/工程名
+<img src="../pictures/posts/Management/19.jpg" alt="19">
+<img src="../pictures/posts/Management/20.jpg" alt="20"></p>
+<p>询问是否打开仓库，点击 Open，将会重启 VSCode进入克隆好的仓库内部
+<img src="../pictures/posts/Management/21.jpg" alt="21"></p>
+<p><strong>Commit</strong>
+clone 成功之后，我们就可以在上面进行代码的修改等操作了，操作完之后，想要再保存版本，我们就需要分为两步，第一步，把代码信息上传到本地库当中，有两个隐藏文件是会保存版本信息的。第二步，保存的是本地的信息，我们还需要把本地库上传到 GitHub上面</p>
+<p>新建两个文件，里面无内容，然后 commit(提交)
+<img src="../pictures/posts/Management/22.jpg" alt="22">
+<img src="../pictures/posts/Management/23.jpg" alt="23"></p>
+<p>增加版本信息，写越全越好，方便后期主机回头查看，之前显示已修改的文件此时同步到本地仓库了。</p>
+<p><strong>push</strong>
+接下来准备把本地仓库内容，Push 到GitHub上面，最终我们可以在 GitHub 网站看到自己的库，如果你只是做个人的开发，可以选择不 Push，直接在把库保存在本地
+<img src="../pictures/posts/Management/24.jpg" alt="24">
+<img src="../pictures/posts/Management/25.png" alt="25">
+<img src="../pictures/posts/Management/26.jpg" alt="26"></p>
+
+    <script src="https://utteranc.es/client.js"
+            repo="IceFlow0798/Code-site-comments"
+            issue-term="title"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <br><br>
+    <a href="/">&larr; 回到主页</a>
+</div>
+
+  <footer class="footer">
+  &copy; 2024 - VS Code网
+</footer>
+
+  <script>
+    const ham = document.querySelector('.navbar__hamburger')
+    const menu = document.querySelector('.navbar__mobile-links')
+    const darkToggleButtons = document.querySelectorAll('.dark-toggle')
+
+    function changeDarkToggleBtnIcon () {
+      darkToggleButtons.forEach(btn => {
+        if (btn.querySelector('img').src.indexOf('/static/img/moon.svg') !== -1) {
+          btn.querySelector('img').src = "/static/img/sun.svg"
+        } else {
+          btn.querySelector('img').src = "/static/img/moon.svg"
+        }
+      })
+    }
+
+    if (
+      localStorage.prefsDark === 'true' || 
+      (
+        window.matchMedia && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.prefsDark !== 'false')
+      ) {
+      document.body.classList.add('dark')
+      changeDarkToggleBtnIcon()
+    }
+
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('navbar__mobile-links--open')
+
+      let prevState = JSON.parse(ham.getAttribute('aria-expanded'))
+      ham.setAttribute('aria-expanded', !prevState)
+    })
+
+    darkToggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        changeDarkToggleBtnIcon()
+
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark')
+          localStorage.prefsDark = 'false'
+        } else {
+          document.body.classList.add('dark')
+          localStorage.prefsDark = 'true'
+        }
+
+      })
+    })
+  </script>
+</body>
+</html>
