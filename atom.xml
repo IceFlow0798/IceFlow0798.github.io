@@ -5,7 +5,7 @@
 	
 	<link href="/atom.xml" rel="self"/>
 	<link href=""/>
-	<updated>2024-05-20T17:37:30Z</updated>
+	<updated>2024-05-20T18:40:22Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Ice Flow</name>
@@ -173,7 +173,7 @@
 		<content type="html">&lt;p&gt;对于VS Code，随着软件的更新，越来越多原本需要扩展才能实现的功能，现如今都被添加进软件本体，所以使用插件前务必更新至最新版本。可点击“帮助”-“检查更新”获取最新版本，或在&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;官网&lt;/a&gt;获取最新安装包。&lt;/p&gt;
 &lt;p&gt;按下快捷键&lt;code&gt;Ctrl+Shift+X&lt;/code&gt;或者点击左侧与&lt;img src=&quot;../pictures/posts/Chinesization/icon.jpg&quot; alt=&quot;扩展&quot; style=&quot;width: 50px; height: auto;&quot; /&gt;相近的图标（可能随主题而异）可以快捷打开Code的扩展市场。&lt;/p&gt;
 &lt;p&gt;本网站会给出少量的扩展推荐。剩下的扩展海洋还需要你自己去探索。&lt;/p&gt;
-&lt;p&gt;如果你发现了很实用的扩展，欢迎通过邮箱联系我！我会在后期添加与它相关的介绍。&lt;/p&gt;
+&lt;p&gt;如果你发现了很实用的扩展，欢迎通过邮箱(“关于”界面有介绍)联系我！我会在后期添加与它相关的介绍。&lt;/p&gt;
 </content>
 	</entry>
 	
