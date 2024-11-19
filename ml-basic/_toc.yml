@@ -1,0 +1,38 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: core/intro.md
+options:
+  toc_cell: false
+  toc_position: left
+  toc_section_display: block
+parts:
+- caption: 正式章节
+  chapters:
+  - file: core/Chapter1.ipynb
+    title: 机器学习概要
+  - file: core/Chapter2.ipynb
+    title: 简单监督学习
+  - file: core/Chapter3.ipynb
+    title: 无监督学习
+  - file: core/Chapter4.ipynb
+    title: 评估方法和各种模型的处理
+- caption: 单独项目
+  chapters:
+  - file: core/Iris.ipynb
+    title: "实战应用: 鸢尾花数据集分类"
+  - file: core/KNN.ipynb
+    title: KNN算法示例
+  - file: core/LSA.ipynb
+    title: 潜在语义分析(LSA)
+  - file: core/NativeBayes.ipynb
+    title: 朴素贝叶斯算法示例
+  - file: core/NeuralNetwork.ipynb
+    title: 神经网络算法示例
+  - file: core/PCA.ipynb
+    title: 主成分分析(PCA)
+  - file: core/VisibleTools.ipynb
+    title: "可视化工具: Matplotlib"
+  - file: core/Jupyter_use.ipynb
+    title: Jupyter入门

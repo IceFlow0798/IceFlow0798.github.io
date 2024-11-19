@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.无监督学习 &#8212; 机器学习基础</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/Chapter3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="第四章 评估方法和各种数据的处理" href="Chapter4.html" />
+    <link rel="prev" title="2.有监督学习" href="Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="机器学习基础 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="机器学习基础 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    机器学习引入
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">正式章节</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Chapter1.html">机器学习概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter2.html">简单监督学习</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">无监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter4.html">评估方法和各种模型的处理</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">单独项目</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Iris.html">实战应用: 鸢尾花数据集分类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNN.html">KNN算法示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LSA.html">潜在语义分析(LSA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NeuralNetwork.html">神经网络算法示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCA.html">主成分分析(PCA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VisibleTools.html">可视化工具: Matplotlib</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/core/Chapter3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.无监督学习</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">3. 1PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lsa">3.2 LSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nmf">3.3NMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">3.4 LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">3.5 k -means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.6 混合高斯分布</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lle">3.7 LLE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">3.8 t -SNE</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>3.无监督学习<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="pca">
+<h2>3. 1PCA<a class="headerlink" href="#pca" title="Link to this heading">#</a></h2>
+<p>PCA 是一种用于减少数据中的变量的算法。它对变量之间存在相关性的数据很有效，是一种具有代表性的降维算法；<br>
+PCA 基于原有的变量构造新的变量；<br>
+PCA 可发现对象数据的方向和重要度</p>
+<p>(a)图中画出正交的两条线，线的方向表示数据的方向，长度表示重要度。方向由构成新变量时对象数据变量的权重决定，而重要度与变量的偏差有关。<br>
+(b)图以这两条线为新轴对原始数据进行变换后得到的图形，变换后的数据称为主成分得分。按主成分轴的重要度的值从高到低排序，依次称它们为第一主成分、第二主成分。</p>
+<p><img alt="title" src="../_images/PCA.jpg" /></p>
+<p>接下来介绍PCA 寻找主成分的步骤</p>
+<ol class="arabic simple">
+<li><p>计算协方差矩阵。</p></li>
+<li><p>对协方差矩阵求解特征值问题，求出特征向量和特征值。</p></li>
+<li><p>以数据表示各主成分方向。</p></li>
+</ol>
+<p>下面是对 scikit-learn 内置的鸢尾花数据使用 PCA 的示例代码，用于将 4 个特征变量变换为 2个主成分。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#将减少后的维度设置为2</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)[:</span><span class="mi">10</span><span class="p">])</span> <span class="c1"># 变换后的数据</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>PCA 可以将原始数据中的变量表示为新的轴的主成分。这些主成分按照贡献率大小排序，分别
+为第一主成分、第二主成分……照此类推。这时通过计算累计贡献率，我们可以知道使用到第几个
+主成分为止可以包含原始数据多少比例的信息。</p>
+</section>
+<section id="lsa">
+<h2>3.2 LSA<a class="headerlink" href="#lsa" title="Link to this heading">#</a></h2>
+<p>使用 LSA 就可以根据大量文本自动计算单词和单词的相似度，以及单词和文本的相似度。
+通过 LSA 对文本和单词的矩阵进行降维，将其变换为潜在语义空间（图 3-5）。这种变换使用
+矩阵分解进行。矩阵分解是指将某个矩阵表示为多个矩阵的乘积的形式。</p>
+<p>下面结合具体的例子来讲解矩阵分解和降维。
+首先将以下文本变换为矩阵 X。矩阵 X 的各元素是文本中出现的单词的个数</p>
+<ul class="simple">
+<li><p>坐汽车去公司</p></li>
+<li><p>坐车去的</p></li>
+<li><p>在餐厅吃汉堡牛肉饼</p></li>
+<li><p>在餐厅吃意大利面</p></li>
+</ul>
+<p><img alt="title" src="../_images/wordNum.jpg" /></p>
+<p>下一步：通过矩阵变换进行矩阵分解和降维，将4维的特征转换为2维<br>
+<img alt="title" src="../_images/wordNumChange.jpg" /></p>
+<p>此时得到的数据可以这样理解：<br>
+“汽车”和“车”拥有变量 B 的值，<br>
+“汉堡牛肉饼”和“意大利面”拥有变量 A 的值。<br>
+A 和 B 的特征值显示了各个单词之间的关联性</p>
+<p>下面使用 Python 代码解决前面探讨的问题。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># 潜在变量的个数</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># 变换后的数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span> <span class="c1"># 贡献率</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">))</span> <span class="c1"># 累计贡献率</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.00000000e+00  8.50650808e-01]
+ [ 0.00000000e+00  8.50650808e-01]
+ [ 2.71947991e-16  1.37638192e+00]
+ [ 2.71947991e-16  5.25731112e-01]
+ [ 1.41421356e+00 -2.02192262e-16]
+ [ 7.07106781e-01 -2.02192262e-16]
+ [ 1.41421356e+00 -2.02192262e-16]
+ [ 7.07106781e-01  0.00000000e+00]]
+[0.38596491 0.27999429]
+0.6659592065833293
+</pre></div>
+</div>
+</div>
+</div>
+<p>LSA算法的注意事项</p>
+<ol class="arabic simple">
+<li><p>变换后的矩阵有时难以解释。在通过奇异值分解降维时，各个维度可能是正交的，矩阵中的元素也可能是负值。</p></li>
+<li><p>LSA 的计算成本有时很高。特别是在用于文本时，由于原始矩阵的维度就是单词的个数，所以 LSA 必须在非常大的矩阵上进行奇异值分解。</p></li>
+<li><p>随着新词的加入，原有的矩阵必须重新创建，我们必须在此基础上重新计算，所以模型的更新难度很大。</p></li>
+</ol>
+</section>
+<section id="nmf">
+<h2>3.3NMF<a class="headerlink" href="#nmf" title="Link to this heading">#</a></h2>
+<p>NMF 是一种矩阵分解方法，在计算机视觉、文本挖掘、推荐等各个领域都有应用。与LSA一样，它也可以找到矩阵的潜在变量。</p>
+<p>NMF具有一下特点</p>
+<ul class="simple">
+<li><p>原始矩阵的元素是非负数。</p></li>
+<li><p>分解后矩阵的元素是非负数。</p></li>
+<li><p>没有“潜在语义空间的每一个维度都是正交的”这一约束条件。</p></li>
+</ul>
+<p>算法说明</br>
+NMF 作为一种矩阵分解方法，通过将原始数据分解为两个矩阵来降维。设原始数据为 n 行 d 列的矩阵 V，将其表示为两个矩阵 W 和 H 的乘积。W 是 n 行 r 列的矩阵，H 是 r 行 d 列的矩阵，WH 是原始矩阵 V 的近似，选择比 d 小的 r 就可以进行降维。</p>
+<p><img alt="title" src="../_images/NMF.jpg" /></p>
+<p>在求 W 和 H 的过程中，NMF 在 W ≥ 0、H ≥ 0 的条件下，使 WH 接近 V。
+NMF 采取“将 H 视为常数，更新 W ”“将 W 视为常数，更新 H”的方式交替更新 W 和 H。</br>
+灰色的点为原始矩阵 V，绿色的点为近似矩阵 WH。随着计算的进行，我们可以看到近似矩阵
+越来越接近原始矩阵。此外，红线和蓝线是潜在空间的轴，所有近似矩阵的图形都能在潜在空间的轴上表示出来。</p>
+<p><img alt="title" src="../_images/NMFupdate.jpg" /></p>
+<p>下面是使用 scikit-learn 运行 NMF 算法的示例代码</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">NMF</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets._samples_generator</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="n">centers</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="n">V</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="n">centers</span><span class="p">)</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># 潜在变量的个数</span>
+<span class="c1"># 以centers为中心生成数据</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">NMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="c1"># 分解后的矩阵</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">components_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.57375552 0.63740946]
+ [0.16462067 1.01137901]
+ [0.24396182 1.09817687]
+ [0.84111607 0.21069069]
+ [0.76569886 0.27585125]
+ [0.74131722 0.50097646]
+ [0.62518984 0.57436808]
+ [0.25472553 0.92742861]
+ [0.76277361 0.39397145]
+ [0.57470649 0.55103464]]
+[[ 3.70702256 11.72794881  4.80640961]
+ [ 7.84046896  1.93365196  8.4614337 ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lda">
+<h2>3.4 LDA<a class="headerlink" href="#lda" title="Link to this heading">#</a></h2>
+<p>我们用一个具体的例子进行解释，假设例句中的主题个数为2个</p>
+<ol class="arabic simple">
+<li><p>We go to school on weekdays.</p></li>
+<li><p>I like playing sports.</p></li>
+<li><p>They enjoyed playing sports in school.</p></li>
+<li><p>Did she go there after school?</p></li>
+<li><p>He read the sports columns yesterday.
+LDA 可以利用主题分布和单词分布创建文本数据。</p></li>
+</ol>
+<p><img alt="title" src="../_images/LDA.jpg" /></br>
+具体做法是基于文本的主题分布选择主题，之后基于主题的单词分布选择文本中的单词。重复
+这一操作，就能得到生成文本的模型。下面的“算法说明”部分将介绍如何根据输入数据计算主题
+分布和单词分布。</p>
+<ol class="arabic simple">
+<li><p>基于文本的主题分布为单词分配主题。</p></li>
+<li><p>基于分配的主题的单词分布确定单词。</p></li>
+<li><p>对所有文本中包含的单词执行步骤 1 和步骤 2 的操作。</p></li>
+</ol>
+<p>算法说明</p>
+<ol class="arabic simple">
+<li><p>为各文本的单词随机分配主题。</p></li>
+<li><p>基于为单词分配的主题，计算每个文本的主题概率。</p></li>
+<li><p>基于为单词分配的主题，计算每个主题的单词概率。</p></li>
+<li><p>计算步骤 2 和步骤 3 中的概率的乘积，基于得到的概率，再次为各文本的单词分配主题。</p></li>
+<li><p>重复步骤 2 ~ 步骤 4 的计算，直到收敛。</p></li>
+</ol>
+</section>
+<section id="k-means">
+<h2>3.5 k -means<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
+<p>k-means 算法是一种有代表性的聚类算法。由于该算法简单易懂，又可以用于比较大的数据集，
+所以在市场分析和计算机视觉等领域得到了广泛的应用。</br>
+通过计算数据点与各重心的距离，找出离得最近的簇的重心，可以确定数据点所属的簇。求簇
+的重心是 k-means 算法中重要的计算。</p>
+<p>k-means 算法的典型计算步骤如下</p>
+<ol class="arabic simple">
+<li><p>从数据点中随机选择数量与簇的数量相同的数据点，作为这些簇的重心。</p></li>
+<li><p>计算数据点与各重心之间的距离，并将最近的重心所在的簇作为该数据点所属的簇。</p></li>
+<li><p>计算每个簇的数据点的平均值，并将其作为新的重心。</p></li>
+<li><p>重复步骤 2 和步骤 3，继续计算，直到所有数据点不改变所属的簇，或者达到最大计算步数。</p></li>
+</ol>
+<p>下面是对鸢尾花数据集应用 k-means 算法的代码，簇的数量设置为 3。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1"># 将簇的数量设置为3</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="c1"># 各数据点所属的簇</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
+<span class="c1"># 通过fit()计算得到的重心</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 2 2 2 2 0 2 2 2 2
+ 2 2 0 0 2 2 2 2 0 2 0 2 0 2 2 0 0 2 2 2 2 2 0 2 2 2 2 0 2 2 2 0 2 2 2 0 2
+ 2 0]
+[[5.9016129  2.7483871  4.39354839 1.43387097]
+ [5.006      3.428      1.462      0.246     ]
+ [6.85       3.07368421 5.74210526 2.07105263]]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>3.6 混合高斯分布<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>高斯分布是混合高斯分布的基础，是统计学和机器学习中经常使用的一种概率分布。数据的分
+布可以用均值和方差表示，均值描述数据的中心位置，方差描述数据的离散程度。混合高斯分布是
+以多个高斯分布的线性叠加来表示数据的模型。</p>
+<p>算法说明</br>
+混合高斯分布的学习过程是从给定的数据点中找到每个高斯分布的均值和方差的过程。作为例子，我们采用一维数据。</br>
+<img alt="title" src="../_images/gauss.jpg" /></br>
+红色的点是从均值为 - 2.0、方差为 2.2 的高斯分布中采样得到的数据；蓝色的点是从均值为 3.0、方差为 4.0 的高斯分布中采样得到的数据。</p>
+<p>混合高斯分布必须在不知道每个数据点的类别的情况下求出参
+数。因此，我们需要在推测“每个数据点属于某个类别”的权重的基础上，计算出数据点的各个类
+别的高斯分布的参数（均值和方差）。</br>
+详细分为以下步骤</p>
+<ol class="arabic simple">
+<li><p>初始化参数（各高斯分布的均值和方差）。</p></li>
+<li><p>对每个类别计算数据点的权重。</p></li>
+<li><p>根据步骤 2 中计算出的权重重新计算参数。</p></li>
+<li><p>重复步骤 2 和步骤 3，直到通过步骤 3 更新前后的每个均值的变化足够小。</br>
+<img alt="title" src="../_images/gaussprocess.jpg" /></p></li>
+</ol>
+<p>下面是对包含 3 个品种的鸢尾花数据应用混合高斯分布的示例代码。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1"># 高斯分布的数量</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">means_</span><span class="p">)</span>
+<span class="c1"># 预测类别</span>
+<span class="c1"># 各高斯分布的均值</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">covariances_</span><span class="p">)</span>
+<span class="c1"># 各高斯分布的方差</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 2 0 2 0 2
+ 2 2 2 0 2 2 2 2 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0]
+[[6.54639415 2.94946365 5.48364578 1.98726565]
+ [5.006      3.428      1.462      0.246     ]
+ [5.9170732  2.77804839 4.20540364 1.29848217]]
+[[[0.38744093 0.09223276 0.30244302 0.06087397]
+  [0.09223276 0.11040914 0.08385112 0.05574334]
+  [0.30244302 0.08385112 0.32589574 0.07276776]
+  [0.06087397 0.05574334 0.07276776 0.08484505]]
+
+ [[0.121765   0.097232   0.016028   0.010124  ]
+  [0.097232   0.140817   0.011464   0.009112  ]
+  [0.016028   0.011464   0.029557   0.005948  ]
+  [0.010124   0.009112   0.005948   0.010885  ]]
+
+ [[0.2755171  0.09662295 0.18547072 0.05478901]
+  [0.09662295 0.09255152 0.09103431 0.04299899]
+  [0.18547072 0.09103431 0.20235849 0.06171383]
+  [0.05478901 0.04299899 0.06171383 0.03233775]]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lle">
+<h2>3.7 LLE<a class="headerlink" href="#lle" title="Link to this heading">#</a></h2>
+<p>LLE 是一种被称为流形学习（manifold learning）的算法，它的目标是对具有非线性结构的数据
+进行降维。</p>
+<p>算法说明</br>
+LLE 算法要求数据点由其近邻点的线性组合来表示。我们用一个例子来解释</br>
+对于数据点 x1，以最接近 x1 的两个点 x2 和 x3 的线性组合来表示它。</br>
+当 x1 = (1, 1, 1)，x2 = ( - 1, 0, - 1)，
+x3 = (2, 3, 2) 时 的 情 况， 如 果 x2 和 x3 的 权 重 分 别 为 w12 = - 1/3，w13 = 1/3， 那 么 x1 可 以 表 示 为
+x1 = w12x2 + w13x3。</br>如果在不扭转三维空间的 3 个点之间的关系的前提下把它们移动到二维空间，我
+们就可以继续使用这些权重来以近邻点表示 x1。</br>
+实际的数据虽然在三维空间上呈现瑞士卷那样的卷曲结构，但 LLE 将其视为局部的点与点的
+关系，即近邻点之间是不弯曲的空间，所以仍使用近邻点来表示数据点。</p>
+<p><img alt="title" src="../_images/LLE.jpg" /></p>
+<p>下面是对瑞士卷数据集应用 LLE 的代码，其中设置的近邻点的数量为 12。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_swiss_roll</span>
+<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">LocallyLinearEmbedding</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">make_swiss_roll</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span>
+<span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># 近邻点的数量</span>
+<span class="c1"># 降维后的维度</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LocallyLinearEmbedding</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span>
+<span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># 变换后的数据</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.00745799  0.01458373]
+ [-0.00644212  0.00619955]
+ [-0.01741644 -0.03293017]
+ ...
+ [ 0.03863832 -0.0091499 ]
+ [ 0.02496744 -0.01135749]
+ [-0.0015111  -0.00145397]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="t-sne">
+<h2>3.8 t -SNE<a class="headerlink" href="#t-sne" title="Link to this heading">#</a></h2>
+<p>t-SNE 是一种流形学习算法，用于实现复杂数据的可视化。我们可以通过将高维数据降维为二
+维或三维来实现可视化。</p>
+<p>下面是将 t-SNE 应用于手写数字数据集的代码，其中设置的降维后的维度是 2。</p>
+<p><img alt="title" src="../_images/jiangwei.jpg" /></p>
+<p>算法说明</p>
+<ol class="arabic simple">
+<li><p>对于所有的组 i、j，使用高斯分布来表示 xi 和 xj 的相似度。</p></li>
+<li><p>在低维空间中随机配置与 x i 相同数量的点 y i，对于所有的组 i、j，使用 t 分布表示 y i 和 y j 的
+相似度。</p></li>
+<li><p>更新数据点 yi，使得步骤 1 和步骤 2 中定义的相似度分布尽可能相似。</p></li>
+<li><p>重复步骤 3，直到达到收敛条件。</p></li>
+</ol>
+<p><img alt="title" src="../_images/SNEprocess.jpg" /></br>
+上图中，横轴是距离，纵轴是相似度。从图中可以看出，数据之间的距离越近，相似度
+越高；距离越远，相似度越低。我们首先在原来的高维空间中用高斯分布计算相似度，以 pij 这个分
+布表示。这个 pij 表示数据点 xi 和 xj 之间的相似度。
+接下来，在低维空间中随机配置与 x i 对应的数据点 y i。我们也对这个数据点计算表示相似度的
+qij，不过这时使用的是 t 分布。</p>
+<p><img alt="title" src="../_images/tfenbu.jpg" /></br>
+在计算出 pij 和 qij 之后，我们来更新数据点 yi，使 qij 具有与 pij 相同的分布，这样就能够以低维
+空间的 y i 再现高维空间中各 x i 的相似度的关系。由于这时在低维空间使用的是 t 分布，所以可以看
+到，当再现大的相似度时，数据点在低维空间中配置的距离更近；反之，当再现小的相似度时，数
+据点在低维空间中配置的距离更远。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># 设置降维后的维度为2</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -3.016503   54.184124 ]
+ [ 10.382164  -11.731034 ]
+ [-13.537349  -18.758026 ]
+ ...
+ [ -5.8934097 -10.716763 ]
+ [-21.116165   15.562969 ]
+ [-14.097248   -6.917012 ]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./core"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.有监督学习</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第四章 评估方法和各种数据的处理</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">3. 1PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lsa">3.2 LSA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nmf">3.3NMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">3.4 LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">3.5 k -means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.6 混合高斯分布</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lle">3.7 LLE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">3.8 t -SNE</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 创新实践小组
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
