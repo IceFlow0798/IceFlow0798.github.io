@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploratory Computing with Python &#8212; ml-basic</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ml-basic/references/exploratory_computing_with_python_translated/notebook3_for_and_if/py_exploratory_comp_3';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="ml-basic - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="ml-basic - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    Machine Learning Algorithms Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter1.html">机器学习概要</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter2.html">2.有监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter3.html">3.无监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter4.html">第四章 评估方法和各种数据的处理</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Iris.html">实践应用：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/jupyter_use.html">jupyter 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/LSA.html">例子：简单文档集合的 LSA 处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/PCA.html">步骤 1: 数据标准化</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/VisibleTools.html">Matplotlib</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fml-basic/references/exploratory_computing_with_python_translated/notebook3_for_and_if/py_exploratory_comp_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/ml-basic/references/exploratory_computing_with_python_translated/notebook3_for_and_if/py_exploratory_comp_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploratory Computing with Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-3-for-loops-and-if-else-statements">Notebook 3: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-loop">The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-first-for-loop">Exercise 1.  <a name="back1"></a>First <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-statement">The <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-combination-of-for-loop-with-if-statement">Exercise 2. <a name="back2"></a>Combination of <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-load-and-loop-through-temperature-data">Exercise 3. <a name="back3"></a>Load and loop through temperature data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-and-summation">Looping and summation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-running-total">Exercise 4.  <a name="back4"></a>Running total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-maximum-value-the-hard-way">Finding the maximum value the hard way</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-month-closest-to-15-degrees">Exercise 5. <a name="back5"></a>Month closest to 15 degrees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-while"><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-oil-data">Exercise 6, <a name="back6"></a>Oil data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-find-the-position-of-your-name-in-a-list">Exercise 7. <a name="back7"></a>Find the position of your name in a list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-the-exercises">Answers to the exercises</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <figure>
+  <IMG SRC="https://raw.githubusercontent.com/mbakker7/exploratory_computing_with_python/master/tudelft_logo.png" WIDTH=250 ALIGN="right">
+</figure>
+<section class="tex2jax_ignore mathjax_ignore" id="exploratory-computing-with-python">
+<h1>Exploratory Computing with Python<a class="headerlink" href="#exploratory-computing-with-python" title="Link to this heading">#</a></h1>
+<p><em>Developed by Mark Bakker</em></p>
+<section id="notebook-3-for-loops-and-if-else-statements">
+<h2>Notebook 3: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements<a class="headerlink" href="#notebook-3-for-loops-and-if-else-statements" title="Link to this heading">#</a></h2>
+<p>As we will again be using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, we start by importing them</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2479</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2480</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2482</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2483</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2484</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2485</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\magics\pylab.py:103,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="o">%</span> <span class="n">_list_matplotlib_backends_and_gui_loops</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:3665,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3662</span>     <span class="kn">import</span> <span class="nn">matplotlib_inline.backend_inline</span>
+<span class="g g-Whitespace">   </span><span class="mi">3664</span> <span class="kn">from</span> <span class="nn">IPython.core</span> <span class="kn">import</span> <span class="n">pylabtools</span> <span class="k">as</span> <span class="n">pt</span>
+<span class="ne">-&gt; </span><span class="mi">3665</span> <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3667</span> <span class="k">if</span> <span class="n">gui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3668</span>     <span class="c1"># If we have our first gui selection, store it</span>
+<span class="g g-Whitespace">   </span><span class="mi">3669</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\pylabtools.py:338,</span> in <span class="ni">find_gui_and_backend</span><span class="nt">(gui, gui_select)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> <span class="k">def</span> <span class="nf">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gui_select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Given a gui string return the gui and mpl backend.</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span><span class="sd">     &#39;WXAgg&#39;,&#39;Qt4Agg&#39;,&#39;module://matplotlib_inline.backend_inline&#39;,&#39;agg&#39;).</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">338</span>     <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="k">if</span> <span class="n">_matplotlib_manages_backends</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="n">backend_registry</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">backend_registry</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-for-loop">
+<h3>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#the-for-loop" title="Link to this heading">#</a></h3>
+<p>Loops are used to execute a command repeatedly. The syntax for a loop is as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world, the value of i is&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the code above, the variable <code class="docutils literal notranslate"><span class="pre">i</span></code> loops through the five values in the list <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. The first time through, the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>, the second time through, its value is <code class="docutils literal notranslate"><span class="pre">1</span></code>, and so on till the last time when its value is <code class="docutils literal notranslate"><span class="pre">4</span></code>. Note the syntax of a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop: At the end of the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement you need to put a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) and after that you need to indent. It doesn’t matter how many spaces you indent, as long as you keep using the same number of spaces for the entire <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Jupyter Notebooks automatically indent 4 spaces, which is considered good Python style, so use that. You can have as many lines of code inside the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as you want. To end the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, simply stop indenting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span> 
+    <span class="n">xsquared</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x, xsquare&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">xsquared</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;We are done with the loop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list of values to loop through can be anything. It doesn’t even have to be numbers. The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop simply goes through all the values in the list one by one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;mark&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="p">)]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the value of data is:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is, of course, rather inconvenient to have to specify a list to loop through when the list is very long. For example, if you want to do something 100 times, you don’t want to type a list of values from 0 up to 100. But Python has a convenient function for that called <code class="docutils literal notranslate"><span class="pre">range</span></code>. You can loop through a <code class="docutils literal notranslate"><span class="pre">range</span></code> just like you can loop through a list. To loop 10 times, starting with the value <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the value of i is:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">range</span></code> can be converted to a list with the <code class="docutils literal notranslate"><span class="pre">list</span></code> function (but we will not use that option very often). You can call <code class="docutils literal notranslate"><span class="pre">range</span></code> with just one argument, in which case it will generate a range from 0 up to but not including the specified number. Note that <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> produces 10 numbers from 0 up to and including 9. You can optionally give a starting value and a step, similar to the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a range with 10 values:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a range from 10 till 20&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a range from 10 till 20 with steps of 2:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A loop can be used to fill an array. Let’s compute <span class="math notranslate nohighlight">\(y=\cos(x)\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is an array that varies from 0 to <span class="math notranslate nohighlight">\(2\pi\)</span> with 100 points. We already know, of course, that this can be done with the statement <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">np.cos(x)</span></code>. Sometimes this is not possible, however, and we need to fill an array with a loop. First we have to create the array <code class="docutils literal notranslate"><span class="pre">y</span></code> (for example filled with zeros using the <code class="docutils literal notranslate"><span class="pre">zeros_like</span></code> function) and then fill it with the correct values by looping through all values of <code class="docutils literal notranslate"><span class="pre">x</span></code>, so that the index goes from <code class="docutils literal notranslate"><span class="pre">0</span></code> to the length of the <code class="docutils literal notranslate"><span class="pre">x</span></code> array. The counter in the loop (the variable <code class="docutils literal notranslate"><span class="pre">i</span></code> in the code below) is used as the index of the array that is filled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># similar to zeros(shape(x))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loops are very useful constructs in a programming script. Whenever you need to do a computation multiple times you should automatically think: <em>loop!</em>.</p>
+</section>
+<section id="exercise-1-first-for-loop">
+<h3>Exercise 1.  <a name="back1"></a>First <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#exercise-1-first-for-loop" title="Link to this heading">#</a></h3>
+<p>Create a list with the names of the months. Create a second list with the number of days in each month (for a regular year). Create a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that prints:</p>
+<p><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">days</span> <span class="pre">in</span> <span class="pre">MONTH</span> <span class="pre">is</span> <span class="pre">XX</span> <span class="pre">days</span></code></p>
+<p>where, of course, you print the correct name of the month for <code class="docutils literal notranslate"><span class="pre">MONTH</span></code> and the correct number of days for <code class="docutils literal notranslate"><span class="pre">XX</span></code>. Use f-strings.</p>
+<p><a href="#ex1answer">Answer for Exercise 1</a></p>
+</section>
+<section id="the-if-statement">
+<h3>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement<a class="headerlink" href="#the-if-statement" title="Link to this heading">#</a></h3>
+<p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement lets you perform a task only when the outcome of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is true. For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting value:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">data</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;changing data in the first if-statement&#39;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;value after the first if-statement:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">data</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;changing data in the second if-statement&#39;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;value after the second if-statement:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="c1"># data hasn&#39;t changed as data is not larger than 20</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note the syntax of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement: It starts with <code class="docutils literal notranslate"><span class="pre">if</span></code> followed by a statement that is either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> and then a colon. After the colon, you need to indent and the entire indented code block (in this case 2 lines of code) is executed if the statement is <code class="docutils literal notranslate"><span class="pre">True</span></code>. The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is completed when you stop indenting. Recall from Notebook 2 that you can use larger than <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, larger than or equal <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, equal <code class="docutils literal notranslate"><span class="pre">==</span></code>, smaller than or equal <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, smaller than <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> or not equal <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
+</section>
+<section id="the-if-else-statement">
+<h3>The <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement<a class="headerlink" href="#the-if-else-statement" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement may be followed by an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement, which is executed when the condition after <code class="docutils literal notranslate"><span class="pre">if</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>. For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is smaller than 3&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is not smaller than 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even extend the <code class="docutils literal notranslate"><span class="pre">else</span></code> by adding one or more conditions with the <code class="docutils literal notranslate"><span class="pre">elif</span></code> command which is short for ‘else if’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is smaller than 4&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is larger than 4&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is equal to 4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rather than specifying the value of a variable at the top of the code cell, you can ask the user to enter a value and store that value in the variable using the <code class="docutils literal notranslate"><span class="pre">input</span></code> function. The <code class="docutils literal notranslate"><span class="pre">input</span></code> function returns a string that can be converted into a number with the <code class="docutils literal notranslate"><span class="pre">float</span></code> function. Run the code cell below and test that it works when the entered value is larger than 4, smaller than 4, or equal to 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c1"># do this 3 times</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a value: &#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the entered value is smaller than 4&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the entered value is larger than 4&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the entered value is equal to 4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2-combination-of-for-loop-with-if-statement">
+<h3>Exercise 2. <a name="back2"></a>Combination of <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with <code class="docutils literal notranslate"><span class="pre">if</span></code> statement<a class="headerlink" href="#exercise-2-combination-of-for-loop-with-if-statement" title="Link to this heading">#</a></h3>
+<p>Consider the function</p>
+<p><span class="math notranslate nohighlight">\(\begin{split}
+y &amp;= \cos(x) \qquad \text{for} \qquad x &lt; 0 \\
+y &amp;= \exp(-x) \qquad \text{for} \qquad x \ge 0 \\
+\end{split}\)</span></p>
+<p>Compute <span class="math notranslate nohighlight">\(y\)</span> for <span class="math notranslate nohighlight">\(x\)</span> going from <span class="math notranslate nohighlight">\(-2\pi\)</span> to <span class="math notranslate nohighlight">\(2\pi\)</span> with 100 points and make a graph. Make sure the limits of the <span class="math notranslate nohighlight">\(x\)</span>-axis are from <span class="math notranslate nohighlight">\(-2\pi\)</span> to <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
+<p><a href="#ex2answer">Answer for Exercise 2</a></p>
+</section>
+<section id="exercise-3-load-and-loop-through-temperature-data">
+<h3>Exercise 3. <a name="back3"></a>Load and loop through temperature data<a class="headerlink" href="#exercise-3-load-and-loop-through-temperature-data" title="Link to this heading">#</a></h3>
+<p>Load the temperature data for Holland from the data file <code class="docutils literal notranslate"><span class="pre">holland_temperature.dat</span></code>. Loop through all monthly temperatures and print a message that includes the month number and states whether the monthly average temperature is above or below 10 degrees</p>
+<p><a href="#ex3answer">Answer for Exercise 3</a></p>
+</section>
+<section id="looping-and-summation">
+<h3>Looping and summation<a class="headerlink" href="#looping-and-summation" title="Link to this heading">#</a></h3>
+<p>One application of a loop is to compute the sum of all the values in an array. Consider, for example, the array <code class="docutils literal notranslate"><span class="pre">data</span></code> with 8 values. We will compute the sum of all values in <code class="docutils literal notranslate"><span class="pre">data</span></code>. We first define a variable <code class="docutils literal notranslate"><span class="pre">datasum</span></code> and assign it the initial value 0. Next, we loop through all the values in <code class="docutils literal notranslate"><span class="pre">data</span></code> and add each value to <code class="docutils literal notranslate"><span class="pre">datasum</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">datasum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">datasum</span> <span class="o">=</span> <span class="n">datasum</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i, datasum: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">datasum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total sum of data: &#39;</span><span class="p">,</span> <span class="n">datasum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the statement</p>
+<p><code class="docutils literal notranslate"><span class="pre">datasum</span> <span class="pre">=</span> <span class="pre">datasum</span> <span class="pre">+</span> <span class="pre">data[i]</span></code></p>
+<p>means that <code class="docutils literal notranslate"><span class="pre">data[i]</span></code> is added to the current value of <code class="docutils literal notranslate"><span class="pre">datasum</span></code> and that the result is assigned to <code class="docutils literal notranslate"><span class="pre">datasum</span></code>. There is actually a shorter syntax for the same statement:</p>
+<p><code class="docutils literal notranslate"><span class="pre">datasum</span> <span class="pre">+=</span> <span class="pre">data[i]</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">+=</span></code> command means: add whatever is on the right side of the <code class="docutils literal notranslate"><span class="pre">+=</span></code> sign to whatever is on the left side. You can use whichever syntax you are most comfortable with (although <code class="docutils literal notranslate"><span class="pre">+=</span></code> is considered to be better and in some cases more efficient).</p>
+</section>
+<section id="exercise-4-running-total">
+<h3>Exercise 4.  <a name="back4"></a>Running total<a class="headerlink" href="#exercise-4-running-total" title="Link to this heading">#</a></h3>
+<p>For the data of the previous example, compute the running total and store it in an array using a loop. Hence, the result should be an array with the same length as <code class="docutils literal notranslate"><span class="pre">data</span></code> where item <code class="docutils literal notranslate"><span class="pre">i</span></code> is the sum of all values in the array <code class="docutils literal notranslate"><span class="pre">data</span></code> up to and including <code class="docutils literal notranslate"><span class="pre">data[i]</span></code>. Print both the array <code class="docutils literal notranslate"><span class="pre">data</span></code> and the array with the running total to the screen. Finally, check your answer by using the <code class="docutils literal notranslate"><span class="pre">cumsum</span></code> function of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, which should give the same answer as your loop.</p>
+<p><a href="#ex4answer">Answer for Exercise 4</a></p>
+</section>
+<section id="finding-the-maximum-value-the-hard-way">
+<h3>Finding the maximum value the hard way<a class="headerlink" href="#finding-the-maximum-value-the-hard-way" title="Link to this heading">#</a></h3>
+<p>Next, let’s find the maximum in the array <code class="docutils literal notranslate"><span class="pre">data</span></code> and the index of the maximum value. For illustration purposes, we will do this the hard way by using a loop and an if statement. First, we create a variable <code class="docutils literal notranslate"><span class="pre">maxvalue</span></code> that contains the maximum value and set it initially to a very small number, and we create a variable <code class="docutils literal notranslate"><span class="pre">maxindex</span></code> that is the index of the maximum value and is initially set to <code class="docutils literal notranslate"><span class="pre">None</span></code>. Next we loop through all values in <code class="docutils literal notranslate"><span class="pre">data</span></code> and update the <code class="docutils literal notranslate"><span class="pre">maxvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">maxindex</span></code> everytime we find a larger value than the current <code class="docutils literal notranslate"><span class="pre">maxvalue</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxvalue</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1e8</span>
+<span class="n">maxindex</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxvalue</span><span class="p">:</span>
+        <span class="n">maxvalue</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">maxindex</span> <span class="o">=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the maximum value is &#39;</span><span class="p">,</span> <span class="n">maxvalue</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the index of the maximum value is &#39;</span><span class="p">,</span> <span class="n">maxindex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this example, it is easy to check whether these numbers are correct by looking at the <code class="docutils literal notranslate"><span class="pre">data</span></code> array, but that becomes more difficult when the <code class="docutils literal notranslate"><span class="pre">data</span></code> array is large. There are, of course, functions available in the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package to find the maximum value and the index of the maximum value: <code class="docutils literal notranslate"><span class="pre">np.max</span></code> returns the maximum value of an array, and <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> returns the index of the maximum of the array. There are similar functions for the mimimum value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the maximum value is &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the index of the maximum value is &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-5-month-closest-to-15-degrees">
+<h3>Exercise 5. <a name="back5"></a>Month closest to 15 degrees<a class="headerlink" href="#exercise-5-month-closest-to-15-degrees" title="Link to this heading">#</a></h3>
+<p>Find the month in which the average monthly temperature in Holland is closest to 15 degrees (use the data from Exercise 3). Apply the approach described above by looping through all values and use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement inside the loop. You may also want to use the <code class="docutils literal notranslate"><span class="pre">abs</span></code> function to compute the absolute value of a number. Check your answer by using a few <code class="docutils literal notranslate"><span class="pre">numpy</span></code> methods that don’t require a loop and an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
+<p><a href="#ex5answer">Answer for Exercise 5</a></p>
+</section>
+<section id="nested-loops">
+<h3>Nested loops<a class="headerlink" href="#nested-loops" title="Link to this heading">#</a></h3>
+<p>It is also possible to have loops inside loops. These are called nested loops. For example, consider the array <code class="docutils literal notranslate"><span class="pre">data</span></code> with 3 rows and 4 columns shown below. We want to compute the sum of the values in each row (so we sum the columns) and we are going to do this using a double loop. First, we make an array of zeros called <code class="docutils literal notranslate"><span class="pre">rowtotal</span></code> of length 3 (one value for each row of the array <code class="docutils literal notranslate"><span class="pre">data</span></code>). Next, we loop through each row. For each row inside the loop, we start another loop that goes through all the columns and adds the value to the array <code class="docutils literal notranslate"><span class="pre">rowtotal</span></code> for that row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">rowtotal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">irow</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">jcol</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">rowtotal</span><span class="p">[</span><span class="n">irow</span><span class="p">]</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">jcol</span><span class="p">]</span>
+        <span class="c1">#longer alternative:</span>
+        <span class="c1">#rowtotal[irow] = rowtotal[irow] + data[irow, jcol]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rowtotal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After running the code above, first make sure that the answer is correct. Next, note that it is important to set the values of <code class="docutils literal notranslate"><span class="pre">rowtotal</span></code> to 0 before starting the loops, as we add to these values to compute the sum of each row. In the code, we use two loops, so we indented twice.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> has a <code class="docutils literal notranslate"><span class="pre">sum</span></code> function that can compute the sum of an entire array, or the sum along one of the axes (for example along the rows or columns) by specifying the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sum of entire array:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sum rows (axis=0):&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sum columns (axis=1):&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="break-and-while">
+<h3><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#break-and-while" title="Link to this heading">#</a></h3>
+<p>A common task is to find the position of a value in a sorted table (e.g., a list or array).
+For example, determine between which two numbers the number 6 falls in the ordered sequence <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">8,</span> <span class="pre">9]</span></code>.
+I know, it is between <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">8</span></code>, but what if the list is long?
+To find the position in the list, we need to loop through the list and break out of the loop once we have found the position. For this, Python has the command <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is between&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is another way to code this using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop as shown below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is between&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, the comparison is done at the beginning of the loop, while the counter (in this case <code class="docutils literal notranslate"><span class="pre">i</span></code>) is updated inside the loop. Either a loop with a <code class="docutils literal notranslate"><span class="pre">break</span></code> or a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with a counter works fine, but <code class="docutils literal notranslate"><span class="pre">while</span></code> loops may be tricky in some cases, as they can result in infinite loops when you have an error in your code. Once you are in an infinite loop (one that never stops), click on the [Kernel] menu item at the top of the window and select [Interrupt Kernel] or [Restart Kernel]. This will end your Python session and start a new one. When you print something to the screen in your <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, it may not be possible to break out of the loop and you may need to end your Jupyter session (and potentially lose some of your work). Because of these problems with errors in <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, it is recommended to use a loop with a break rather than a while loop when possible.</p>
+</section>
+<section id="exercise-6-oil-data">
+<h3>Exercise 6, <a name="back6"></a>Oil data<a class="headerlink" href="#exercise-6-oil-data" title="Link to this heading">#</a></h3>
+<p>The file <code class="docutils literal notranslate"><span class="pre">oil_price.dat</span></code> contains the monthly oil price since 1985. The file contains three columns: year, month, price in Euros (from the european bank website). Make a plot of the oil price (put numbers along the horizontal axis; we will learn how to do dates in another notebook) and determine the month and year the oil price first rose above 40 euros, above 60 euros, and above 80 euros. You need to write to the screen something like <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">oil</span> <span class="pre">price</span> <span class="pre">exceeds</span> <span class="pre">40</span> <span class="pre">euros</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">time</span> <span class="pre">in</span> <span class="pre">month</span> <span class="pre">xx</span> <span class="pre">of</span> <span class="pre">year</span> <span class="pre">yyyy</span></code> where <code class="docutils literal notranslate"><span class="pre">xx</span></code> and <code class="docutils literal notranslate"><span class="pre">yyyy</span></code> are the correct month and year. Use a double loop. Can you modify the code such that it doesn’t print the number of the month but the name of the month?</p>
+<p><a href="#ex6answer">Answer for Exercise 6</a></p>
+</section>
+<section id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
+<p>Strings are a very versatile data type, and we can easily spend an entire Notebook on strings.
+We will only make limited use of strings, so we keep treatment here to a minimum. We already used strings to specify names along axes of a graph, or in the legend of a graph. Strings are like arrays or lists in that every character in a string has an index. Each character or range of characters can be accessed, but they cannot be changed (so they are more like tuples than arrays or lists). A string also has a length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;Goodmorning everybody&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you add two strings, they are put back to back, just like lists. When you want to combine text with a variable, you first need to change the variable to a string and then add the two strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;Goodmorning everybody&#39;</span>
+<span class="n">newtext</span> <span class="o">=</span> <span class="n">text1</span> <span class="o">+</span> <span class="s1">&#39; in the class&#39;</span>  <span class="c1"># Adding two srings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newtext</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">mes</span> <span class="o">=</span> <span class="s1">&#39;The magic number is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># Combining strings and numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparisons work on strings just like they work on numbers. The comparison starts with the first character in a string and only goes to the next character when the first characters of both strings are equal. The letter ‘a’ is smaller than ‘b’, ‘b’ is smaller than ‘c’, etc. But be careful, in the order of things, the upper case characters are smaller than all lower case characters! So ‘A’ is smaller than ‘a’, but also smaller than ‘m’ or any other lower case character. Make sure you understand the following statements</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;delft&#39;</span> <span class="o">&lt;</span> <span class="s1">&#39;eindhoven&#39;</span><span class="p">)</span>  <span class="c1"># True as &#39;d&#39; is smaller than &#39;e&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dalft&#39;</span> <span class="o">&lt;</span> <span class="s1">&#39;delft&#39;</span><span class="p">)</span>      <span class="c1"># True as &#39;a&#39; is smaller than &#39;e&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;delft&#39;</span> <span class="o">==</span> <span class="s1">&#39;Delft&#39;</span><span class="p">)</span>     <span class="c1"># False as lower and upper case are not equal</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Delft&#39;</span> <span class="o">&lt;</span> <span class="s1">&#39;delft&#39;</span><span class="p">)</span>      <span class="c1"># True as &#39;D&#39; is smaller than &#39;d&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;delft&#39;</span> <span class="o">&gt;</span> <span class="s1">&#39;Eindhoven&#39;</span><span class="p">)</span>  <span class="c1"># Also True, as &#39;d&#39; is larger than &#39;E&#39; or any other upper case character</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Strings can be converted to upper or lower case</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TU</span> <span class="o">=</span> <span class="s1">&#39;TU Delft&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TU</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TU</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TU</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A string consisting of multiple words can be converted into a list of words using <code class="docutils literal notranslate"><span class="pre">split</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;This is a sentence containing a number of words&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the sentence:&#39;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">)</span>
+<span class="n">wordlist</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the split sentence:&#39;</span><span class="p">,</span> <span class="n">wordlist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All words may be printed seperately:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">wordlist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-7-find-the-position-of-your-name-in-a-list">
+<h3>Exercise 7. <a name="back7"></a>Find the position of your name in a list<a class="headerlink" href="#exercise-7-find-the-position-of-your-name-in-a-list" title="Link to this heading">#</a></h3>
+<p>Use a loop to figure out between which two names your name falls in the list
+<code class="docutils literal notranslate"><span class="pre">['Aaldrich',</span> <span class="pre">'Babette',</span> <span class="pre">'Chris',</span> <span class="pre">'Franka',</span> <span class="pre">'Joe',</span> <span class="pre">'Louisa',</span> <span class="pre">'Pierre',</span> <span class="pre">'Simone',</span> <span class="pre">'Tarek',</span> <span class="pre">'Yvonne',</span> <span class="pre">'Zu']</span></code> and print the result to the screen.</p>
+<p><a href="#ex7answer">Answer for Exercise 7</a></p>
+</section>
+<section id="answers-to-the-exercises">
+<h3>Answers to the exercises<a class="headerlink" href="#answers-to-the-exercises" title="Link to this heading">#</a></h3>
+<p><a name="ex1answer">Answer to Exercise 1</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span>\
+          <span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="s1">&#39;June&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span>\
+          <span class="s1">&#39;October&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>
+<span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number of days in </span><span class="si">{</span><span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">days</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back1">Back to Exercise 1</a></p>
+<p><a name="ex2answer">Answer to Exercise 2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back2">Back to Exercise 2</a></p>
+<p><a name="ex3answer">Answer to Exercise 3</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temperature</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average monthly temperature in month &#39;</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39; is less than 10 degrees&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average monthly temperature in month &#39;</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39; is more than 10 degrees&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back3">Back to Exercise 3</a></p>
+<p><a name="ex4answer">Answer to Exercise 4</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">runningtotal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">runningtotal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">runningtotal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">runningtotal</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;data values:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;running total:&#39;</span><span class="p">,</span> <span class="n">runningtotal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;running total with numpy:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back4">Back to Exercise 4</a></p>
+<p><a name="ex5answer">Answer to Exercise 5</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+<span class="n">monthindex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">tdiff</span> <span class="o">=</span> <span class="mf">100.0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tdiff</span><span class="p">:</span>
+        <span class="n">monthindex</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">tdiff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of month closest to 15 degrees, temp: &#39;</span><span class="p">,</span> <span class="n">monthindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">monthindex</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alternative method:&#39;</span><span class="p">)</span>
+<span class="n">altmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">temperature</span> <span class="o">-</span> <span class="mi">15</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of month closest to 15 degrees, temp: &#39;</span><span class="p">,</span> <span class="n">altmin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">altmin</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back5">Back to Exercise 5</a></p>
+<p><a name="ex6answer">Answer to Exercise 6</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oilprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;oil_price_monthly.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">oilprice</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">oilprice</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span>\
+          <span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="s1">&#39;June&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span>\
+          <span class="s1">&#39;October&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">price</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">oilprice</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">price</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The oil price exceeds </span><span class="si">{</span><span class="n">price</span><span class="si">}</span><span class="s1"> euros for the first time in&#39;</span><span class="p">,</span> \
+                  <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">months</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">oilprice</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">])]</span><span class="si">}</span><span class="s1"> of </span><span class="si">{</span><span class="n">oilprice</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back6">Back to Exercise 6</a></p>
+<p><a name="ex7answer">Answer to Exercise 7</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Aaldrich&#39;</span><span class="p">,</span> <span class="s1">&#39;Babette&#39;</span><span class="p">,</span> <span class="s1">&#39;Chris&#39;</span><span class="p">,</span> <span class="s1">&#39;Franka&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Louisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;Simone&#39;</span><span class="p">,</span> <span class="s1">&#39;Tarek&#39;</span><span class="p">,</span> <span class="s1">&#39;Yvonne&#39;</span><span class="p">,</span> <span class="s1">&#39;Zu&#39;</span><span class="p">]</span>
+<span class="n">myname</span> <span class="o">=</span> <span class="s1">&#39;Guido&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">myname</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myname</span><span class="p">,</span> <span class="s1">&#39;is between&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back7">Back to Exercise 7</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ml-basic\references\exploratory_computing_with_python_translated\notebook3_for_and_if"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-3-for-loops-and-if-else-statements">Notebook 3: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops and <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-for-loop">The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-first-for-loop">Exercise 1.  <a name="back1"></a>First <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-statement">The <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-combination-of-for-loop-with-if-statement">Exercise 2. <a name="back2"></a>Combination of <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-load-and-loop-through-temperature-data">Exercise 3. <a name="back3"></a>Load and loop through temperature data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-and-summation">Looping and summation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-running-total">Exercise 4.  <a name="back4"></a>Running total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-maximum-value-the-hard-way">Finding the maximum value the hard way</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-month-closest-to-15-degrees">Exercise 5. <a name="back5"></a>Month closest to 15 degrees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-and-while"><code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-oil-data">Exercise 6, <a name="back6"></a>Oil data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-find-the-position-of-your-name-in-a-list">Exercise 7. <a name="back7"></a>Find the position of your name in a list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-the-exercises">Answers to the exercises</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

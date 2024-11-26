@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploratory Computing with Python &#8212; ml-basic</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ml-basic/references/exploratory_computing_with_python_translated/notebook1_basics_plotting/py_exploratory_comp_1_translated';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="ml-basic - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="ml-basic - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    Machine Learning Algorithms Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter1.html">机器学习概要</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter2.html">2.有监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter3.html">3.无监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter4.html">第四章 评估方法和各种数据的处理</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Iris.html">实践应用：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/jupyter_use.html">jupyter 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/LSA.html">例子：简单文档集合的 LSA 处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/PCA.html">步骤 1: 数据标准化</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/VisibleTools.html">Matplotlib</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fml-basic/references/exploratory_computing_with_python_translated/notebook1_basics_plotting/py_exploratory_comp_1_translated.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/ml-basic/references/exploratory_computing_with_python_translated/notebook1_basics_plotting/py_exploratory_comp_1_translated.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploratory Computing with Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-1">Notebook 1: 基础与绘图</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python 入门第一步</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-python"><a name="ex1a"></a> 练习 1a, 第一个python 代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">除法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1b-first-python-code-using-f-strings"><a name="ex1b"></a> Exercise 1b, First Python code using f-strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">关于变量的更多信息</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">新图形和图形大小</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-first-graph"><a name="ex2"></a> Exercise 2, First graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">风格</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">练习 2b. 再次绘制第一个图形</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">加载数据文件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><a name="ex3"></a> 练习 3，加载数据并添加图例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><a name="ex4"></a> 练习 4，子图和花哨的标记</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">颜色</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gallery-of-graphs">Gallery of graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><a name="ex5"></a> 练习5 饼图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><a name="ex6"></a> 练习 6, 填充区域</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-for-the-exercises">Answers for the exercises</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <figure>
+  <IMG SRC="https://raw.githubusercontent.com/mbakker7/exploratory_computing_with_python/master/tudelft_logo.png" WIDTH=250 ALIGN="right">
+</figure>
+<section class="tex2jax_ignore mathjax_ignore" id="exploratory-computing-with-python">
+<h1>Exploratory Computing with Python<a class="headerlink" href="#exploratory-computing-with-python" title="Link to this heading">#</a></h1>
+<p><em>Developed by Mark Bakker</em></p>
+<section id="notebook-1">
+<h2>Notebook 1: 基础与绘图<a class="headerlink" href="#notebook-1" title="Link to this heading">#</a></h2>
+<section id="python">
+<h3>Python 入门第一步<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
+<p>“便携、强大且易于使用”, Python 是一种流行的开源编程语言，既可用于编写脚本应用程序，也可用于独立程序（参见 Mark Lutz 的《Learning Python》）。Python 几乎可以用来做任何事情。例如，你可以把 Python 当作计算器使用。将光标放在下面的代码单元格中，按下 [shift][enter]。输出应该是 12 :-)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>请注意，添加额外的空格是为了增加代码的可读性。
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code> 的效果和 <code class="docutils literal notranslate"><span class="pre">2*3</span></code> 一样。并且它被认为是一个很好的代码风格。请在你的所有笔记中使用这个额外空格。</p>
+<p>当你正在编程，你想要把你的值存储在变量里</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>‘a’ 和 ‘b’ 现在都是变量了，每个变量都有一个类型。在这个例子里，他们都是整数类型。想要把变量的值输出在屏幕上，使用 <code class="docutils literal notranslate"><span class="pre">print</span></code> 函数（如果代码单元的最后一条语句没有存储在变量中，则会自动打印到屏幕上，如上所示）。注意，两个整数相乘得到的是整数，而两个整数相除得到的是浮点数（带有小数点的数字）。
+、</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+2
+12
+3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>你可以通过将文本字符串放在引号中（单引号或双引号都可以，只要开头和结尾使用相同的引号），然后用逗号分隔文本字符串和变量，来为 print 函数添加一些文本。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the value of a is&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the value of a is 6
+</pre></div>
+</div>
+</div>
+</div>
+<p>变量可以通过使用 ** 进行幂运算（在某些其他语言中使用的 ^ 符号无法用于此操作）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-python">
+<h3><a name="ex1a"></a> 练习 1a, 第一个python 代码<a class="headerlink" href="#a-python" title="Link to this heading">#</a></h3>
+<p>计算多项式的值 <span class="math notranslate nohighlight">\(y=ax^2+bx+c\)</span> 当 <span class="math notranslate nohighlight">\(x=-2\)</span>, <span class="math notranslate nohighlight">\(x=0\)</span>, <span class="math notranslate nohighlight">\(x=2.1\)</span> 时，其中 <span class="math notranslate nohighlight">\(a=1\)</span>, <span class="math notranslate nohighlight">\(b=1\)</span>, <span class="math notranslate nohighlight">\(c=-6\)</span>, 将结果输出出来</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4
+-6
+0.5099999999999998
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex1aanswer">Answer to Exercise 1a</a></p>
+</section>
+<section id="id1">
+<h3>除法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>除法也可以使用</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1/3 gives&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/3 gives 0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>（针对 Python 2 用户的说明（你真的应该切换到 Python 3！）：在 Python 2 中，1/3 的结果为零，因为两个整数的除法在 Python 2 中返回一个整数。）上面的打印语句在连续显示 16 个 3 的值时看起来非常丑陋。更好且更易读的方法是使用称为 f-string 的格式来同时打印文本和变量的值。f-string 允许你通过用大括号 {} 包围变量的值，将其插入到文本的任何位置。整个文本字符串需要用引号括起来，并且前面需要加上字母 f，就像下面。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> divided by </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 divided by 3 gives 0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>大括号中的完整语法是 {variable:width.precision}。当未指定 输出总长 和 保留小数位 时，Python 会使用所有数字并为你计算宽度。如果你想要一个小数点后有 3 位的浮点数，可以指定数字 3，后面跟上字母 f 表示浮点数（你仍然可以不指定宽度，让 Python 自动计算）。如果你更喜欢指数（科学）表示法，可以用 e 替换 f。 # 后面的文本是代码中的注释。在 # 后的任何文本都会被 Python 忽略。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> divided by </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 保留位小数</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> divided by </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">10.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 长度为10 保留三位小数</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> divided by </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># 三位小数用科学计数法</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 divided by 3 gives 0.333
+1 divided by 3 gives      0.333
+1 divided by 3 gives 3.333e-01
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1b-first-python-code-using-f-strings">
+<h3><a name="ex1b"></a> Exercise 1b, First Python code using f-strings<a class="headerlink" href="#exercise-1b-first-python-code-using-f-strings" title="Link to this heading">#</a></h3>
+<p>计算多项式的值 <span class="math notranslate nohighlight">\(y=ax^2+bx+c\)</span> 当 <span class="math notranslate nohighlight">\(x=-2\)</span>, <span class="math notranslate nohighlight">\(x=0\)</span>, <span class="math notranslate nohighlight">\(x=2.1\)</span> 时， 且 <span class="math notranslate nohighlight">\(a=1\)</span>, <span class="math notranslate nohighlight">\(b=1\)</span>, <span class="math notranslate nohighlight">\(c=-6\)</span> 并使用f字符串和2位小数将结果打印到屏幕上。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.00
+-6.00
+0.51
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex1banswer">Answer to Exercise 1b</a></p>
+</section>
+<section id="id2">
+<h3>关于变量的更多信息<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>一旦你在 Python 会话中创建了一个变量，它将保留在内存中，因此你可以在其他单元格中使用它。例如，两个代码单元格之前定义的变量 a 和 b 仍然存在。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the value of a is: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the value of b is: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the value of a is: 1
+the value of b is: 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>用户（在这个例子中是你！）决定代码块的执行顺序。例如，In [6] 表示这是第六次执行一个代码块。如果你更改了同一个代码块并再次运行，它将编号为 7。如果你在代码块 7 中定义变量 a，它将覆盖之前代码块中定义的 a 的值。</p>
+<p>变量名可以尽可能长（不过你得自己输入）。选择描述性的名称有助于理解代码。变量名不能包含空格，也不能以数字开头。并且变量名区分大小写。因此，变量 myvariable 与变量 MyVariable 是不同的。变量的名称可以是你想要的任何名称，但不能是 Python 语言中的保留字。例如，无法创建变量 for = 7，因为 for 是一个保留字。当我们继续学习时，你将了解许多保留字；在 Notebook 中输入时，它们会以粗体绿色显示。</p>
+<p>基本绘图与第一个数组
+绘图不是标准 Python 的一部分，但有一个很好的包可以创建美观的图形（如果你想，也可以创建丑陋的图形）。包是用于特定任务集合的函数库。Python 有很多包，我们将使用其中的几个。我们使用的图形包称为 matplotlib。为了能够使用 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> 中的绘图函数，我们必须导入它。我们将学习几种不同的导入包的方法。现在，我们导入 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> 的绘图部分并将其命名为 <code class="docutils literal notranslate"><span class="pre">plt</span></code>。在导入 <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> 之前，我们使用 <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> 命令告诉 <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> 在此 Notebook 内部显示任何图形，而不是在单独的窗口中显示（稍后会介绍这些命令）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2479</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2480</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2482</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2483</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2484</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2485</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\magics\pylab.py:103,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="o">%</span> <span class="n">_list_matplotlib_backends_and_gui_loops</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:3665,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3662</span>     <span class="kn">import</span> <span class="nn">matplotlib_inline.backend_inline</span>
+<span class="g g-Whitespace">   </span><span class="mi">3664</span> <span class="kn">from</span> <span class="nn">IPython.core</span> <span class="kn">import</span> <span class="n">pylabtools</span> <span class="k">as</span> <span class="n">pt</span>
+<span class="ne">-&gt; </span><span class="mi">3665</span> <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3667</span> <span class="k">if</span> <span class="n">gui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3668</span>     <span class="c1"># If we have our first gui selection, store it</span>
+<span class="g g-Whitespace">   </span><span class="mi">3669</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\pylabtools.py:338,</span> in <span class="ni">find_gui_and_backend</span><span class="nt">(gui, gui_select)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> <span class="k">def</span> <span class="nf">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gui_select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Given a gui string return the gui and mpl backend.</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span><span class="sd">     &#39;WXAgg&#39;,&#39;Qt4Agg&#39;,&#39;module://matplotlib_inline.backend_inline&#39;,&#39;agg&#39;).</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">338</span>     <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="k">if</span> <span class="n">_matplotlib_manages_backends</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="n">backend_registry</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">backend_registry</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>在 Python 会话中，包只需导入一次。在上述导入语句之后，可以从任何代码单元格调用任何绘图函数，格式为 plt.function。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1de3c8b0450&gt;]
+</pre></div>
+</div>
+<img alt="../../../../_images/c4cad9a34778744a834722fd36b6402973042e0e0936b887011317442f83c111.png" src="../../../../_images/c4cad9a34778744a834722fd36b6402973042e0e0936b887011317442f83c111.png" />
+</div>
+</div>
+<p>让我们尝试绘制 <span class="math notranslate nohighlight">\(y\)</span> 相对于 <span class="math notranslate nohighlight">\(x\)</span> 的图，<span class="math notranslate nohighlight">\(x\)</span> 的范围从 <span class="math notranslate nohighlight">\(-4\)</span> 到 <span class="math notranslate nohighlight">\(+4\)</span>，对于多项式 <span class="math notranslate nohighlight">\(y=ax^2+bx+c\)</span>，其中 <span class="math notranslate nohighlight">\(a=1\)</span>，<span class="math notranslate nohighlight">\(b=1\)</span>，<span class="math notranslate nohighlight">\(c=-6\)</span>。为了做到这一点，我们需要在一系列点上评估 <span class="math notranslate nohighlight">\(y\)</span>。同一类型值的序列称为数组（例如整数数组或浮点数组）。数组功能在 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> 包中可用。让我们导入 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> 并将其命名为 <code class="docutils literal notranslate"><span class="pre">np</span></code>，这样可以将 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> 包中的任何函数称为 <code class="docutils literal notranslate"><span class="pre">np.function</span></code>|</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>要创建一个数组 x，例如包含 -4 和 4 之间 5 个等间距的点，可以使用 linspace 命令。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-4. -2.  0.  2.  4.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>在上面的单元格中，x 是一个包含 5 个浮点数的数组（-4. 是浮点数，-4 是整数）。如果你输入 np.linspace 然后打开一个左括号，如：</p>
+<p>np.linspace(</p>
+<p>接着按下 [shift-tab]，一个帮助框将弹出，解释该函数的输入参数。当你点击 + 号时，可以滚动查看 linspace 函数的所有文档。点击 x 号可以关闭帮助框。让我们使用从 <span class="math notranslate nohighlight">\(-4\)</span> 到 <span class="math notranslate nohighlight">\(+4\)</span> 的 100 个 <span class="math notranslate nohighlight">\(x\)</span> 值来绘制 <span class="math notranslate nohighlight">\(y\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>  <span class="c1"># Compute y for all x values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1de3ff61910&gt;]
+</pre></div>
+</div>
+<img alt="../../../../_images/fcd59b759f88551f50a1e6f6309c1aa17aba39091d5f373d152f4616fa5a00cb.png" src="../../../../_images/fcd59b759f88551f50a1e6f6309c1aa17aba39091d5f373d152f4616fa5a00cb.png" />
+</div>
+</div>
+<p>请注意，在简单的语句 y = a * x ** 2 + b * x + c 中计算了 一百 个 y 值。当你进行数学运算时，Python 将数组视为与常规变量相同的方式处理。数学运算会简单地应用于数组中的每个值（并且运行速度比逐个计算要快得多）。</p>
+<p>你可能会想知道像 [&lt;matplotlib.lines.Line2D at 0x1de3ff61910&gt;] 这样的语句是什么（你机器上的数字可能会有所不同）。这实际上是一个句柄，用于指向在代码块中的最后一个命令（在这个例子中是 plt.plot(x, y)）创建的线条。请记住：代码单元格中最后一行的结果会打印到屏幕上，除非它存储在变量中。你可以通过在代码块的最后一条命令后加上分号来告诉 Notebook 不要将其打印到屏幕上（例如输入 plot(x, y);）。稍后我们将学习将这个句柄存储在变量中也是有用的</p>
+<p>plot 函数可以接受许多参数。通过输入 plt.plot( 然后按 shift-tab，你可以查看 plot 函数的帮助框，获得大量帮助。输入 plt.plot? 会在笔记本底部弹出一个新的可滚动子窗口，显示 plot 的文档。点击右上角的 x 可以关闭该子窗口。</p>
+<p>简而言之，plot 可以用一个参数 plot(y) 来使用，这会在纵轴上绘制 y 值，并从 0 开始枚举横轴。plot(x, y) 绘制 y 相对于 x 的图，而 plot(x, y, formatstring) 则使用 formatstring 中定义的颜色和标记绘制 y 相对于 x 的图，formatstring 可以有很多形式。它可以用于定义颜色，例如 ‘b’ 表示蓝色，’r’ 表示红色，’g’ 表示绿色。也可以用于定义线型，’-’ 表示实线，’–’ 表示虚线，’:’ 表示点线。你还可以定义标记，例如 ‘o’ 表示圆形标记，’s’ 表示方形标记。甚至可以将它们组合在一起：’r–’ 表示红色虚线，而 ‘go’ 表示绿色圆形标记。</p>
+<p>如果这还不够，plot 还接受大量的关键字参数。关键字参数是可以添加到函数的可选参数。语法为 function(keyword1=value1, keyword2=value2) 等等。例如，要绘制一条宽度为 6 的线（默认宽度为 1），可以输入：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/b5de0bf0a1d640f9c3234e8b783c2f5ab73e11602088238316809e5b48c458b1.png" src="../../../../_images/b5de0bf0a1d640f9c3234e8b783c2f5ab73e11602088238316809e5b48c458b1.png" />
+</div>
+</div>
+<p>关键字参数应该放在普通参数之后。plot(linewidth=6, [1, 2, 3], [2, 4, 3]) 会报错。</p>
+<p>可以使用 xlabel 和 ylabel 函数为坐标轴添加名称，例如 plt.xlabel(‘this is the x-axis’)。请注意，这两个函数都接受字符串作为参数。可以使用 plt.title 命令为图形添加标题。通过在同一个代码单元格中给出多个绘图命令，可以将多条曲线添加到同一图形中。它们会自动添加到同一图形中。</p>
+</section>
+<section id="id3">
+<h3>新图形和图形大小<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>每当你在代码单元格中给出绘图语句时，都会自动创建一个默认大小的图形，所有后续的绘图语句都会添加到同一图形中。如果你想要不同大小的图形，可以先使用 plt.figure(figsize=(width, height)) 语法创建一个具有所需大小的图形。然后，代码单元格中的任何后续绘图语句都会添加到该图形中。你甚至可以创建第二个（或第三个、第四个……）图形。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;very wide figure&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>  <span class="c1"># new figure of default size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;second figure&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/d535001c66cce4463a7e1b27f2fcb508ae97a2e777d113a57919603ee5bbfcff.png" src="../../../../_images/d535001c66cce4463a7e1b27f2fcb508ae97a2e777d113a57919603ee5bbfcff.png" />
+<img alt="../../../../_images/ad6c0b3301f3fb2ea9b8b5a12d36c0135bec7ef564756caa0c1d8645a11b6b92.png" src="../../../../_images/ad6c0b3301f3fb2ea9b8b5a12d36c0135bec7ef564756caa0c1d8645a11b6b92.png" />
+</div>
+</div>
+</section>
+<section id="exercise-2-first-graph">
+<h3><a name="ex2"></a> Exercise 2, First graph<a class="headerlink" href="#exercise-2-first-graph" title="Link to this heading">#</a></h3>
+<p>绘制 <span class="math notranslate nohighlight">\(y=(x+2)(x-1)(x-2)\)</span>，当 <span class="math notranslate nohighlight">\(x\)</span> 从 <span class="math notranslate nohighlight">\(-3\)</span> 到 <span class="math notranslate nohighlight">\(+3\)</span> 时，使用红色虚线。在同一图形上，对于每个 <span class="math notranslate nohighlight">\(y\)</span> 等于零 的点绘制一个蓝色圆圈。将标记的大小设置为 10（你可能需要查阅 plt.plot 的帮助以找到如何实现这一点）。将坐标轴标记为 ‘x-axis’ 和 ‘y-axis’。添加标题 ‘First nice Python figure of Your Name’，其中你可以输入自己的名字。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y = (x+2)(x-1)(x-2)&#39;</span><span class="p">)</span>
+<span class="n">x_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">y_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_zeros</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_zeros</span><span class="p">,</span> <span class="n">y_zeros</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;y = 0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-axis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;First nice Python figure of Maiicy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/e5f7f461e67cefde1545c73113c8ca9f8a9d338384391016d83f5846d17fe731.png" src="../../../../_images/e5f7f461e67cefde1545c73113c8ca9f8a9d338384391016d83f5846d17fe731.png" />
+</div>
+</div>
+<p><a href="#ex2answer">Answer to Exercise 2</a></p>
+</section>
+<section id="id4">
+<h3>风格<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>正如上面提到的，良好的编码风格非常重要。它使代码更易于阅读，从而更容易发现错误和漏洞。例如，考虑下面的代码，它重新创建了我们之前绘制的图形（使用更宽的线条），但现在没有插入额外的空格。（很挤很难看吧）</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">c</span><span class="o">=-</span><span class="mi">6</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="c1">#Compute y for all x values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>在前面的代码单元中，代码难以阅读。良好的风格至少包括以下几点：</p>
+<ul class="simple">
+<li><p>每个数学符号（=, +, -, *, /）周围都有空格，但 ** 周围不需要空格</p></li>
+<li><p>函数参数之间有空格</p></li>
+<li><p>关键字参数的等号两边没有空格（因此 linewidth=3 是正确的）</p></li>
+<li><p>每个逗号后有一个空格</p></li>
+<li><p>每个 # 后有一个空格</p></li>
+<li><p>当 # 紧跟在 Python 语句后面时，前面有两个空格</p></li>
+<li><p>函数名和参数列表之间没有空格。因此 plt.plot(x, y) 是良好的风格，而 plt.plot (x, y) 就不符合良好的风格。</p></li>
+</ul>
+<p>这些规则是官方 Python 风格指南 PEP8 的（非常小的一部分）。当这些规则被应用时，代码可读性会大大提高，如下所示：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>  <span class="c1"># Compute y for all x values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>在所有其他练习和未来的 Notebook 中使用正确的风格。</p>
+</section>
+<section id="b">
+<h3>练习 2b. 再次绘制第一个图形<a class="headerlink" href="#b" title="Link to this heading">#</a></h3>
+<p>回到你的练习 2，并应用正确的编码风格</p>
+</section>
+<section id="id5">
+<h3>加载数据文件<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>可以使用 numpy 的 loadtxt 函数从数据文件中加载数值数据；即，命令是 np.loadtxt。你需要确保文件与笔记本在同一目录下，或者提供完整的路径。文件名（或路径加文件名）需要用引号括起来。</p>
+</section>
+<section id="id6">
+<h3><a name="ex3"></a> 练习 3，加载数据并添加图例<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>你将使用包含荷兰、纽约市和北京的平均月温度的数据文件。荷兰的数据存储在 holland_temperature.dat 文件中，其他文件名类似。将每个地点的温度绘制成相对于月份编号（从 1 开始，即 1 月）的单个图形。使用 plt.legend([‘line1’, ‘line2’]) 等函数添加图例，但要使用更具描述性的名称。使用 plt.legend? 了解 legend 命令。将图例放置在适当的位置（左上角可能不错，或者让 Python 自行决定最佳位置）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">holland_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">nyc_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;newyork_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">beijing_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;beijing_temperature.dat&#39;</span><span class="p">)</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">holland_temp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holland Temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">nyc_temp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;New York City Temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">beijing_temp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beijing Temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Monthly Temperature&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/ac00bb5b8f0e2300c88b3095e2105b7c23e3eb9088943c9d7c9ee86dc630aeb3.png" src="../../../../_images/ac00bb5b8f0e2300c88b3095e2105b7c23e3eb9088943c9d7c9ee86dc630aeb3.png" />
+</div>
+</div>
+<p><a href="#ex3answer">Answer to Exercise 3</a></p>
+</section>
+<section id="id7">
+<h3><a name="ex4"></a> 练习 4，子图和花哨的标记<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>加载荷兰的平均月空气温度和海水温度。使用 subplot 命令创建一个包含两个上下排列的图形（使用 plt.subplot? 查找如何操作）。在上面的图中，绘制空气温度和海水温度。在横轴上将刻度标记为 ‘jan’, ‘feb’, ‘mar’ 等，而不是数字。使用 plt.xticks? 查找如何设置刻度。 在下方的图中，绘制空气温度和海水温度之间的差异。添加图例、坐标轴标签，以及所有其他元素。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">sea_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_seawater.dat&#39;</span><span class="p">)</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span> <span class="s1">&#39;feb&#39;</span><span class="p">,</span> <span class="s1">&#39;mar&#39;</span><span class="p">,</span> <span class="s1">&#39;apr&#39;</span><span class="p">,</span> <span class="s1">&#39;may&#39;</span><span class="p">,</span> <span class="s1">&#39;jun&#39;</span><span class="p">,</span> <span class="s1">&#39;jul&#39;</span><span class="p">,</span> <span class="s1">&#39;aug&#39;</span><span class="p">,</span> <span class="s1">&#39;sep&#39;</span><span class="p">,</span> <span class="s1">&#39;oct&#39;</span><span class="p">,</span> <span class="s1">&#39;nov&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">air_temp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Air Temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sea_temp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sea Temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">months</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average Monthly Air and Sea Temperature in Holland&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
+<span class="n">temperature_difference</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">sea_temp</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperature_difference</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temperature Difference&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">months</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature Difference (°C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Temperature Difference between Air and Sea&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/b5166dcfe45bb121d17d67208e422c84c5fa3396889764079a950d8a5495d664.png" src="../../../../_images/b5166dcfe45bb121d17d67208e422c84c5fa3396889764079a950d8a5495d664.png" />
+</div>
+</div>
+<p><a href="#ex4answer">Answer to Exercise 4</a></p>
+</section>
+<section id="id8">
+<h3>颜色<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>如果你没有为绘图语句指定颜色，matplotlib 将使用其默认颜色。前三种默认颜色是特定色调的蓝色、橙色和绿色。默认颜色的名称是一个大写的 C，后面跟着数字，从数字 0 开始。例如</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;default blue&#39;</span><span class="p">,</span> <span class="s1">&#39;default orange&#39;</span><span class="p">,</span> <span class="s1">&#39;default green&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/36fa10d9dc613dbab8b09b7fff8c0a62285601116e501d6cedaedeb8e92b763c.png" src="../../../../_images/36fa10d9dc613dbab8b09b7fff8c0a62285601116e501d6cedaedeb8e92b763c.png" />
+</div>
+</div>
+<p>在 matplotlib 绘图中，有五种不同的方法可以指定你自己的颜色；你可以在<a class="reference external" href="http://matplotlib.org/examples/pylab_examples/color_demo.html">这里</a>了解更多。一个有用的方法是使用 HTML 颜色名称。你可以在以下链接找到 HTML 颜色代码的相关信息： <a class="reference external" href="http://en.wikipedia.org/wiki/Web_colors">这里</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;fuchsia&#39;</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="s1">&#39;lime&#39;</span>
+<span class="n">color3</span> <span class="o">=</span> <span class="s1">&#39;DodgerBlue&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">color2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">color3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">color1</span><span class="p">,</span> <span class="n">color2</span><span class="p">,</span> <span class="n">color3</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/165a30440172e957c5aaf9f27dd343a8b6f34e6544e98aa6a458fadbb9543c98.png" src="../../../../_images/165a30440172e957c5aaf9f27dd343a8b6f34e6544e98aa6a458fadbb9543c98.png" />
+</div>
+</div>
+<p>使用 xkcd 颜色名称可能是最酷（也是最呆板）的方法，这些名称需要以 xkcd: 前缀来指定。xkcd 颜色名称的列表可以在 <a class="reference external" href="https://xkcd.com/color/rgb/">xkcd</a> 网站上找到，其中包括一些有趣的颜色，如“婴儿呕吐绿”和各种棕色，范围从“屎色”到“婴儿屎棕”。你可以尝试使用这些颜色名称来绘图，效果会很有趣！XD</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;xkcd:baby puke green&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;xkcd color baby puke green&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/284a1416be19b9a9c36783e7604837888e46f63c69d46e10d0837da92a58b097.png" src="../../../../_images/284a1416be19b9a9c36783e7604837888e46f63c69d46e10d0837da92a58b097.png" />
+</div>
+</div>
+</section>
+<section id="gallery-of-graphs">
+<h3>Gallery of graphs<a class="headerlink" href="#gallery-of-graphs" title="Link to this heading">#</a></h3>
+<p>绘图包 matplotlib 允许你制作非常精美的图形。查看 <A href="http://matplotlib.org/gallery.html" target=_blank>matplotlib 画廊</A>，可以了解许多可用的选项。接下来的练习将使用多个 matplotlib 的选项。</p>
+</section>
+<section id="id9">
+<h3><a name="ex5"></a> 练习5 饼图<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>在2012年伦敦奥运会上，获得金牌的前十个国家（加上其他国家）分别是 [‘USA’, ‘CHN’, ‘GBR’, ‘RUS’, ‘KOR’, ‘GER’, ‘FRA’, ‘ITA’, ‘HUN’, ‘AUS’, ‘OTHER’]。它们分别获得了 [46, 38, 29, 24, 13, 11, 11, 8, 8, 7, 107] 枚金牌。制作一个饼图（使用 plt.pie? 或访问 matplotlib 画廊中的饼图）来显示伦敦奥运会前十个金牌获得者及其他国家的情况。尝试使用一些关键字参数来美化图表。你可能希望使用命令 plt.axis(‘equal’) 来确保水平和垂直轴的比例相等，以便饼图看起来更像圆而不是椭圆。在饼图中使用 colors 关键字来指定颜色序列。颜色序列必须放在方括号内，每个颜色必须用引号括起来，并保留大小写，它们之间必须用逗号分隔，例如 [‘MediumBlue’, ‘SpringGreen’, ‘BlueViolet’]；如果序列不够长，则会重复使用。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;CHN&#39;</span><span class="p">,</span> <span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="s1">&#39;RUS&#39;</span><span class="p">,</span> <span class="s1">&#39;KOR&#39;</span><span class="p">,</span> <span class="s1">&#39;GER&#39;</span><span class="p">,</span> <span class="s1">&#39;FRA&#39;</span><span class="p">,</span> <span class="s1">&#39;ITA&#39;</span><span class="p">,</span> <span class="s1">&#39;HUN&#39;</span><span class="p">,</span> <span class="s1">&#39;AUS&#39;</span><span class="p">,</span> <span class="s1">&#39;OTHER&#39;</span><span class="p">]</span>
+<span class="n">gold_medals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">46</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">107</span><span class="p">]</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#ff9999&#39;</span><span class="p">,</span><span class="s1">&#39;#66b3ff&#39;</span><span class="p">,</span><span class="s1">&#39;#99ff99&#39;</span><span class="p">,</span><span class="s1">&#39;#ffcc99&#39;</span><span class="p">,</span><span class="s1">&#39;#c2c2f0&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;#ffb3e6&#39;</span><span class="p">,</span><span class="s1">&#39;#ff6666&#39;</span><span class="p">,</span><span class="s1">&#39;#c2f0c2&#39;</span><span class="p">,</span><span class="s1">&#39;#ffccf2&#39;</span><span class="p">,</span><span class="s1">&#39;#c2c2c2&#39;</span><span class="p">,</span><span class="s1">&#39;#c0c0c0&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">gold_medals</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">countries</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gold Medals Won by Country at the 2012 London Olympics&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/ae718424fb39ee008e33b68fc56e3335478688188c05b946b61b4ebd1f98fb5b.png" src="../../../../_images/ae718424fb39ee008e33b68fc56e3335478688188c05b946b61b4ebd1f98fb5b.png" />
+</div>
+</div>
+<p><a href="#ex5answer">Answer to Exercise 5</a></p>
+</section>
+<section id="id10">
+<h3><a name="ex6"></a> 练习 6, 填充区域<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>加载空气和海洋温度，使用与练习 4 相同的数据，但这次绘制一个温度与月份编号的图，并使用 plt.fill_between 命令填充曲线与水平轴之间的区域。指定 alpha 关键字，它定义了透明度。进行一些实验将帮助你找到一个合适的 alpha 值（保持在 0 到 1 之间）。请注意，需要使用 color 关键字参数来指定颜色。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span> 
+<span class="n">sea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_seawater.dat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">air</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">sea</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span> <span class="s1">&#39;feb&#39;</span><span class="p">,</span> <span class="s1">&#39;mar&#39;</span><span class="p">,</span> <span class="s1">&#39;apr&#39;</span><span class="p">,</span> <span class="s1">&#39;may&#39;</span><span class="p">,</span> <span class="s1">&#39;jun&#39;</span><span class="p">,</span> <span class="s1">&#39;jul&#39;</span><span class="p">,</span> <span class="s1">&#39;aug&#39;</span><span class="p">,</span> <span class="s1">&#39;sep&#39;</span><span class="p">,</span> <span class="s1">&#39; oct&#39;</span><span class="p">,</span> <span class="s1">&#39;nov&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (Celcius)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/73b0bff154e0b5e81f57ad8cab8300d6fa2c79036f80df8897e7480071a9a7d1.png" src="../../../../_images/73b0bff154e0b5e81f57ad8cab8300d6fa2c79036f80df8897e7480071a9a7d1.png" />
+</div>
+</div>
+<p><a href="#ex6answer">Answer to Exercise 6</a></p>
+</section>
+<section id="answers-for-the-exercises">
+<h3>Answers for the exercises<a class="headerlink" href="#answers-for-the-exercises" title="Link to this heading">#</a></h3>
+<p><a name="ex1aanswer">Answer to Exercise 1</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y evaluated at x = -2 is&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y evaluated at x = 0 is&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y evaluated at x = 2 is&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex1a">Back to Exercise 1a</a></p>
+<p><a name="ex1banswer">Answer to Exercise 1b</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;y evaluated at x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;y evaluated at x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;y evaluated at x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex1b">Back to Exercise 1b</a></p>
+<p><a name="ex2answer">Answer to Exercise 2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-axis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y-axis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;First Python Figure of Mark Bakker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex2">Back to Exercise 2</a></p>
+<p><a name="ex3answer">Answer to Exercise 3</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">holland</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">newyork</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;newyork_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">beijing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;beijing_temperature.dat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">holland</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">newyork</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">beijing</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of the month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mean monthly temperature (Celcius)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Holland&#39;</span><span class="p">,</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span><span class="s1">&#39;Beijing&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex3">Back to Exercise 3</a></p>
+<p><a name="ex4answer">Answer to Exercise 4</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span> 
+<span class="n">sea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_seawater.dat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">air</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;air temp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sea</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sea temp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;temp (Celcius)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">air</span><span class="o">-</span><span class="n">sea</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+           <span class="p">[</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span><span class="s1">&#39;feb&#39;</span><span class="p">,</span><span class="s1">&#39;mar&#39;</span><span class="p">,</span><span class="s1">&#39;apr&#39;</span><span class="p">,</span><span class="s1">&#39;may&#39;</span><span class="p">,</span><span class="s1">&#39;jun&#39;</span><span class="p">,</span><span class="s1">&#39;jul&#39;</span><span class="p">,</span><span class="s1">&#39;aug&#39;</span><span class="p">,</span><span class="s1">&#39;sep&#39;</span><span class="p">,</span><span class="s1">&#39;oct&#39;</span><span class="p">,</span><span class="s1">&#39;nov&#39;</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;air - sea temp (Celcius)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex4">Back to Exercise 4</a></p>
+<p><a name="ex5answer">Answer to Exercise 5</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gold</span> <span class="o">=</span> <span class="p">[</span><span class="mi">46</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">107</span><span class="p">]</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;CHN&#39;</span><span class="p">,</span> <span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="s1">&#39;RUS&#39;</span><span class="p">,</span> <span class="s1">&#39;KOR&#39;</span><span class="p">,</span> <span class="s1">&#39;GER&#39;</span><span class="p">,</span> <span class="s1">&#39;FRA&#39;</span><span class="p">,</span> <span class="s1">&#39;ITA&#39;</span><span class="p">,</span> <span class="s1">&#39;HUN&#39;</span><span class="p">,</span> <span class="s1">&#39;AUS&#39;</span><span class="p">,</span> <span class="s1">&#39;OTHER&#39;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">gold</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">countries</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gold&#39;</span><span class="p">,</span> <span class="s1">&#39;MediumBlue&#39;</span><span class="p">,</span> <span class="s1">&#39;SpringGreen&#39;</span><span class="p">,</span> <span class="s1">&#39;BlueViolet&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex5">Back to Exercise 5</a></p>
+<p><a name="ex6answer">Answer to Exercise 6</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_temperature.dat&#39;</span><span class="p">)</span> 
+<span class="n">sea</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;holland_seawater.dat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">air</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">sea</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span> <span class="s1">&#39;feb&#39;</span><span class="p">,</span> <span class="s1">&#39;mar&#39;</span><span class="p">,</span> <span class="s1">&#39;apr&#39;</span><span class="p">,</span>\
+           <span class="s1">&#39;may&#39;</span><span class="p">,</span> <span class="s1">&#39;jun&#39;</span><span class="p">,</span> <span class="s1">&#39;jul&#39;</span><span class="p">,</span> <span class="s1">&#39;aug&#39;</span><span class="p">,</span> <span class="s1">&#39;sep&#39;</span><span class="p">,</span> <span class="s1">&#39; oct&#39;</span><span class="p">,</span> <span class="s1">&#39;nov&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (Celcius)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex6">Back to Exercise 6</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ml-basic\references\exploratory_computing_with_python_translated\notebook1_basics_plotting"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-1">Notebook 1: 基础与绘图</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python 入门第一步</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-python"><a name="ex1a"></a> 练习 1a, 第一个python 代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">除法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1b-first-python-code-using-f-strings"><a name="ex1b"></a> Exercise 1b, First Python code using f-strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">关于变量的更多信息</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">新图形和图形大小</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-first-graph"><a name="ex2"></a> Exercise 2, First graph</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">风格</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">练习 2b. 再次绘制第一个图形</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">加载数据文件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><a name="ex3"></a> 练习 3，加载数据并添加图例</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><a name="ex4"></a> 练习 4，子图和花哨的标记</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">颜色</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gallery-of-graphs">Gallery of graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><a name="ex5"></a> 练习5 饼图</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><a name="ex6"></a> 练习 6, 填充区域</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-for-the-exercises">Answers for the exercises</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

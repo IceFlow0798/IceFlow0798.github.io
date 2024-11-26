@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploratory Computing with Python &#8212; ml-basic</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ml-basic/references/exploratory_computing_with_python_translated/notebook2_arrays/py_exploratory_comp_2_translated';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="ml-basic - Home"/>
+    <img src="../../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="ml-basic - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    Machine Learning Algorithms Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter1.html">机器学习概要</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter2.html">2.有监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter3.html">3.无监督学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/Chapter4.html">第四章 评估方法和各种数据的处理</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/Iris.html">实践应用：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/jupyter_use.html">jupyter 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/LSA.html">例子：简单文档集合的 LSA 处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../books/PCA.html">步骤 1: 数据标准化</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../books/VisibleTools.html">Matplotlib</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fml-basic/references/exploratory_computing_with_python_translated/notebook2_arrays/py_exploratory_comp_2_translated.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/ml-basic/references/exploratory_computing_with_python_translated/notebook2_arrays/py_exploratory_comp_2_translated.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploratory Computing with Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-2">Notebook 2: 数组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">一维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">练习 1, <a name="back1"></a> 数组和索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数组、列表和元组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">二维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">数组不是矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">练习 2, <a name="back2"></a> 二维数组索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可视化二维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">练习 3, <a name="back3"></a> 创建和可视化数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">练习 4, <a name="back4"></a> 创建和可视化一个稍微复杂的数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">在数组上使用条件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">练习 5, <a name="back5"></a> 替换数组中的高值和低值</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">练习 6, <a name="back6"></a> 根据数据值改变标记颜色</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">基于多个条件选择索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">练习 7, <a name="back7"></a> 多个条件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">练习 8, <a name="back8"></a> 修复错误</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-the-exercises">Answers to the exercises</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <figure>
+  <IMG SRC="https://raw.githubusercontent.com/mbakker7/exploratory_computing_with_python/master/tudelft_logo.png" WIDTH=250 ALIGN="right">
+</figure>
+<section class="tex2jax_ignore mathjax_ignore" id="exploratory-computing-with-python">
+<h1>Exploratory Computing with Python<a class="headerlink" href="#exploratory-computing-with-python" title="Link to this heading">#</a></h1>
+<p><em>Developed by Mark Bakker</em></p>
+<section id="notebook-2">
+<h2>Notebook 2: 数组<a class="headerlink" href="#notebook-2" title="Link to this heading">#</a></h2>
+<p>在这个笔记本中，我们将使用<code class="docutils literal notranslate"><span class="pre">numpy</span></code>包的函数对数组进行数学运算。有关<code class="docutils literal notranslate"><span class="pre">numpy</span></code>功能的详细概述可以在<a class="reference external" href="https://docs.scipy.org/doc/numpy/user/quickstart.html">这里</a>找到。我们还将绘制图形。我们首先告诉 Jupyter 笔记本将所有图形内联显示。然后，我们导入<code class="docutils literal notranslate"><span class="pre">numpy</span></code>包并将其命名为<code class="docutils literal notranslate"><span class="pre">np</span></code>，接着导入<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>包的绘图部分并将其命名为<code class="docutils literal notranslate"><span class="pre">plt</span></code>。在接下来的所有笔记本顶部，我们将添加这三行代码，因为我们将始终使用<code class="docutils literal notranslate"><span class="pre">numpy</span></code>和<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2479</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2480</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2482</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2483</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2484</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2485</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\magics\pylab.py:103,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="o">%</span> <span class="n">_list_matplotlib_backends_and_gui_loops</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\interactiveshell.py:3665,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3662</span>     <span class="kn">import</span> <span class="nn">matplotlib_inline.backend_inline</span>
+<span class="g g-Whitespace">   </span><span class="mi">3664</span> <span class="kn">from</span> <span class="nn">IPython.core</span> <span class="kn">import</span> <span class="n">pylabtools</span> <span class="k">as</span> <span class="n">pt</span>
+<span class="ne">-&gt; </span><span class="mi">3665</span> <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3667</span> <span class="k">if</span> <span class="n">gui</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3668</span>     <span class="c1"># If we have our first gui selection, store it</span>
+<span class="g g-Whitespace">   </span><span class="mi">3669</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File E:\Program Files\Python313\Lib\site-packages\IPython\core\pylabtools.py:338,</span> in <span class="ni">find_gui_and_backend</span><span class="nt">(gui, gui_select)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> <span class="k">def</span> <span class="nf">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gui_select</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Given a gui string return the gui and mpl backend.</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span><span class="sd">     &#39;WXAgg&#39;,&#39;Qt4Agg&#39;,&#39;module://matplotlib_inline.backend_inline&#39;,&#39;agg&#39;).</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">338</span>     <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="k">if</span> <span class="n">_matplotlib_manages_backends</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="n">backend_registry</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">backend_registry</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>一维数组<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>创建数组的方法有很多。例如，你可以输入数组的各个元素。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>注意，数组函数接受一个用方括号括起来的点序列。另一个创建数组的函数是 <code class="docutils literal notranslate"><span class="pre">np.ones(shape)</span></code>，它创建一个指定形状的数组，填充值为 1。还有一个类似的函数 <code class="docutils literal notranslate"><span class="pre">np.zeros(shape)</span></code> 用于创建一个填充值为 0 的数组（这也可以通过 <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">*</span> <span class="pre">np.ones(shape)</span></code> 实现）。除了前面提到的 <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> 函数外，还有 <code class="docutils literal notranslate"><span class="pre">np.arange(start,</span> <span class="pre">end,</span> <span class="pre">step)</span></code> 函数，它创建一个从 <code class="docutils literal notranslate"><span class="pre">start</span></code> 开始，以 <code class="docutils literal notranslate"><span class="pre">step</span></code> 为步长并在到达 <code class="docutils literal notranslate"><span class="pre">end</span></code> 之前停止的数组。如果不指定步长，则默认设置为 1。如果只指定一个输入值，它将返回一个从 0 开始，递增 1 直到达到指定值的序列（但同样，它会在到达该值之前停止）</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="c1"># Takes default steps of 1 and doesn&#39;t include 7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Starts at 0 end ends at 4, giving 5 numbers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>请记住，Python 中的注释是以 <code class="docutils literal notranslate"><span class="pre">#</span></code> 开头的。</p>
+<p>数组具有维度。到目前为止，我们只使用了一维数组，因此维度为 1。对于一维数组，你还可以计算长度（这是 Python 的一部分，而不是 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>），它返回数组中值的数量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of dimensions of x:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndim</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;length of x:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>数组的各个元素可以通过其索引进行访问。索引从 0 开始。这可能需要一些适应。这意味着数组中的第一个值的索引是 0。数组的索引是通过方括号指定的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;array x:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;value with index 0:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;value with index 5:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以使用冒号语法指定索引范围：<code class="docutils literal notranslate"><span class="pre">x[start:end_before]</span></code> 或 <code class="docutils literal notranslate"><span class="pre">x[start:end_before:step]</span></code>。如果未指定 <code class="docutils literal notranslate"><span class="pre">start</span></code>，则将使用 0。如果未指定步长，则将使用 1。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># same as previous one</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># step is 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>你也可以从数组的末尾开始倒数。一般来说，末尾的索引是未知的。你可以通过输入 <code class="docutils literal notranslate"><span class="pre">x[len(x)</span> <span class="pre">-</span> <span class="pre">1]</span></code> 来找出数组的长度并访问最后一个值，但每次都输入 <code class="docutils literal notranslate"><span class="pre">len(arrayname)</span></code> 会很不方便。幸运的是，有一个简便的方法：<code class="docutils literal notranslate"><span class="pre">x[-1]</span></code> 等同于 <code class="docutils literal notranslate"><span class="pre">x[len(x)</span> <span class="pre">-</span> <span class="pre">1]</span></code>，表示数组中的最后一个值。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xvalues</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xvalues</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">xvalues</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># last value in array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xvalues</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># much shorter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xvalues</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># start at the end and go back with steps of -1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>你可以通过指定索引范围将一个值赋给数组的一个范围，或者将一个数组赋给另一个数组的范围，只要这些范围的长度相同。在下面的最后一个示例中，<code class="docutils literal notranslate"><span class="pre">x</span></code> 的前 5 个值（指定为 <code class="docutils literal notranslate"><span class="pre">x[0:5]</span></code>）被赋值为 <code class="docutils literal notranslate"><span class="pre">[40,</span> <span class="pre">42,</span> <span class="pre">44,</span> <span class="pre">46,</span> <span class="pre">48]</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>练习 1, <a name="back1"></a> 数组和索引<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>创建一个长度为 20 的零数组。将前 5 个值更改为 10。将接下来的 10 个值更改为从 12 开始并以 2 的步长递增到 30 的序列（用一个命令完成）。将最后 5 个值设置为 30。将数组的值绘制在 <span class="math notranslate nohighlight">\(y\)</span> 轴上，与数组的索引在 <span class="math notranslate nohighlight">\(x\)</span> 轴上进行对比。在 <span class="math notranslate nohighlight">\(x=4\)</span> 和 <span class="math notranslate nohighlight">\(x=14\)</span> 处绘制虚线（即，虚线之间的部分是线条从 10 增加到 30 的地方）。使用 <code class="docutils literal notranslate"><span class="pre">ylim</span></code> 命令将 <span class="math notranslate nohighlight">\(y\)</span> 轴的最小值和最大值设置为 8 和 32。</p>
+<p><a href="#ex1answer">Answer for Exercise 1</a></p>
+</section>
+<section id="id3">
+<h3>数组、列表和元组<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>一维数组是一系列值，可以对其进行数学运算。除了数组，Python 还有几种其他数据类型可以存储值的序列。第一个是称为 <code class="docutils literal notranslate"><span class="pre">list</span></code> 的列表，用方括号输入。第二个是元组（没错，名字有些奇怪），用括号输入。它们之间的区别在于，列表中的值可以在创建后进行更改，而元组则不能。除此之外，目前你只需要记住它们的存在，并且 <em>不能</em> 对列表或元组进行数学运算。当你执行 <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">alist</span></code> 时，其中 <code class="docutils literal notranslate"><span class="pre">alist</span></code> 是一个列表，你并不会将 <code class="docutils literal notranslate"><span class="pre">alist</span></code> 中的所有值都乘以 2。实际上，你会创建一个新列表，其中包含了 <code class="docutils literal notranslate"><span class="pre">alist</span></code> 两次（即将它们并排添加）。对于元组也是如此。这可能非常有用，但当你的目的是将所有值乘以 2 时却不太适用。在下面的示例中，列表中的第一个值被修改。尝试修改下面的 <code class="docutils literal notranslate"><span class="pre">btuple</span></code> 中的一个值，你会看到错误信息：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist&#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="n">btuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;btuple&#39;</span><span class="p">,</span> <span class="n">btuple</span><span class="p">)</span>
+<span class="n">alist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># Since alist is a list, you can change values </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;modified alist&#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="c1">#btuple[0] = 100  # Will give an error</span>
+<span class="c1">#print(2 * alist)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>列表和元组是 Python 中灵活的数据类型。当我们使用命令 <code class="docutils literal notranslate"><span class="pre">np.array([1,</span> <span class="pre">7,</span> <span class="pre">2,</span> <span class="pre">12])</span></code> 创建第一个数组时，其实已经在不知不觉中使用了列表。我们给 <code class="docutils literal notranslate"><span class="pre">array</span></code> 函数传递了一个输入参数：列表 <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">7,</span> <span class="pre">2,</span> <span class="pre">12]</span></code>，然后 <code class="docutils literal notranslate"><span class="pre">array</span></code> 函数返回了一个包含这些值的一维数组。列表和元组可以包含几乎任何东西的序列，而不仅仅是数字。在下面的示例中，<code class="docutils literal notranslate"><span class="pre">alist</span></code> 包含 5 个“东西”：整数 1、浮点数 20.0、单词 <code class="docutils literal notranslate"><span class="pre">python</span></code>、一个包含值 1、2、3 的数组，最后是函数 <code class="docutils literal notranslate"><span class="pre">len</span></code>。后者意味着 <code class="docutils literal notranslate"><span class="pre">alist[4]</span></code> 实际上是函数 <code class="docutils literal notranslate"><span class="pre">len</span></code>。可以调用该函数来确定数组的长度，如下所示。后面的内容可能会有些混淆，但如果花时间去思考，这种行为是很有趣的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">len</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">[</span><span class="mi">4</span><span class="p">](</span><span class="n">alist</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>  <span class="c1"># same as len(np.array([1,2,3]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>二维数组<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>数组可以具有任意维度（只要它们适合计算机的内存）。我们将频繁使用二维数组。可以通过指定数组的行数和列数，使用前面提到的任何函数来创建二维数组。请注意，行数和列数必须是一个元组（所以需要用括号括起来），因为这些函数只期望一个输入参数来定义数组的形状，这个参数可以是一个数字或一个包含多个数字的元组。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span> <span class="c1"># An array with 3 rows and 4 columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>数组也可以通过指定数组中的所有值来定义。<code class="docutils literal notranslate"><span class="pre">array</span></code> 函数接收一个列表，其中每一行由单独的列表组成。在下面的示例中，行被输入在不同的行上。这可能使输入数组更容易，但并不是必须的。你可以使用 <code class="docutils literal notranslate"><span class="pre">reshape</span></code> 函数将数组的形状更改为任何大小，只要总的元素数量不发生变化。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>  <span class="c1"># 2 rows, 6 columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)))</span>  <span class="c1"># 1 row, 12 columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>二维数组的索引由两个值指定，首先是行索引，然后是列索引。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># Row with index 1, columns starting with 4 to the end</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">400</span>  <span class="c1"># Row with index 2, columns counting back from the end with steps of 1 and stop before reaching index 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>数组不是矩阵<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>现在我们谈到数组的行和列，注重数学的读者可能会认为数组是矩阵，或者一维数组是向量。关键在于理解 <em>数组不是向量或矩阵</em>。两个数组的乘法和除法是逐项进行的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;array a:&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;array b:&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a * b  :&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># term by term multiplication</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a / b  :&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># term by term division</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>练习 2, <a name="back2"></a> 二维数组索引<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>对于下面的数组 <code class="docutils literal notranslate"><span class="pre">x</span></code>，编写代码打印：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 的第一行</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 的第一列</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 的第三行</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 的最后两列</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 右上角的 2x2 值块</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> 中心的 2x2 值块</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+
+</pre></div>
+</div>
+<p><a href="#ex2answer">Answer for Exercise 2</a></p>
+</section>
+<section id="id7">
+<h3>可视化二维数组<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>二维数组可以通过 <code class="docutils literal notranslate"><span class="pre">plt.matshow</span></code> 函数进行可视化。在下面的示例中，数组非常小（只有 4x4），但它展示了总体原理。添加了一个颜色条作为图例。颜色条中的刻度被指定为 2、4、6 和 8。请注意，数组的第一行（索引为 0）绘制在顶部，这与数组中第一行的位置相对应。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>               <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>               <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>               <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>使用的颜色在默认的颜色映射中定义（称为 <code class="docutils literal notranslate"><span class="pre">viridis</span></code>），它将最高值映射为黄色，最低值映射为紫色，中间的数字则在蓝色和绿色之间变化。有关 <code class="docutils literal notranslate"><span class="pre">viridis</span></code> 优势的解释可以在 <a class="reference external" href="https://youtu.be/xAoljeRJ3lU">这里</a> 查看。如果你想使用其他颜色，可以通过 <code class="docutils literal notranslate"><span class="pre">cmap</span></code> 关键字参数选择其他颜色映射。要查看所有可用的颜色映射，请访问 <a class="reference external" href="http://matplotlib.org/users/colormaps.html">这里</a>。例如，将颜色映射设置为 <code class="docutils literal notranslate"><span class="pre">rainbow</span></code> 会产生：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h3>练习 3, <a name="back3"></a> 创建和可视化数组<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>创建一个大小为 10x10 的数组。将数组的左上象限设置为 4，右上象限设置为 3，右下象限设置为 2，左下象限设置为 1。首先使用 <code class="docutils literal notranslate"><span class="pre">zeros</span></code> 命令创建一个 10x10 的数组，然后通过指定正确的索引范围来填充每个象限。使用 <code class="docutils literal notranslate"><span class="pre">matshow</span></code> 可视化该数组。当你使用 <code class="docutils literal notranslate"><span class="pre">jet</span></code> 颜色映射时，它应该呈现出红色、黄色、浅蓝色和深蓝色的方块（从左上角开始顺时针）。</p>
+<p><a href="#ex3answer">Answer for Exercise 3</a></p>
+</section>
+<section id="id9">
+<h3>练习 4, <a name="back4"></a> 创建和可视化一个稍微复杂的数组<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>考虑下面显示的图像，它大致显示了字母 TU。请你创建一个表示相同 TU 的数组。首先创建一个 11 行 17 列的零数组。背景值设为 0，字母 T 的值设为 -1，字母 U 的值设为 +1。使用 <code class="docutils literal notranslate"><span class="pre">jet</span></code> 颜色映射。</p>
+<p><img alt="" src="../../../../_images/tufig.png" /></p>
+<p><a href="#ex4answer">Answer to Exercise 4</a></p>
+</section>
+<section id="id10">
+<h3>在数组上使用条件<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>如果你有一个变量，可以检查其值是否小于或大于某个特定值。这被称为 <em>条件</em> 语句。</p>
+<p>例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &lt; 2:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &gt; 2:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>语句 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">2</span></code> 返回一个布尔类型的变量，这意味着它的值可以是 <code class="docutils literal notranslate"><span class="pre">True</span></code> 或 <code class="docutils literal notranslate"><span class="pre">False</span></code>。除了小于或大于之外，还有几种其他条件可以使用：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the value of a is&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &lt; 4: &#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &lt;= 4:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># a is smaller than or equal to 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a == 4:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># a is equal to 4. Note that there are 2 equal signs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &gt;= 4:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a &gt; 4: &#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a != 4:&#39;</span><span class="p">,</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># a is not equal to 4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>理解一个等号 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">4</span></code> 和两个等号 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">4</span></code> 之间的区别是很重要的。一个等号表示赋值，右边的值被赋给左边的变量。两个等号表示比较，如果两边相等，则结果为 <code class="docutils literal notranslate"><span class="pre">True</span></code>，否则为 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>你也可以在数组上执行比较语句，这将返回一个布尔数组（<code class="docutils literal notranslate"><span class="pre">True</span></code> 和 <code class="docutils literal notranslate"><span class="pre">False</span></code> 值），对应数组中的每个值。例如，让我们创建一个数组并找出哪些值小于 3：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>语句 <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">&lt;</span> <span class="pre">3</span></code> 返回一个布尔类型的数组，其长度与数组 <code class="docutils literal notranslate"><span class="pre">data</span></code> 相同，对于数组中的每个项，它的值要么是 <code class="docutils literal notranslate"><span class="pre">True</span></code>，要么是 <code class="docutils literal notranslate"><span class="pre">False</span></code>。有趣的是，这个 <code class="docutils literal notranslate"><span class="pre">True</span></code> 和 <code class="docutils literal notranslate"><span class="pre">False</span></code> 值的数组可以用来指定另一个数组的索引：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>当用布尔数组指定数组的索引时，只有布尔数组为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 的位置对应的数组值会被选中。这是一个非常强大的特性。例如，可以通过指定条件作为索引，获取数组中所有小于 3 的值。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the total array:&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;values less than 3:&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>如果我们想要将所有小于 3 的值替换为例如 10，可以使用以下简短的语法：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>练习 5, <a name="back5"></a> 替换数组中的高值和低值<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>创建一个变量 <span class="math notranslate nohighlight">\(x\)</span> 的数组，由 100 个从 0 到 20 的值组成。计算 <span class="math notranslate nohighlight">\(y = \sin(x)\)</span>，并用蓝线绘制 <span class="math notranslate nohighlight">\(y\)</span> 与 <span class="math notranslate nohighlight">\(x\)</span> 的关系。接下来，将所有大于 0.5 的 <span class="math notranslate nohighlight">\(y\)</span> 值替换为 0.5，将所有小于 -0.75 的 <span class="math notranslate nohighlight">\(y\)</span> 值替换为 -0.75，并在同一图表上用红线绘制修改后的 <span class="math notranslate nohighlight">\(y\)</span> 值与 <span class="math notranslate nohighlight">\(x\)</span> 的关系。</p>
+<p><a href="#ex5answer">练习 5 的答案</a></p>
+</section>
+<section id="id12">
+<h3>练习 6, <a name="back6"></a> 根据数据值改变标记颜色<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>创建一个变量 <span class="math notranslate nohighlight">\(x\)</span> 的数组，由 100 个从 0 到 20 的点组成，并计算 <span class="math notranslate nohighlight">\(y = \sin(x)\)</span>。对每个 <span class="math notranslate nohighlight">\(y\)</span> 值，如果大于零，则绘制蓝点；否则绘制红点。</p>
+<p><a href="#ex6answer">Answer to Exercise 6</a></p>
+</section>
+<section id="id13">
+<h3>基于多个条件选择索引<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>也可以给出多个条件。当两个条件都必须为真时，使用 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 符号；当至少一个条件需要为真时，使用 <code class="docutils literal notranslate"><span class="pre">|</span></code> 符号（即竖线）。例如，让我们绘制 <span class="math notranslate nohighlight">\(y = \sin(x)\)</span>，当 <span class="math notranslate nohighlight">\(y &gt; 0.7\)</span> 或 <span class="math notranslate nohighlight">\(y &lt; -0.5\)</span> 时使用蓝色标记（使用一个 <code class="docutils literal notranslate"><span class="pre">plot</span></code> 语句），当 <span class="math notranslate nohighlight">\(-0.5 \leq y \leq 0.7\)</span> 时使用红色标记。请注意，当有多个条件时，它们需要用括号括起来。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)],</span> <span class="n">y</span><span class="p">[(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)],</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">)],</span> <span class="n">y</span><span class="p">[(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">)],</span> <span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id14">
+<h3>练习 7, <a name="back7"></a> 多个条件<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>文件 <code class="docutils literal notranslate"><span class="pre">xypoints.dat</span></code> 包含 1000 个随机选择的 <span class="math notranslate nohighlight">\(x,y\)</span> 点的位置；<span class="math notranslate nohighlight">\(x\)</span> 和 <span class="math notranslate nohighlight">\(y\)</span> 的范围均在 -10 到 10 之间。使用 <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> 加载数据，将数组的第一行存储在数组 <code class="docutils literal notranslate"><span class="pre">x</span></code> 中，将第二行存储在数组 <code class="docutils literal notranslate"><span class="pre">y</span></code> 中。首先，为所有点绘制红点。在同一图表上，为所有满足 <span class="math notranslate nohighlight">\(x &lt; -2\)</span> 和 <span class="math notranslate nohighlight">\(-5 \le y \le 0\)</span> 的 <span class="math notranslate nohighlight">\(x,y\)</span> 点绘制蓝点。最后，为任何位于中心 <span class="math notranslate nohighlight">\((x_c, y_c) = (5, 0)\)</span> 和半径 <span class="math notranslate nohighlight">\(R = 5\)</span> 的圆内的点绘制绿色点。提示：可以使用公式 <span class="math notranslate nohighlight">\(r = \sqrt{(x - x_c)^2 + (y - y_c)^2}\)</span> 计算任意点与圆心之间的径向距离 <span class="math notranslate nohighlight">\(r\)</span>。使用 <code class="docutils literal notranslate"><span class="pre">plt.axis('equal')</span></code> 命令确保两个轴的比例相同，从而使圆形区域看起来像一个圆。</p>
+<p><a href="#ex7answer">Answer to Exercise 7</a></p>
+</section>
+<section id="id15">
+<h3>练习 8, <a name="back8"></a> 修复错误<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<p>在下面的代码中，目的是将数组 <code class="docutils literal notranslate"><span class="pre">x</span></code> 的最后 5 个值设置为 <code class="docutils literal notranslate"><span class="pre">[50,</span> <span class="pre">52,</span> <span class="pre">54,</span> <span class="pre">56,</span> <span class="pre">58]</span></code> 并将结果打印到屏幕上，但代码中存在一些错误。取消注释并运行代码以查看错误消息。然后修复代码并再次运行。</p>
+<p>在这个代码中，<code class="docutils literal notranslate"><span class="pre">x[-5:]</span></code> 用于访问数组 <code class="docutils literal notranslate"><span class="pre">x</span></code> 的最后 5 个值，并将其赋值为 <code class="docutils literal notranslate"><span class="pre">[50,</span> <span class="pre">52,</span> <span class="pre">54,</span> <span class="pre">56,</span> <span class="pre">58]</span></code>。取消注释后，运行代码应该能正确显示修改后的数组。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x = np.ones(10)</span>
+<span class="c1">#x[5:] = np.arange(50, 62, 1)</span>
+<span class="c1">#print(x)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#ex8answer">Answer to Exercise 8</a></p>
+</section>
+<section id="answers-to-the-exercises">
+<h3>Answers to the exercises<a class="headerlink" href="#answers-to-the-exercises" title="Link to this heading">#</a></h3>
+<p><a name="ex1answer">Answer to Exercise 1</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">15</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back1">Back to Exercise 1</a></p>
+<p><a name="ex2answer">Answer to Exercise 2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the first row of x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the first column of x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the third row of x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the last two columns of x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the four values in the upper right hand corner&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the four values at the center of x&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back2">Back to Exercise 2</a></p>
+<p><a name="ex3answer">Answer to Exercise 3</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">:,</span> <span class="mi">5</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">:,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back3">Back to Exercise 3</a></p>
+<p><a name="ex4answer">Answer to Exercise 4</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">))</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">17</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">16.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back4">Back to Exercise 4</a></p>
+<p><a name="ex5answer">Answer to Exercise 5</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.75</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back5">Back to Exercise 5</a></p>
+<p><a name="ex6answer">Answer to Exercise 6</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back6">Back to Exercise 6</a></p>
+<p><a name="ex7answer">Answer to Exercise 7</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;xypoints.dat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)],</span> <span class="n">y</span><span class="p">[(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)],</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;go&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back7">Back to Exercise 7</a></p>
+<p><a name="ex8answer">Answer to Exercise 8</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a href="#back8">Back to Exercise 8</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ml-basic\references\exploratory_computing_with_python_translated\notebook2_arrays"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-2">Notebook 2: 数组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">一维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">练习 1, <a name="back1"></a> 数组和索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">数组、列表和元组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">二维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">数组不是矩阵</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">练习 2, <a name="back2"></a> 二维数组索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">可视化二维数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">练习 3, <a name="back3"></a> 创建和可视化数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">练习 4, <a name="back4"></a> 创建和可视化一个稍微复杂的数组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">在数组上使用条件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">练习 5, <a name="back5"></a> 替换数组中的高值和低值</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">练习 6, <a name="back6"></a> 根据数据值改变标记颜色</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">基于多个条件选择索引</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">练习 7, <a name="back7"></a> 多个条件</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">练习 8, <a name="back8"></a> 修复错误</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-to-the-exercises">Answers to the exercises</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
