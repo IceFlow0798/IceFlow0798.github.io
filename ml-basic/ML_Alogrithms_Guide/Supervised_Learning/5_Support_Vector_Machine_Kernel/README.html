@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -64,6 +64,8 @@
     <link rel="canonical" href="/ml-basic/ML_Alogrithms_Guide/Supervised_Learning/5_Support_Vector_Machine_Kernel/README.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="算法六：朴素贝叶斯" href="../6_Naive_Bayes/README.html" />
+    <link rel="prev" title="算法四：支持向量机" href="../4_Support_Vector_Machine/README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -114,8 +116,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -169,26 +169,41 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/Chapter1.html">机器学习概要</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Introduction/README.html">机器学习概要</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/Chapter2.html">2.有监督学习</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/Chapter3.html">3.无监督学习</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/Chapter4.html">第四章 评估方法和各种数据的处理</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/Iris.html">实践应用：</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/jupyter_use.html">jupyter 入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/LSA.html">例子：简单文档集合的 LSA 处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/PCA.html">步骤 1: 数据标准化</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Evaluation_and_Data_Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Evaluation_and_Data_Processing/1_Evaluation_Methods/README.html">评估方法和各种数据的处理</a></li>
 
 
 
-
-<li class="toctree-l1"><a class="reference internal" href="../../../references/books/VisibleTools.html">Matplotlib</a></li>
-
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised_Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_Linear_Regression/README.html">线性回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Regularization/README.html">正则化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Logistic_Regression/README.html">算法三：逻辑回归</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Support_Vector_Machine/README.html">算法四：支持向量机</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">算法五：支持向量机（核方法）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Naive_Bayes/README.html">算法六：朴素贝叶斯</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Random_Forest/README.html">算法7：随机森林</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Neural_Networks/README.html">算法8 神经网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_KNN/README.html">算法9：KNN</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Unsupervised_Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/1_PCA/README.html">PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/2_LSA/README.html">LSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/3_NMF/README.html"><strong>NMF</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/4_LDA/README.html">算法13：LDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/5_K_Means/README.html">k-means算法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/6_Gaussian_Mixture_Model/README.html">混合高斯分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/7_LLE/README.html">算法七：LLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Unsupervised_Learning/8_t_SNE/README.html">t-SNE</a></li>
 </ul>
 
     </div>
@@ -463,6 +478,24 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../4_Support_Vector_Machine/README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">算法四：支持向量机</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../6_Naive_Bayes/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">算法六：朴素贝叶斯</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
