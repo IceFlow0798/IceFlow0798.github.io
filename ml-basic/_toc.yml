@@ -10,7 +10,6 @@ parts:
   - caption: 2_Supervised_Learning
     chapters:
     - file: ml-basic/ML_Alogrithms_Guide/2_Supervised_Learning/README
-    chapters:
     - file: ml-basic/ML_Alogrithms_Guide/2_Supervised_Learning/1_Linear_Regression/README
     - file: ml-basic/ML_Alogrithms_Guide/2_Supervised_Learning/2_Regularization/README
     - file: ml-basic/ML_Alogrithms_Guide/2_Supervised_Learning/3_Logistic_Regression/README
@@ -23,7 +22,6 @@ parts:
   - caption: 3_Unsupervised_Learning
     chapters:
     - file: ml-basic/ML_Alogrithms_Guide/3_Unsupervised_Learning/README
-    chapters:
     - file: ml-basic/ML_Alogrithms_Guide/3_Unsupervised_Learning/1_PCA/README
     - file: ml-basic/ML_Alogrithms_Guide/3_Unsupervised_Learning/2_LSA/README
     - file: ml-basic/ML_Alogrithms_Guide/3_Unsupervised_Learning/3_NMF/README
@@ -35,16 +33,13 @@ parts:
   - caption: 4_Evaluation_and_Data_Processing
     chapters:
     - file: ml-basic/ML_Alogrithms_Guide/4_Evaluation_and_Data_Processing/README
-    chapters:
     - file: ml-basic/ML_Alogrithms_Guide/4_Evaluation_and_Data_Processing/1_Evaluation_Methods/README
     - file: ml-basic/ML_Alogrithms_Guide/4_Evaluation_and_Data_Processing/2_Text_Data_Processing/README
     - file: ml-basic/ML_Alogrithms_Guide/4_Evaluation_and_Data_Processing/3_Image_Data_Processing/README
   - caption: 5_Algorithm_Comparison_and_Performance
     chapters:
-    - file: ml-basic/ML_Alogrithms_Guide/5_Algorithm_Comparison_and_Performance/README
-    chapters:
-    - file: ml-basic/ML_Alogrithms_Guide/5_Algorithm_Comparison_and_Performance/1_Linear_Regression/README
-    - file: ml-basic/ML_Alogrithms_Guide/5_Algorithm_Comparison_and_Performance/2_Non-linear_Regression/README
-    - file: ml-basic/ML_Alogrithms_Guide/5_Algorithm_Comparison_and_Performance/3_Binary_Classification/README
-    - file: ml-basic/ML_Alogrithms_Guide/5_Algorithm_Comparison_and_Performance/4_Multiclass_Classification/README
+    - file: ml-basic/ML_Alogrithms_Guide/5_Data_sets_and_model_testing/1_California_housing_price/README
+    - file: ml-basic/ML_Alogrithms_Guide/5_Data_sets_and_model_testing/2_Diabetes_dataset/README
+    - file: ml-basic/ML_Alogrithms_Guide/5_Data_sets_and_model_testing/3_Breast_cancer_wisconsin/README
+    - file: ml-basic/ML_Alogrithms_Guide/5_Data_sets_and_model_testing/4_Iris_dataset/README
   
